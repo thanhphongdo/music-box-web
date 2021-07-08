@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://192.168.30.116:1337/parse',
+  apiUrl: 'http://localhost:1337/parse',
   applicationId: 'music_box.id.dev'
 };
 
