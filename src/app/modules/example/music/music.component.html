@@ -1,0 +1,95 @@
+<div class="container pt-15 pb-30">
+    <div class="row">
+        <div class="col-md-12 font-30 text-center">
+            Dev Note
+        </div>
+        <div class="col-md-12 mt-30">
+            <div class="font-20">Button:</div>
+            <div class="row">
+                <div class="col-md-12 mt-15 flex justify-center">
+                    <div class="bg-gray-100 p-2">
+                        <button class="btn-main pb-10 pl-10 pr-10 mr-1" style="width: 200px;">
+                            Play
+                        </button>
+                        <button class="btn-main-outline pb-10 pl-10 pr-10 mr-1" style="width: 200px;">
+                            Play
+                        </button>
+                        <button class="btn-white-outline pb-10 pl-10 pr-10 mr-1" style="width: 200px;">
+                            Play
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mt-30 pt-5 pb-5">
+            <div class="row">
+                <form class="col-md-4">
+                    <div class="form-group">
+                        <label>Song:</label>
+                        <input type="text" class="form-control" name="term" [(ngModel)]="term">
+                    </div>
+                    <button class="btn-main pb-10 pl-10 pr-10 mr-1" style="width: 200px;" (click)="search()">
+                        Search
+                    </button>
+                </form>
+            </div>
+            <div *ngIf="tracks && tracks.length" class="row mt-2">
+                <div class="col-md-12">
+                    <table class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th style="width: 50px;">Play</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of tracks; index as trackIndex">
+                                <td>{{trackIndex}}</td>
+                                <td>{{item.title}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-primary" (click)="play(item)">
+                                        Play
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mt-30">
+            <div class="font-20">CSS: Follow utility.scss</div>
+            <div class="row">
+                <div class="col-md-12 mt-15 color-blue-700">
+                    font-size:
+                </div>
+                <div class="col-md-12">
+                    <p>{{'.font-* { font-size: [*]px }'}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-15 color-blue-700">
+                    text-color:
+                </div>
+                <div class="col-md-12">
+                    <p>{{'.color-gray-* { color: #xxxxxx }'}}</p>
+                    <p>{{'.color-black-* { color: #xxxxxx }'}}</p>
+                    <p>{{'.color-blue-* { color: #xxxxxx }'}}</p>
+                    <p>{{'.color-white-* { color: #xxxxxx }'}}</p>
+                    <p>{{'.color-violet-* { color: #xxxxxx }'}}</p>
+                </div>
+                <div class="col-md-12 mt-15 color-blue-700">
+                    backgound:
+                </div>
+                <div class="col-md-12">
+                    <p>{{'.bg-gray-* { backgound: #xxxxxx }'}}</p>
+                    <p>{{'.bg-black-* { backgound: #xxxxxx }'}}</p>
+                    <p>{{'.bg-blue-* { backgound: #xxxxxx }'}}</p>
+                    <p>{{'.bg-white-* { backgound: #xxxxxx }'}}</p>
+                    <p>{{'.bg-violet-* { backgound: #xxxxxx }'}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
