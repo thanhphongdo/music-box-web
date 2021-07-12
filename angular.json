@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
+  "cli": 
     "analytics": "b6b12c2d-f916-4fd9-ae3d-d105e4726e88"
   },
   "version": 1,
@@ -31,12 +31,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/hls.js/dist/hls.min.js"
+              "node_modules/hls.js/dist/hls.min.js",
+              "node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
             ]
           },
           "configurations": {
@@ -98,12 +100,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/hls.js/dist/hls.min.js"
+              "node_modules/hls.js/dist/hls.min.js",
+              "node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
             ]
           }
         },

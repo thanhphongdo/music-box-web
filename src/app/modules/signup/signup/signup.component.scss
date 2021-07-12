@@ -1,0 +1,70 @@
+.signup {
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .btn {
+    &-social-fb {
+      width: 180px;
+      background-color: #4267b2;
+    }
+    &-social-google {
+      width: 180px;
+      border: 0.5px solid #121212;
+    }
+    &-signup {
+      width: 70%;
+      max-width: 320px;
+    }
+  }
+}
+
+input[type="email"]:not(:placeholder-shown),
+input[type="password"]:not(:placeholder-shown) {
+  background-color: #f8fcff;
+  border: 1px solid #2d9bef;
+}
+
+label {
+  display: none;
+}
+
+@media (max-width: 575.98px) {
+  .signup {
+    background: linear-gradient(#ca42f2 0%, #6a42f2 40%, #4294f2 80%, #42b5f2 100%);
+    color: #fff;
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    &-form {
+      border: none !important;
+      .bg-stranparent {
+        background-color: transparent;
+      }
+      .bg-opacity {
+        background-color: rgba($color: #fff, $alpha: 0.4);
+      }
+      input::placeholder {
+        color: transparent;
+      }
+      .btn {
+        background-color: transparent;
+        border: 1.5px solid #fff;
+      }
+      .border-white-xs {
+        border: 1.5px solid #fff;
+      }
+    }
+  }
+  .login-with-social {
+    display: none !important;
+  }
+  label {
+    display: block;
+  }
+  .opacity {
+    opacity: 0.8;
+  }
+}
