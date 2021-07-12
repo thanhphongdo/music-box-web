@@ -1,0 +1,40 @@
+.master-layout {
+    ._1st-screen {
+        height: 100vh; // comment this line.
+        background-image: url("../../../../assets/images/bg-1st.png");
+        background-size: cover;
+        background-position: center;
+    }
+    ._3th-screen {
+        ._3th-screen--backgound {
+            height: 276px;
+            background-image: url("../../../../assets/images/bg-3th.png");
+            background-position: center;
+            background-size: cover;
+        }
+        ._3th-screen--content {
+        }
+    }
+}
+@media (min-width: 992px) {
+    .master-layout {
+        ._3th-screen {
+            ._3th-screen--backgound {
+                height: 640px;
+            }
+            position: relative;
+            ._3th-screen--content {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                .container {
+                    height: 100%;
+                    .row {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
