@@ -48,7 +48,7 @@
                                 <td>{{trackIndex}}</td>
                                 <td>{{item.title}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary" (click)="play(item)">
+                                    <button [disabled]="item.policy != 'ALLOW'" type="button" class="btn btn-outline-primary" (click)="play(item)">
                                         Play
                                     </button>
                                 </td>
