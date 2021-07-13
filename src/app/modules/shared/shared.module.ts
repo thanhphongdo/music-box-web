@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { DatePickerComponent } from './controls/date-picker/date-picker.component';
+import { DropdownComponent } from './controls/dropdown/dropdown.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DatePickerComponent,
+    DropdownComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +20,9 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DatePickerComponent,
+    DropdownComponent
   ]
 })
 export class SharedModule { }
