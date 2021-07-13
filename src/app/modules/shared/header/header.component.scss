@@ -2,3 +2,8 @@
     width: 105px;
     height: 36px;
 }
+@media (min-width: 992px) {
+    .navbar {
+        background-image: url("../../../../assets/images/bg-1st.png");
+    }
+}
