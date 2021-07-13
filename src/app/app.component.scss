@@ -1,0 +1,25 @@
+.app-header {
+    height: 71px;
+}
+.app-content {
+    min-height: calc(100vh - 712px);
+}
+.app-footer {
+    height: 641px;
+}
+@media (min-width: 576px) {
+    .app-content {
+        min-height: calc(100vh - 524px);
+    }
+    .app-footer {
+        height: 453px;
+    }
+}
+@media (min-width: 576px) {
+    .app-content {
+        min-height: calc(100vh - 378px);
+    }
+    .app-footer {
+        height: 307px;
+    }
+}
