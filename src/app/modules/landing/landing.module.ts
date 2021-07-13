@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { LandingScreen1Component } from './landing-screen1/landing-screen1.component';
+import { LandingScreen2Component } from './landing-screen2/landing-screen2.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LandingComponent,
-    LandingScreen1Component
+    LandingScreen1Component,
+    LandingScreen2Component
   ],
   imports: [
     CommonModule,
