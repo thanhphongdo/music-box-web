@@ -5,6 +5,7 @@ import { LandingComponent } from './landing/landing.component';
 import { LandingScreen1Component } from './landing-screen1/landing-screen1.component';
 import { LandingScreen2Component } from './landing-screen2/landing-screen2.component';
 import { LandingScreen3Component } from './landing-screen3/landing-screen3.component';
+import { LandingScreen4Component } from './landing-screen4/landing-screen4.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
     LandingComponent,
     LandingScreen1Component,
     LandingScreen2Component,
-    LandingScreen3Component
+    LandingScreen3Component,
+    LandingScreen4Component
   ],
   imports: [
     CommonModule,
