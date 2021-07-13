@@ -1,0 +1,113 @@
+.login {
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .btn {
+    &-social-fb {
+      width: 180px;
+      background-color: #4267b2;
+    }
+    &-social-google {
+      width: 180px;
+      border: 0.5px solid #121212;
+    }
+    &-login {
+      width: 80%;
+      max-width: 200px;
+    }
+    &.btn-signup {
+      border: 1.5px solid #161A1A;
+      width: 100%;
+      font-weight: 600;
+    }
+  }
+  label {
+    display: none;
+  }
+}
+
+input[type="email"]:not(:placeholder-shown),
+input[type="password"]:not(:placeholder-shown) {
+  background-color: #f8fcff;
+  border: 1px solid #2d9bef;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  input[type=checkbox] {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  .remember {
+    color: #99999F;
+    margin-left: 16px;
+  }
+  .form-check-input {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .login {
+    background: linear-gradient(#ca42f2 0%, #6a42f2 40%, #4294f2 80%, #42b5f2 100%);
+    color: #fff;
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    &-form {
+      border: none !important;
+      .bg-stranparent {
+        background-color: transparent;
+      }
+      .bg-opacity {
+        background-color: rgba($color: #fff, $alpha: 0.4);
+      }
+      input::placeholder {
+        color: transparent;
+      }
+      .color-white {
+        color: #fff;
+      }
+      .border-white-xs {
+        border: 1.5px solid #fff;
+      }
+    }
+    &-btn {
+      text-align: center !important;
+      margin-top: 40px;
+    }
+    .btn {
+      &-login {
+        background-color: transparent;
+        border: 1.5px solid #fff;
+        margin-bottom: 50%;
+        width: 48%;
+      }
+      &-social-fb {
+        width: 90%;
+      }
+      &-social-google {
+        width: 90%;
+        background-color: #fff;
+        border: none;
+      }
+    }
+    .form-check {
+      padding-left: 0;
+      .checkbox {
+        display: none !important;
+      }
+    }
+    label {
+      display: block;
+    }
+  }
+  .login-with-social {
+    display: none !important;
+  }
+}
