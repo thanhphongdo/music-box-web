@@ -1,30 +1,28 @@
 <div class="container-fluid bg-black-color-200 master-layout px-0">
     <div class="_1st-screen w-100 py-5 d-flex justify-content-center align-items-center">
-        <div class="bg-gray-400" style="width: 50vw; height: 30vw"></div>
+        <app-landing-screen1></app-landing-screen1>
     </div>
     <div class="_2sd-screen container py-5">
         <div class="row d-lg-flex align-items-center">
             <div class="col-12 col-lg-6 mb-3">
                 <div class="_2sd-screen__left">
-                    <div class="bg-gray-400" style="height: 600px;"></div>
+                    <img src="assets/images/PhoneFinder.svg" alt="phone finder" width="100%">
                 </div>
             </div>
             <div class="col-12 col-lg-6">
                 <div class="_2sd-screen__right">
-                    <div class="bg-gray-400" style="height: 300px;"></div>
+                    <app-landing-screen2></app-landing-screen2>
                 </div>
             </div>
         </div>
     </div>
     <div class="_3th-screen w-100">
-        <div class="_3th-screen--backgound w-100 mb-3">
-            <!-- <img src="assets/images/bg-3th.png" class="mb-3" alt="bg" width="100%"> -->
-        </div>
+        <div class="_3th-screen--backgound w-100 mb-3"></div>
         <div class="_3th-screen--content w-100">
             <div class="container">
                 <div class="row px-0 align-items-center">
                     <div class="col-12 col-lg-6">
-                        <div class="bg-gray-400" style="height: 300px;"></div>
+                        <app-landing-screen3></app-landing-screen3>
                     </div>
                 </div>
             </div>
@@ -33,10 +31,10 @@
     <div class="_4th-screen container py-5">
         <div class="row d-lg-flex align-items-center flex-lg-row-reverse">
             <div class="col-12 col-lg-6 mb-3">
-                <div class="bg-gray-400" style="height: 600px;"></div>
+                <img src="assets/images/picture-4th.svg" alt="picture-4th" width="100%">
             </div>
             <div class="col-12 col-lg-6 mb-3">
-                <div class="bg-gray-400" style="height: 300px;"></div>
+                <app-landing-screen4></app-landing-screen4>
             </div>
         </div>
     </div>
@@ -44,24 +42,24 @@
         <div class="row mb-4 justify-content-center">
             <div class="col-12 mb-3">
                 <div class="_5th-screen__title text-center">
-                    <div class="bg-gray-400" style="height:30px;"></div>
+                    <span class="color-white-color-100">Why go Premium?</span>
                 </div>
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-9">
                 <div class="_5th-screen--feature">
-                    <div class="bg-gray-400" style="height:100px;"></div>
+                    <app-landing-screen5-benefit></app-landing-screen5-benefit>
                 </div>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="d-none d-lg-block col-12 mb-3">
                 <div class="_5th-screen__subtitle text-center">
-                    <div class="bg-gray-400" style="height:30px;"></div>
+                    <span class="color-white-color-200">Listen free or subscribe to MusicBox Premium.</span>
                 </div>
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-8">
                 <div class="_5th-screen--feature">
-                    <div class="bg-gray-400" style="height:300px;"></div>
+                    <app-landing-screen5-price></app-landing-screen5-price>
                 </div>
             </div>
         </div>
