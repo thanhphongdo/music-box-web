@@ -25,38 +25,36 @@
           </div>
           <div class="form-group">
             <label for="password">Create a password</label>
-            <input type="password" class="form-control bg-opacity" formControlName="password" placeholder="Password">
-            <small class="error" *ngIf="formSignup.get('password')?.invalid && formSignup.get('password')?.touched ">Password is required</small>
+            <input type="password" class="form-control bg-opacity" formControlName="password" minlength="8" maxlength="16" placeholder="Password">
+            <small class="error" *ngIf="formSignup.get('password')?.invalid && formSignup.get('password')?.touched ">Password from 8 to 16 character</small>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control d-none d-sm-block" formControlName="userName" placeholder="Username">
-            <small class="error" *ngIf="formSignup.get('userName')?.invalid && formSignup.get('userName')?.touched ">Username is required</small>
+            <input type="text" class="form-control d-none d-sm-block" formControlName="userName" minlength="6" placeholder="Username">
+            <small class="error" *ngIf="formSignup.get('userName')?.invalid && formSignup.get('userName')?.touched ">Username from 6 character or more</small>
           </div>
           <div class="form-group d-flex justify-content-between">
             <div class="w-50">
               <label>Date of Birth</label>
-			  <div>
-				  <app-dropdown #datePickerDropdown>
-					<input dropdown-toggle class="form-control bg-transparent border-white-xs color-white" type="text" name="dateOfBirth" formControlName="dateOfBirth" data-toggle="dropdown">
-					<div dropdown-menu>
-						<app-date-picker 
-							format="yyyy/mm/dd"
-							(onChange)="datePickerDropdown.hide(); formSignup.get('dateOfBirth').setValue($event.date)"></app-date-picker>
-					</div>
-				</app-dropdown>
-			  </div>
+              <div>
+                <app-dropdown #datePickerDropdown>
+                  <input dropdown-toggle class="form-control bg-transparent border-white-xs color-white" type="text" name="dateOfBirth" formControlName="dateOfBirth" data-toggle="dropdown">
+                  <div dropdown-menu>
+                    <app-date-picker format="yyyy-mm-dd" (onChange)="datePickerDropdown.hide(); formSignup.get('dateOfBirth').setValue($event.date)"></app-date-picker>
+                  </div>
+                </app-dropdown>
+              </div>
 
               <small class="error" *ngIf="formSignup.get('dateOfBirth')?.invalid && formSignup.get('dateOfBirth')?.touched ">DOB is required</small>
             </div>
             <div class="px-3"></div>
             <div class="w-50">
               <label for="gender">Gender</label>
-              <select formControlName="gender" class="custom-select bg-transparent border-white-xs color-white">
+              <select formControlName="sex" class="custom-select bg-transparent border-white-xs color-white">
                 <option disabled selected>Gender</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
+                <option [ngValue]="1">Male</option>
+                <option [ngValue]="2">Female</option>
               </select>
-              <small class="error" *ngIf="formSignup.get('gender')?.invalid && formSignup.get('gender')?.touched ">Gender is required</small>
+              <small class="error" *ngIf="formSignup.get('sex')?.invalid && formSignup.get('sex')?.touched ">Gender is required</small>
             </div>
           </div>
           <div class="d-block d-sm-none text-center">

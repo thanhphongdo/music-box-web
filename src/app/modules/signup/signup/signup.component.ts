@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services';
+import { UserInterface } from 'src/app/models/interfaces/user';
 
 @Component({
   selector: 'app-signup',
@@ -8,8 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   formSignup!: FormGroup;
+  userInfo: UserInterface = new UserInterface();
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService) {}
 
   ngOnInit(): void {
     this.formSignup = this.formBuilder.group({
@@ -17,7 +20,7 @@ export class SignupComponent implements OnInit {
       password: ['', Validators.required],
       userName: [''],
       dateOfBirth: ['', Validators.required],
-      gender: ['', Validators.required]
+      sex: [0, Validators.required]
     });
   }
 
@@ -26,6 +29,16 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    console.log(this.formSignup.value)
+    this.userInfo.username = this.formSignup.value.userName;
+    this.userInfo.email = this.formSignup.value.email;
+    this.userInfo.password = this.formSignup.value.password;
+    this.userInfo.birthDate = this.formSignup.value.dateOfBirth;
+    this.userInfo.sex = this.formSignup.value.sex;
+
+    this.userService.signUp(this.userInfo).subscribe(data => {
+      console.log(data);
+    }, err => {
+      console.log(err)
+    })
   }
 }
