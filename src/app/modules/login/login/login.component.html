@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row login py-5">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 border round-8 py-4 login-form">
+      <h4 class="d-block d-sm-none text-center">Log In</h4>
+      <h4 class="font-weight-bold d-none d-sm-block text-center">What will you listen to day?</h4>
+      <div class="login-with-social mt-5 d-flex justify-content-center">
+        <div class="btn btn-primary btn-social-fb round-20 mx-2 d-flex align-items-center justify-content-around">
+          <img src="assets/images/login-facebook.svg" alt="fb-icon">
+          <span>Facebook</span>
+          <span></span>
+        </div>
+        <div class="btn btn-social-google round-20 mx-2 d-flex align-items-center justify-content-around">
+          <img src="assets/images/login-google.svg" alt="google-icon">
+          <span class="mr-2">Google</span>
+          <span></span>
+        </div>
+      </div>
+      <div class="col-12 col-md-10 mx-auto">
+        <form class="mt-5" [formGroup]="formLogin">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control bg-opacity" formControlName="email" email="true" placeholder="Email address or username">
+            <small class="error" *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.touched ">Email is required</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control bg-opacity" formControlName="password" placeholder="Password">
+            <small class="error" *ngIf="formLogin.get('password')?.invalid && formLogin.get('password')?.touched ">Password is required</small>
+          </div>
+          <div class="form-check d-flex justify-content-between align-items-center mt-4">
+            <div class="checkbox d-flex">
+              <input type="checkbox" class="form-check-input" formControlName="remember">
+              <small class="remember">Remember me</small>
+            </div>
+            <div class="text-right flex-grow-1 login-btn">
+              <button type="submit" (click)="login()" class="btn btn-primary btn-login text-uppercase round-20 ">Log In</button>
+            </div>
+          </div>
+          <div class="small text-center mt-4 d-none d-sm-block">
+            <a routerLink="#">Forgot your password?</a>
+          </div>
+          <div class="small mt-5 text-center d-none d-sm-block">
+            Don't have an account?
+          </div>
+          <div class="text-center">
+            <a routerLink="/signup" class="btn btn-white btn-signup text-uppercase my-3 p-2 round-20 w-100 d-none d-sm-block">Sign up for musicbox </a>
+          </div>
+          <div class="login-with-social-mb mt-5 d-flex justify-content-center flex-column align-items-center d-sm-none d-block ">
+            <div class="btn btn-social-fb round-20 d-flex justify-content-around align-items-center">
+              <img src="assets/images/login-facebook.svg" alt="fb-icon">
+              <span class="color-white">Log in with Facebook</span>
+              <span></span>
+            </div>
+            <div class="btn btn-social-google round-20 mt-3 d-flex justify-content-around align-items-center">
+              <img src="assets/images/login-google.svg" alt="google-icon">
+              <span class="mr-2">Log in with Google</span>
+              <span></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

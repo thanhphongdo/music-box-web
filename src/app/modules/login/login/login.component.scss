@@ -1,4 +1,4 @@
-.signup {
+.login {
   a {
     &:hover {
       text-decoration: none;
@@ -13,10 +13,18 @@
       width: 180px;
       border: 0.5px solid #121212;
     }
-    &-signup {
-      width: 70%;
-      max-width: 320px;
+    &-login {
+      width: 80%;
+      max-width: 200px;
     }
+    &.btn-signup {
+      border: 1.5px solid #161A1A;
+      width: 100%;
+      font-weight: 600;
+    }
+  }
+  label {
+    display: none;
   }
 }
 
@@ -26,8 +34,21 @@ input[type="password"]:not(:placeholder-shown) {
   border: 1px solid #2d9bef;
 }
 
-label {
-  display: none;
+.checkbox {
+  display: flex;
+  align-items: center;
+  input[type=checkbox] {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  .remember {
+    color: #99999F;
+    margin-left: 16px;
+  }
+  .form-check-input {
+    margin-top: 0;
+  }
 }
 
 .error {
@@ -35,7 +56,7 @@ label {
 }
 
 @media (max-width: 575.98px) {
-  .signup {
+  .login {
     background: linear-gradient(#ca42f2 0%, #6a42f2 40%, #4294f2 80%, #42b5f2 100%);
     color: #fff;
     a {
@@ -54,27 +75,43 @@ label {
         color: transparent;
       }
       .color-white {
-        color: #fff
-      }
-      .btn {
-        background-color: transparent;
-        border: 1.5px solid #fff;
+        color: #fff;
       }
       .border-white-xs {
         border: 1.5px solid #fff;
       }
     }
+    &-btn {
+      text-align: center !important;
+      margin-top: 40px;
+    }
+    .btn {
+      &-login {
+        background-color: transparent;
+        border: 1.5px solid #fff;
+        margin-bottom: 50%;
+        width: 48%;
+      }
+      &-social-fb {
+        width: 90%;
+      }
+      &-social-google {
+        width: 90%;
+        background-color: #fff;
+        border: none;
+      }
+    }
+    .form-check {
+      padding-left: 0;
+      .checkbox {
+        display: none !important;
+      }
+    }
+    label {
+      display: block;
+    }
   }
   .login-with-social {
     display: none !important;
-  }
-  label {
-    display: block;
-  }
-  .opacity {
-    opacity: 0.8;
-  }
-  select option {
-    color: #000;
   }
 }
