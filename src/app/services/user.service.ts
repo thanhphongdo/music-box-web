@@ -20,7 +20,26 @@ export class UserService {
 
     login(user: RequestLogInUserInterface): Observable<UserInterface> {
         return this.httpService.post(environment.apiUrl + '/login', user).pipe(map((res: any) => {
-            localStorage.setItem('user', JSON.stringify(res.result));
+            localStorage.setItem('user', JSON.stringify(res));
+            return res.result;
+        }));
+    }
+
+    linkUser(user: RequestLogInUserInterface): Observable<UserInterface> {
+        return this.httpService.post(environment.apiUrl + '/users', user).pipe(map((res: any) => {
+            localStorage.setItem('user', JSON.stringify(res));
+            return res.result;
+        }));
+    }
+
+    getGoogleUrl() {
+        return this.httpService.post(environment.apiUrl + '/functions/_googleLogin', {}).pipe(map((res: any) => {
+            return res.result;
+        }));
+    }
+
+    getGoogleAuthData(code) {
+        return this.httpService.post(environment.apiUrl + '/functions/_googleAuthData', { code }).pipe(map((res: any) => {
             return res.result;
         }));
     }
