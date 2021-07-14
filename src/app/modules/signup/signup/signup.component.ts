@@ -29,7 +29,9 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    this.userInfo.username = this.formSignup.value.userName;
+    const randomNumber = Math.round(Math.random() * 100000);
+
+    this.userInfo.username = this.formSignup.value.userName ? this.formSignup.value.userName : 'pgsw_' + randomNumber;
     this.userInfo.email = this.formSignup.value.email;
     this.userInfo.password = this.formSignup.value.password;
     this.userInfo.birthDate = this.formSignup.value.dateOfBirth;
@@ -37,6 +39,7 @@ export class SignupComponent implements OnInit {
 
     this.userService.signUp(this.userInfo).subscribe(data => {
       console.log(data);
+      alert("Register successful")
     }, err => {
       console.log(err)
     })
