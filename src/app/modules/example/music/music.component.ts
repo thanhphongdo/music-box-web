@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackInterface } from 'src/app/models';
-import { SoundCloudService } from 'src/app/services/sound_cloud.service';
+import { SoundCloudService, UserService } from 'src/app/services';
 declare var Hls: any;
 
 @Component({
@@ -13,7 +13,10 @@ export class MusicComponent implements OnInit {
   term: string;
   audio: any;
   tracks: Array<TrackInterface> = [];
-  constructor(private soundCloudService: SoundCloudService) { }
+  constructor(
+    private soundCloudService: SoundCloudService,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -40,6 +43,32 @@ export class MusicComponent implements OnInit {
       });
       this.audio.play();
     });
+  }
+
+  signUp() {
+    const randomNumber = Math.round(Math.random() * 100000);
+    this.userService.signUp({
+      username: 'pgsw_' + randomNumber,
+      email: `pgsw${randomNumber}@yopmail.com`,
+      password: 'abcd1234',
+      birthDate: '1999-09-09',
+      sex: 0
+    }).subscribe(data => {
+      console.log(data);
+    }, err => {
+      console.log(err);
+    })
+  }
+
+  login() {
+    this.userService.login({
+      email: 'pgsw001@yopmail.com',
+      password: 'abcd1234'
+    }).subscribe(data => {
+      console.log(data);
+    }, err => {
+      console.log(err);
+    })
   }
 
 }

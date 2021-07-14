@@ -12,7 +12,8 @@ export class HttpClientBaseService {
   buildHeader(opts: any): { [key: string]: any } {
     const token = localStorage.getItem('accessToken');
     let header: any = {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'X-Parse-Application-Id': environment.applicationId
     };
     // if (token) {
     //   header.Authorization = 'Bearer ' + JSON.parse(token).access_token;

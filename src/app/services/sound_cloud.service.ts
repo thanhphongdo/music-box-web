@@ -15,8 +15,7 @@ export class SoundCloudService {
         return this.httpService.post(environment.apiUrl + '/functions/_searchEverything', {
             term,
             limit,
-            offset,
-            _ApplicationId: environment.applicationId
+            offset
         }).pipe(map((res: any) => {
             return res.result;
         }));
@@ -24,8 +23,7 @@ export class SoundCloudService {
 
     getHLS(url: string): Observable<{url: string}> {
         return this.httpService.post(environment.apiUrl + '/functions/_getHLS', {
-            url,
-            _ApplicationId: environment.applicationId
+            url
         }).pipe(map((res: any) => {
             return res.result;
         }));

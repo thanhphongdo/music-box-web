@@ -7,7 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
   HttpClientBaseService,
-  SoundCloudService
+  SoundCloudService,
+  UserService
 } from './services';
 
 @NgModule({
@@ -22,7 +23,8 @@ import {
   ],
   providers: [
     HttpClientBaseService,
-    SoundCloudService
+    SoundCloudService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-export interface UserInterface {
+export interface SoundCloudUserInterface {
     avatar_url?: string;
     city?: string;
     comments_count?: number;
@@ -122,7 +122,7 @@ export interface TrackInterface {
     station_permalink?: string;
     monetization_model?: string;
     policy?: string;
-    user?: UserInterface
+    user?: SoundCloudUserInterface
 }
 
 export interface PlayListInterface {
@@ -156,13 +156,13 @@ export interface PlayListInterface {
     is_album?: boolean;
     published_at?: string;
     display_date?: string;
-    user?: UserInterface;
+    user?: SoundCloudUserInterface;
     tracks: Array<TrackInterface>;
     track_count: number;
 }
 
 export interface SearchResultInterface {
-    collection: Array<TrackInterface | UserInterface | PlayListInterface>;
+    collection: Array<TrackInterface | SoundCloudUserInterface | PlayListInterface>;
     next_href: string;
     query_urn: string;
     total_results: number;

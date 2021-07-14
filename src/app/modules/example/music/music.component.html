@@ -21,6 +21,22 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-12 mt-30">
+            <div class="font-20">Authentication</div>
+            <div class="row">
+                <div class="col-md-12 mt-15 flex justify-center">
+                    <div class="bg-gray-100 p-2">
+                        <button class="btn-main-outline pb-10 pl-10 pr-10 mr-1" style="width: 200px;"
+                            (click)="signUp()">
+                            Signup
+                        </button>
+                        <button class="btn-main-outline pb-10 pl-10 pr-10 mr-1" style="width: 200px;" (click)="login()">
+                            Login
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-md-12 mt-30 pt-5 pb-5">
             <div class="row">
                 <form class="col-md-4">
@@ -48,7 +64,8 @@
                                 <td>{{trackIndex}}</td>
                                 <td>{{item.title}}</td>
                                 <td>
-                                    <button [disabled]="item.policy != 'ALLOW'" type="button" class="btn btn-outline-primary" (click)="play(item)">
+                                    <button [disabled]="item.policy != 'ALLOW'" type="button"
+                                        class="btn btn-outline-primary" (click)="play(item)">
                                         Play
                                     </button>
                                 </td>
