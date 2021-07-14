@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services';
 import { UserInterface } from 'src/app/models/interfaces/user';
@@ -12,7 +13,7 @@ export class SignupComponent implements OnInit {
   formSignup!: FormGroup;
   userInfo: UserInterface = new UserInterface();
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {}
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.formSignup = this.formBuilder.group({
@@ -39,7 +40,7 @@ export class SignupComponent implements OnInit {
 
     this.userService.signUp(this.userInfo).subscribe(data => {
       console.log(data);
-      alert("Register successful")
+      this.router.navigate(['home']);
     }, err => {
       console.log(err)
     })
