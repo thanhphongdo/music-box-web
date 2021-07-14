@@ -20,8 +20,8 @@ export class UserService {
 
     login(user: RequestLogInUserInterface): Observable<UserInterface> {
         return this.httpService.post(environment.apiUrl + '/login', user).pipe(map((res: any) => {
-            localStorage.setItem('user', JSON.stringify(res.result));
-            return res.result;
+            localStorage.setItem('user', JSON.stringify(res));
+            return res;
         }));
     }
 }
