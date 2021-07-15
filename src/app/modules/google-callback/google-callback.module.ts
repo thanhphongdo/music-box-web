@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { GoogleCallbackComponent } from './google-callback.component';
+import { GoogleCallbackComponent } from './google-callback/google-callback.component';
 
 const routes: Routes = [
   {

@@ -45,4 +45,11 @@ export class SignupComponent implements OnInit {
       console.log(err)
     })
   }
+
+  loginWithGoogle() {
+    this.userService.getGoogleUrl().subscribe(data => {
+      // console.log(data.url);
+      window.location.href = data.url;
+    });
+  }
 }

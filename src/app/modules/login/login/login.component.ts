@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services';
-import { UserInterface } from 'src/app/models/interfaces/user';
 
 declare var $: any;
 @Component({
@@ -38,12 +37,18 @@ export class LoginComponent implements OnInit {
       email: this.email,
       password: this.password
     }).subscribe(data => {
-      console.log("login successful")
-      console.log(data)
+      // console.log(data)
       this.router.navigate(['home']);
     }, err => {
       this.errLogin = err;
       this.formLogin.reset({email:this.email})
     })
+  }
+
+  loginWithGoogle() {
+    this.userService.getGoogleUrl().subscribe(data => {
+      // console.log(data.url);
+      window.location.href = data.url;
+    });
   }
 }
