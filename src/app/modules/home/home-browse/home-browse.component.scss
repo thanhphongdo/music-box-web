@@ -14,10 +14,18 @@
   }
 }
 
-@media (max-width: 991.98px) {
+@media (min-width: 767px) {
   .browse-item {
     img {
-      height: 85px;
+      height: 80px;
+    }
+  }
+}
+
+@media (min-width: 1023px) {
+  .browse-item {
+    img {
+      height: 120px;
     }
   }
 }
