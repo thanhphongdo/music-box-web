@@ -71,4 +71,11 @@ export class MusicComponent implements OnInit {
     })
   }
 
+  loginWithGoogle() {
+    this.userService.getGoogleUrl().subscribe(data => {
+      // console.log(data.url);
+      window.location.href = data.url;
+    });
+  }
+
 }

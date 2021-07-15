@@ -19,8 +19,8 @@ export interface RequestSignUpUserInterface {
 }
 
 export interface RequestLogInUserInterface {
-  email?: string;
-  password?: string;
-  authData?: any;
+    email?: string;
+    password?: string;
+    authData?: any;
 }
 
