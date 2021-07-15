@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row login py-5">
+  <div class="row login p-5">
     <div class="col-md-3"></div>
     <div class="col-md-6 border round-8 py-4 login-form">
       <h4 class="d-block d-sm-none text-center">Log In</h4>
@@ -18,6 +18,7 @@
       </div>
       <div class="col-12 col-md-10 mx-auto">
         <form class="mt-5" [formGroup]="formLogin">
+          <div class="error mb-2">{{errLogin ? errLogin.error : ''}}</div>
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control bg-opacity" formControlName="email" email="true" placeholder="Email address or username">

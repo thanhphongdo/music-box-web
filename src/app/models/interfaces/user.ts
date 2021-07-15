@@ -1,4 +1,4 @@
-export class UserInterface {
+export class UserModel {
     username: string;
     email: string;
     password: string;
@@ -6,12 +6,16 @@ export class UserInterface {
     sex: 0 | 1 | 2;
 }
 
+export class UserInterface {
+
+}
+
 export interface RequestSignUpUserInterface {
-    username: string;
-    email: string;
-    password: string;
-    birthDate: string;
-    sex: 0 | 1 | 2;
+  username: string;
+  email: string;
+  password: string;
+  birthDate: string;
+  sex: 0 | 1 | 2;
 }
 
 export interface RequestLogInUserInterface {
@@ -19,3 +23,4 @@ export interface RequestLogInUserInterface {
     password?: string;
     authData?: any;
 }
+
