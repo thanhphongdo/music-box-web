@@ -1,0 +1,13 @@
+.master-layout {
+  .home-title {
+    background: url('../../../../assets/images/BG.png');
+    height: 300px;
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .recently {
+    padding-top: 0 !important;
+  }
+}
