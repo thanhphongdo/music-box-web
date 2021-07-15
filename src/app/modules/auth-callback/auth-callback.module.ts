@@ -5,7 +5,7 @@ import { GoogleCallbackComponent } from './google-callback/google-callback.compo
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'google-callback',
     component: GoogleCallbackComponent,
     canActivate: [],
   },
@@ -20,4 +20,4 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class GoogleCallbackModule { }
+export class AuthCallbackModule { }

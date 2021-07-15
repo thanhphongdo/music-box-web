@@ -33,9 +33,9 @@ const routes: Routes = [
     )
   },
   {
-    path: 'google-callback',
-    loadChildren: () => import('./modules/google-callback/google-callback.module').then(
-      (m) => m.GoogleCallbackModule
+    path: '',
+    loadChildren: () => import('./modules/auth-callback/auth-callback.module').then(
+      (m) => m.AuthCallbackModule
     )
   }
 ];
