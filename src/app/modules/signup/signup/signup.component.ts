@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
     this.formSignup = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
-      userName: [''],
+      userName: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
       sex: [0, Validators.required]
     });
@@ -30,9 +30,7 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    const randomNumber = Math.round(Math.random() * 100000);
-
-    this.userInfo.username = this.formSignup.value.userName ? this.formSignup.value.userName : 'pgsw_' + randomNumber;
+    this.userInfo.username = this.formSignup.value.userName;
     this.userInfo.email = this.formSignup.value.email;
     this.userInfo.password = this.formSignup.value.password;
     this.userInfo.birthDate = this.formSignup.value.dateOfBirth;
