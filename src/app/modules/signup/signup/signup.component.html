@@ -29,7 +29,8 @@
             <small class="error" *ngIf="formSignup.get('password')?.invalid && formSignup.get('password')?.touched ">Password from 8 to 16 character</small>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control d-none d-sm-block" formControlName="userName" minlength="6" placeholder="Username">
+            <label for="username">Username</label>
+            <input type="text" class="form-control bg-opacity" formControlName="userName" minlength="6" placeholder="Username">
             <small class="error" *ngIf="formSignup.get('userName')?.invalid && formSignup.get('userName')?.touched ">Username from 6 character or more</small>
           </div>
           <div class="form-group d-flex justify-content-between">
