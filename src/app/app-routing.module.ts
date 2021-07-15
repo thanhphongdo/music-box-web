@@ -31,6 +31,12 @@ const routes: Routes = [
     loadChildren: () => import('./modules/signup/signup.module').then(
       (m) => m.SignupModule
     )
+  },
+  {
+    path: 'google-callback',
+    loadChildren: () => import('./modules/google-callback/google-callback.module').then(
+      (m) => m.GoogleCallbackModule
+    )
   }
 ];
 
