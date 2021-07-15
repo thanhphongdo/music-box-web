@@ -4,10 +4,25 @@
     height: 300px;
     font-size: 60px;
   }
+  .relax {
+    .relax--title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
 }
+
 
 @media (max-width: 575.98px) {
   .recently {
     padding-top: 0 !important;
+  }
+}
+@media (min-width: 992px) {
+  .relax {
+    .relax--title {
+      font-size: 24px !important;
+      font-weight: bold;
+    }
   }
 }
