@@ -21,6 +21,12 @@ const routes: Routes = [
     )
   },
   {
+    path: 'browse',
+    loadChildren: () => import('./modules/browse/browse.module').then(
+      (m) => m.BrowseModule
+    )
+  },
+  {
     path: 'login',
     loadChildren: () => import('./modules/login/login.module').then(
       (m) => m.LoginModule
