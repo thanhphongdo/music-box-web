@@ -1,9 +1,11 @@
 <overlay-scrollbars [options]="{scrollbars: { autoHide: 'scroll' }}">
-  <div class="row flex-nowrap browse-mb">
-    <div class="col-5 col-md-2 browse-item" *ngFor="let genre of genres | slice:0:6">
-      <a routerLink="{{genre.router}}">
-        <img src="{{genre.image}}" alt="">
-      </a>
+  <div class="container">
+    <div class="row flex-nowrap browse-mb">
+      <div class="col-5 col-md-2 col-lg-2 browse-item" *ngFor="let genre of genres | slice:0:6">
+        <a routerLink="{{genre.router}}">
+          <img src="{{genre.image}}" alt="">
+        </a>
+      </div>
     </div>
   </div>
 </overlay-scrollbars>
