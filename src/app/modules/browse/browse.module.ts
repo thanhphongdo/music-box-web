@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowseComponent } from './browse/browse.component';
 import { BrowseGenresComponent } from './browse-genres/browse-genres.component';
+import { BrowseMoodsComponent } from './browse-moods/browse-moods.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     BrowseComponent,
-    BrowseGenresComponent
+    BrowseGenresComponent,
+    BrowseMoodsComponent
   ],
   imports: [
     CommonModule,
