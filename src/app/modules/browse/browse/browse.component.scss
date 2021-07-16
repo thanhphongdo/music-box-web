@@ -1,0 +1,12 @@
+.browse {
+  &-title {
+    background: url("../../../../assets/images/browse/Mask\ Group\ 345.png");
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .center-mb {
+    text-align: center;
+  }
+}
