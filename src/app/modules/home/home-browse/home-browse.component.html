@@ -1,32 +1,9 @@
-<div class="row flex-nowrap browse-mb">
-  <div class="col-5 col-md-2 browse-item">
-    <a routerLink="#">
-      <img src="../../../../assets/images/browse/HIP - HOP.png" alt="">
-    </a>
+<overlay-scrollbars [options]="{scrollbars: { autoHide: 'scroll' }}">
+  <div class="row flex-nowrap browse-mb">
+    <div class="col-5 col-md-2 browse-item" *ngFor="let genre of genres | slice:0:6">
+      <a routerLink="{{genre.router}}">
+        <img src="{{genre.image}}" alt="">
+      </a>
+    </div>
   </div>
-  <div class="col-5 col-md-2 browse-item">
-    <a routerLink="#">
-      <img src="../../../../assets/images/browse/POP.png" alt="">
-    </a>
-  </div>
-  <div class="col-5 col-md-2 browse-item">
-    <a routerLink="#">
-      <img src="../../../../assets/images/browse/rock.png" alt="">
-    </a>
-  </div>
-  <div class="col-5 col-md-2 browse-item">
-    <a routerLink="#">
-      <img src="../../../../assets/images/browse/Country.png" alt="">
-    </a>
-  </div>
-  <div class="col-5 col-md-2 browse-item">
-    <a routerLink="#">
-      <img src="../../../../assets/images/browse/DANCE - ELECTRO.png" alt="">
-    </a>
-  </div>
-  <div class="col-5 col-md-2 browse-item">
-    <a routerLink="#">
-      <img src="../../../../assets/images/browse/Indie.png" alt="">
-    </a>
-  </div>
-</div>
+</overlay-scrollbars>

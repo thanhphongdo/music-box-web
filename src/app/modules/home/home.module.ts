@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HomeBrowseComponent } from './home-browse/home-browse.component';
+import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    OverlayscrollbarsModule
   ]
 })
 export class HomeModule { }
