@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TrackInterface } from '@app/models';
+import { SoundCloudService } from 'src/app/services';
 
 @Component({
   selector: 'app-browse-details',
@@ -6,6 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./browse-details.component.scss']
 })
 export class BrowseDetailsComponent implements OnInit {
+
+  tag = "hip hop";
+  audio: any;
+  tracks: Array<TrackInterface> = [];
+
+  constructor(private soundCloudService: SoundCloudService) { }
+
+  ngOnInit(): void {
+    this.getTrack();
+  }
+
+  getTrack() {
+    this.soundCloudService.getTrack(this.tag, 10, 0).subscribe(data => {
+      this.tracks = data as any;
+      console.log(this.tracks)
+
+    }, err => {
+      console.log(err);
+    })
+  }
 
   populars = [
     { name: "Workout Rock", image: "../../../../assets/images/details/WORKOUT rock.png", heart: "414,228", router: "#"},
@@ -24,10 +46,4 @@ export class BrowseDetailsComponent implements OnInit {
     { name: "Rock Ballads", image: "../../../../assets/images/details/ROCK ballads.png", heart: "160,896", router: "#"},
     { name: "The New Alt", image: "../../../../assets/images/details/NEW ALT.png", heart: "698,233", router: "#"},
   ]
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

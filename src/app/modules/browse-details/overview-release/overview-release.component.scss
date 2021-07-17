@@ -1,7 +1,8 @@
 .release-item {
   img {
     max-width: 100%;
-    height: auto;
+    max-height: 100%;
+    height: inherit !important;
   }
   .description {
     line-height: 18px;

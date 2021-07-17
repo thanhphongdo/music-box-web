@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-overview-release',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview-release.component.scss']
 })
 export class OverviewReleaseComponent implements OnInit {
+
+  @Input() tracks;
 
   releases = [
     {name: "V", artist: "The Vegabonds", release: "18/01/2019", router: "#" ,image:"../../../../assets/images/details/releases/Image 574.png" },

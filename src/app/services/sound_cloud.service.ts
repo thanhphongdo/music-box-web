@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { HttpClientBaseService } from './httpclient.base.service';
-import { SearchResultInterface } from 'src/app/models';
+import { SearchResultInterface, TrackInterface } from 'src/app/models';
 
 @Injectable()
 export class SoundCloudService {
@@ -27,5 +27,15 @@ export class SoundCloudService {
         }).pipe(map((res: any) => {
             return res.result;
         }));
+    }
+
+    getTrack(tag: string, limit: number, offset: number): Observable<TrackInterface> {
+      return this.httpService.post(environment.apiUrl + '/functions/_popularTrackByTag', {
+        tag,
+        limit,
+        offset
+      }).pipe(map((res:any) => {
+        return res.result.collection;
+      }))
     }
 }
