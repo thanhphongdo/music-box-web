@@ -1,0 +1,16 @@
+.overview-item {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .overview-item {
+    .description {
+      span {
+        font-size: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.nav-detail {
+  a {
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+    padding: 3px 0;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.active a {
+  position: relative;
+  &::after {
+    content: "";
+    width: 42px;
+    height: 3px;
+    background-color: #2D9BEF;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .nav {
+    flex-wrap: nowrap;
+    text-align: left !important;
+    a {
+      font-size: 16px;
+    }
+    .col-5 {
+      padding-left: 0;
+    }
+  }
+  .col-12 {
+    padding-left: 0;
+  }
+}

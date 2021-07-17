@@ -1,0 +1,18 @@
+<div class="container">
+  <overlay-scrollbars [options]="{scrollbars: { autoHide: 'scroll' }}">
+    <div class="row flex-nowrap">
+      <div class="col-5 col-md-2 release-item" *ngFor="let rel of releases | slice:0:6">
+        <a routerLink="{{rel.router}}">
+          <img src="{{rel.image}}" alt="release">
+        </a>
+        <div class="description ">
+          <h6 class="pt-2 font-15 mb-0">{{rel.name}}</h6>
+          <div class="pt-1 color-white-color-200 font-12">
+            <span>{{rel.artist}}</span>
+            <span>Album release: {{rel.release}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </overlay-scrollbars>
+</div>

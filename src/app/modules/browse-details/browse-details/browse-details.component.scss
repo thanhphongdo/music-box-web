@@ -1,0 +1,31 @@
+.browse-details {
+  position: relative;
+  .browse-nav {
+    height: 90vh; // comment this line.
+    background-image: url("../../../../assets/images/browse/BG.png");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+  }
+  .popular-week {
+    padding-top: 200px;
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .browse-details {
+    h1 {
+      text-align: center;
+      padding-bottom: 40px;
+    }
+    .browse-nav {
+      position: relative;
+      height: 40vh;
+      padding-bottom: 0 !important;
+    }
+    .playlist {
+      padding-top: 0 !important;
+    }
+  }
+}
