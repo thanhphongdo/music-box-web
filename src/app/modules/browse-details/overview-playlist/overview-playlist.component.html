@@ -1,15 +1,15 @@
 <div class="container">
   <overlay-scrollbars [options]="{scrollbars: { autoHide: 'scroll' }}">
     <div class="row flex-nowrap">
-      <div class="col-5 col-md-2 overview-item" *ngFor="let dt of data | slice:0:6">
-        <a routerLink="{{dt.router}}">
-          <img src="{{dt.image}}" alt="img">
+      <div class="col-5 col-md-2 overview-item" *ngFor="let item of data | slice:0:6">
+        <a routerLink="{{item.router}}">
+          <img src="{{item.artwork_url ? item.artwork_url : ''}}" alt="img" class="image">
         </a>
         <div class="description">
-          <span class="mt-2 font-16 d-inline-block">{{dt.name}}</span>
+          <span class="mt-2 font-16 d-inline-block">{{item.title}}</span>
           <div class="heart font-14 d-flex align-items-center">
             <img src="../../../../assets/images/heart.svg" alt="">
-            <span class="color-white-color-200 ml-1">{{dt.heart}}</span>
+            <span class="color-white-color-200 ml-1">{{item.likes_count}}</span>
           </div>
         </div>
       </div>

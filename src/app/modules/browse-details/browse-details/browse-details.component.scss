@@ -1,4 +1,7 @@
 .browse-details {
+  h1 {
+    font-size: 32px;
+  }
   position: relative;
   .browse-nav {
     height: 90vh; // comment this line.
@@ -18,6 +21,7 @@
     h1 {
       text-align: center;
       padding-bottom: 40px;
+      font-size: 28px;
     }
     .browse-nav {
       position: relative;
@@ -26,6 +30,27 @@
     }
     .playlist {
       padding-top: 0 !important;
+    }
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .browse-details {
+    h1 {
+      font-size: 22px;
+    }
+    .browse-top {
+      align-items: initial !important;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .browse-details {
+    h1 {
+      font-size: 28px;
     }
   }
 }

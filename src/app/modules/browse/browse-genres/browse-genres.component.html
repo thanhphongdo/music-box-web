@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-6 col-md-2 browse-item pb-4" *ngFor="let genre of genres">
-      <a routerLink="/browse-details">
+      <a routerLink="{{genre.router}}">
         <img src="{{genre.image}}" alt="">
       </a>
     </div>

@@ -27,7 +27,7 @@ const routes: Routes = [
     )
   },
   {
-    path: 'browse-details',
+    path: 'browse/:name',
     loadChildren: () => import('./modules/browse-details/browse-details.module').then(
       (m) => m.BrowseDetailsModule
     )

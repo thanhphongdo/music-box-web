@@ -1,11 +1,11 @@
 <div class="browse-details container-fluid bg-black-color-100 text-white master-layout px-0">
   <div class="browse-nav py-5 w-100">
     <div class="container">
-      <div class="row align-items-end">
-        <div class="col-md-2">
-          <h1 class="mb-0 font-64 font-weight-bold">Rock</h1>
+      <div class="browse-top row align-items-end">
+        <div class="col-12 col-md-3">
+          <h1 class="mb-0 font-weight-bold">{{tag | uppercase}}</h1>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
           <app-details-nav></app-details-nav>
         </div>
       </div>
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="popular-week__content mt-3">
-        <app-overview-playlist [data]="populars"></app-overview-playlist>
+        <app-overview-playlist [data]="tracks"></app-overview-playlist>
       </div>
     </div>
 
@@ -94,7 +94,7 @@
         </div>
       </div>
       <div class="artists__content pt-3">
-        <app-overview-artists></app-overview-artists>
+        <app-overview-artists [people]="people"></app-overview-artists>
       </div>
     </div>
   </div>

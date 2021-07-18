@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-overview-artists',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview-artists.component.scss']
 })
 export class OverviewArtistsComponent implements OnInit {
+
+  @Input() people
 
   artists = [
     {name: "The Beatles", heart: "871,189", router: "#", image: "../../../../assets/images/details/artists/The Beatles.png"},

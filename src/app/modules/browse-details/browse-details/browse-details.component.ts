@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TrackInterface } from '@app/models';
+import { PlayListInterface, SoundCloudUserInterface, TrackInterface } from '@app/models';
 import { SoundCloudService } from 'src/app/services';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-browse-details',
@@ -9,25 +10,47 @@ import { SoundCloudService } from 'src/app/services';
 })
 export class BrowseDetailsComponent implements OnInit {
 
-  tag = "hip hop";
+  tag = this.route.snapshot.paramMap.get('name');
   audio: any;
   tracks: Array<TrackInterface> = [];
+  playlists: Array<PlayListInterface> = [];
+  people: Array<SoundCloudUserInterface> = [];
 
-  constructor(private soundCloudService: SoundCloudService) { }
+  constructor(private soundCloudService: SoundCloudService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getTrack();
+    this.getPlayList();
+    this.getPeople();
   }
 
   getTrack() {
     this.soundCloudService.getTrack(this.tag, 10, 0).subscribe(data => {
-      this.tracks = data as any;
+      this.tracks = data.collection;
       console.log(this.tracks)
-
     }, err => {
       console.log(err);
     })
   }
+
+  getPlayList() {
+    this.soundCloudService.getPlaylist(this.tag, 10, 0).subscribe(data => {
+      this.playlists = data.collection;
+      console.log(this.playlists)
+    }, err => {
+      console.log(err)
+    })
+  }
+
+  getPeople() {
+    this.soundCloudService.getPeople(this.tag, 10, 0).subscribe(data => {
+      this.people = data.collection;
+      console.log(this.people)
+    }, err => {
+      console.log(err)
+    })
+  }
+
 
   populars = [
     { name: "Workout Rock", image: "../../../../assets/images/details/WORKOUT rock.png", heart: "414,228", router: "#"},
@@ -38,12 +61,4 @@ export class BrowseDetailsComponent implements OnInit {
     { name: "Glam Rock", image: "../../../../assets/images/details/GLAM ROCK.png", heart: "74,414", router: "#"},
   ]
 
-  playlists = [
-    { name: "Pop Rock", image: "../../../../assets/images/details/POP ROCK.png", heart: "420,112", router: "#"},
-    { name: "Woodstock Legends", image: "../../../../assets/images/details/Woodstock Legends.png", heart: "64,199", router: "#"},
-    { name: "Guitar Solos", image: "../../../../assets/images/details/GUITAR SOLOS.png", heart: "299,154", router: "#"},
-    { name: "70s Rock Anthems", image: "../../../../assets/images/details/70s ROCK.png", heart: "387,722", router: "#"},
-    { name: "Rock Ballads", image: "../../../../assets/images/details/ROCK ballads.png", heart: "160,896", router: "#"},
-    { name: "The New Alt", image: "../../../../assets/images/details/NEW ALT.png", heart: "698,233", router: "#"},
-  ]
 }

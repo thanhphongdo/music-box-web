@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-6 col-md-2 mood-item pb-4" *ngFor="let mood of moods">
-      <a routerLink="/browse-details">
+      <a routerLink="{{mood.router}}">
         <img src="{{mood.image}}" alt="">
       </a>
     </div>
