@@ -2,13 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { PlayListInterface, TrackInterface } from '@app/models';
 
 @Component({
-  selector: 'app-background',
-  templateUrl: './background.component.html',
-  styleUrls: ['./background.component.scss']
+  selector: 'app-background-random',
+  templateUrl: './background-random.component.html',
+  styleUrls: ['./background-random.component.scss']
 })
-export class BackgroundComponent implements OnInit {
-
-  @Input() data: TrackInterface | PlayListInterface
+export class BackgroundRandomComponent implements OnInit {
+  @Input() item: TrackInterface | PlayListInterface;
   bgRandom: string;
 
   constructor() { }
@@ -20,5 +19,4 @@ export class BackgroundComponent implements OnInit {
   getRandomBackground() {
     this.bgRandom = ('track-bg-' + Math.floor(Math.random() * 10))
   }
-
 }

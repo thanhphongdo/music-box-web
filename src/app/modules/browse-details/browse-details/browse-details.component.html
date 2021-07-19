@@ -20,9 +20,11 @@
           </div>
         </div>
       </div>
-      <div class="popular-week__content mt-3">
-        <app-overview-playlist [data]="playlists"></app-overview-playlist>
+      <!-- <overlay-scrollbars [options]="osComponentOptions" style="height: 230px;"> -->
+      <div class="popular-week__content pt-3" style="overflow-x: auto;">
+        <app-playlist-item [playlists]="playlists"></app-playlist-item>
       </div>
+      <!-- </overlay-scrollbars> -->
     </div>
 
     <div class="playlist py-5">
@@ -41,9 +43,11 @@
           </div>
         </div>
       </div>
-      <div class="playlist__content mt-3">
-        <app-overview-playlist [data]="playlists"></app-overview-playlist>
+      <!-- <overlay-scrollbars [options]="osComponentOptions" style="height: 230px;"> -->
+      <div class="playlist__content pt-3" style="overflow-x: auto;">
+        <app-playlist-item [playlists]="playlists"></app-playlist-item>
       </div>
+      <!-- </overlay-scrollbars> -->
     </div>
 
     <div class="new-release py-5">
@@ -63,9 +67,11 @@
           </div>
         </div>
       </div>
-      <div class="new-release__content pt-3">
-        <app-overview-release [tracks]="tracks"></app-overview-release>
-      </div>
+      <overlay-scrollbars [options]="osComponentOptions">
+        <div class="new-release__content pt-3">
+          <app-track-item [tracks]="tracks"></app-track-item>
+        </div>
+      </overlay-scrollbars>
     </div>
 
     <div class="artists py-5">

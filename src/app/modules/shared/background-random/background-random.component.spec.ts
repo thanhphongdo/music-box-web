@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BackgroundComponent } from './background.component';
+import { BackgroundRandomComponent } from './background-random.component';
 
-describe('BackgroundComponent', () => {
-  let component: BackgroundComponent;
-  let fixture: ComponentFixture<BackgroundComponent>;
+describe('BackgroundRandomComponent', () => {
+  let component: BackgroundRandomComponent;
+  let fixture: ComponentFixture<BackgroundRandomComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BackgroundComponent ]
+      declarations: [ BackgroundRandomComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BackgroundComponent);
+    fixture = TestBed.createComponent(BackgroundRandomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

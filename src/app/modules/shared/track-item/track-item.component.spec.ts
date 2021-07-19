@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OverviewReleaseComponent } from './overview-release.component';
+import { TrackItemComponent } from './track-item.component';
 
-describe('OverviewReleaseComponent', () => {
-  let component: OverviewReleaseComponent;
-  let fixture: ComponentFixture<OverviewReleaseComponent>;
+describe('TrackItemComponent', () => {
+  let component: TrackItemComponent;
+  let fixture: ComponentFixture<TrackItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OverviewReleaseComponent ]
+      declarations: [ TrackItemComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OverviewReleaseComponent);
+    fixture = TestBed.createComponent(TrackItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
