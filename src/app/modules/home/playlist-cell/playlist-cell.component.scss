@@ -5,6 +5,8 @@
         position: relative;
         width: 100%;
         height: 100%;
+        background-color: antiquewhite;
+        padding: 20px;
         img.back-play {
             width: 100%;
         }
@@ -18,15 +20,7 @@
 }
 @media (min-width: 992px) {
     .playlist-cell {
-        width: 225px;
-        a.playlist-cell--image {
-            img.play {
-                position: absolute;
-                width: 36px;
-                left: 8px;
-                bottom: 8px;
-            }
-        }
+        width: 169px;
         .heart-number {
             font-size: 14px;
         }

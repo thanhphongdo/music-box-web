@@ -28,4 +28,12 @@ export class SoundCloudService {
             return res.result;
         }));
     }
+
+    mixedSelections(url: string): Observable<SearchResultInterface> {
+        return this.httpService.post(environment.apiUrl + '/functions/_mixedSelections', {
+            url
+        }).pipe(map((res: any) => {
+            return res.result;
+        }));
+    }
 }
