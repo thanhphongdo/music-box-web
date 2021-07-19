@@ -30,6 +30,14 @@ export class SoundCloudService {
         }));
     }
 
+    mixedSelections(url: string): Observable<SearchResultInterface> {
+        return this.httpService.post(environment.apiUrl + '/functions/_mixedSelections', {
+            url
+        }).pipe(map((res: any) => {
+            return res.result;
+        }));
+    }
+  
     getTrack(tag: string, limit: number, offset: number): Observable<trackResultInterface> {
       return this.httpService.post(environment.apiUrl + '/functions/_popularTrackByTag', {
         tag,

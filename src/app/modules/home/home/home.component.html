@@ -48,6 +48,69 @@
       </div>
     </div>
   </div>
+  <div class="relax container w-100 py-3" *ngIf="dataLoaded">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <div class="relax--title color-white-color-100">{{ relaxList.title }}</div>
+        <div class="relax--subTitle color-white-color-200">{{ relaxList.description }}</div>
+      </div>
+      <div class="col-12 overflow-auto relax--content">
+        <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
+        <div class="relax-items d-flex align-items-start justify-content-between">
+          <app-playlist-cell 
+            link="#" 
+            [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" 
+            [title]="item.title"
+            [heart]="item.likes_count" 
+            *ngFor="let item of relaxList.items.collection.slice(0,6)"
+            ></app-playlist-cell>
+        </div>
+        </overlay-scrollbars>
+      </div>
+    </div>
+  </div>
+  <div class="relax container w-100 py-3" *ngIf="dataLoaded">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <div class="relax--title color-white-color-100">{{ partyList.title }}</div>
+        <div class="relax--subTitle color-white-color-200">{{ partyList.description }}</div>
+      </div>
+      <div class="col-12 overflow-auto relax--content">
+        <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
+        <div class="relax-items d-flex align-items-start justify-content-between">
+          <app-playlist-cell 
+            link="#" 
+            [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" 
+            [title]="item.title"
+            [heart]="item.likes_count" 
+            *ngFor="let item of partyList.items.collection.slice(0,6)"
+            ></app-playlist-cell>
+        </div>
+        </overlay-scrollbars>
+      </div>
+    </div>
+  </div>
+  <div class="relax container w-100 py-3" *ngIf="dataLoaded">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <div class="relax--title color-white-color-100">{{ studyList.title }}</div>
+        <div class="relax--subTitle color-white-color-200">{{ studyList.description }}</div>
+      </div>
+      <div class="col-12 overflow-auto relax--content">
+        <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
+        <div class="relax-items d-flex align-items-start justify-content-between">
+          <app-playlist-cell 
+            link="#" 
+            [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" 
+            [title]="item.title"
+            [heart]="item.likes_count" 
+            *ngFor="let item of studyList.items.collection.slice(0,6)"
+            ></app-playlist-cell>
+        </div>
+        </overlay-scrollbars>
+      </div>
+    </div>
+  </div>
   <div class="podcast w-100 py-5">
     <div class="container">
       <div class="podcast-top bg-secondary w-100 d-flex justify-content-between align-items-center" style="height: 50px;"></div>

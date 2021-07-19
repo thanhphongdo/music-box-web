@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { HomeBrowseComponent } from './home-browse/home-browse.component';
 import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
 
+import { PlaylistCellComponent } from './playlist-cell/playlist-cell.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -17,6 +19,7 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     HomeBrowseComponent,
+    PlaylistCellComponent,
   ],
   imports: [
     CommonModule,

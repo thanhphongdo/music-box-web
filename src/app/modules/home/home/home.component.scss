@@ -1,13 +1,39 @@
+@import "~overlayscrollbars/css/OverlayScrollbars.css";
 .master-layout {
   .home-title {
     background: url('../../../../assets/images/BG.png');
     height: 300px;
     font-size: 60px;
   }
+  .relax {
+    .relax--title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .relax-items {
+      width: 960px;
+    }
+
+  }
 }
+
 
 @media (max-width: 575.98px) {
   .recently {
     padding-top: 0 !important;
+  }
+}
+@media (min-width: 992px) {
+  .relax {
+    .relax--title {
+      font-size: 24px !important;
+      font-weight: bold;
+    }
+    .relax--content {
+      .relax-items {
+        width: 1110px;
+      }
+    }
+
   }
 }
