@@ -7,6 +7,7 @@ import { OverviewPlaylistComponent } from './overview-playlist/overview-playlist
 import { OverviewReleaseComponent } from './overview-release/overview-release.component';
 import { OverviewArtistsComponent } from './overview-artists/overview-artists.component';
 import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
+import { BackgroundComponent } from './background/background.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     DetailsNavComponent,
     OverviewPlaylistComponent,
     OverviewReleaseComponent,
-    OverviewArtistsComponent
+    OverviewArtistsComponent,
+    BackgroundComponent
   ],
   imports: [
     CommonModule,

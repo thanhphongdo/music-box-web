@@ -1,11 +1,16 @@
 .nav-detail {
-  a {
-    color: white;
-    font-size: 14px;
+  li {
+    margin-left: 36px;
+    list-style-type: none;
     display: inline-block;
-    padding: 3px 0;
-    &:hover {
-      text-decoration: none;
+    .menu-link {
+      color: white;
+      display: inline-block;
+      text-transform: uppercase;
+      &:hover {
+        text-decoration: none;
+      }
+      font-weight: bold;
     }
   }
 }
@@ -18,7 +23,7 @@
     height: 3px;
     background-color: #2D9BEF;
     position: absolute;
-    bottom: 0px;
+    bottom: -4px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -27,28 +32,14 @@
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
   .nav-detail {
-    .nav {
-      flex-wrap: nowrap;
-      text-align: left !important;
-      a {
-        font-size: 16px;
-      }
-      .col-5 {
-        padding-left: 0;
-      }
+    li {
+      margin-left: 0;
+      padding: 10px 0;
+      padding-right: 5rem;
     }
-    .col-12 {
-      padding-left: 0;
+    .top-song {
+      flex: none;
     }
-  }
-}
-
-// Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) {
-  .nav-detail {
-    margin-top: 3px;
-    a {
-      font-size: 12px;
-    }
+    .menu {}
   }
 }

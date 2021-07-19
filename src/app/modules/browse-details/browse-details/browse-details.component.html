@@ -1,15 +1,6 @@
 <div class="browse-details container-fluid bg-black-color-100 text-white master-layout px-0">
   <div class="browse-nav py-5 w-100">
-    <div class="container">
-      <div class="browse-top row align-items-end">
-        <div class="col-12 col-md-3">
-          <h1 class="mb-0 font-weight-bold">{{tag | uppercase}}</h1>
-        </div>
-        <div class="col-md-9">
-          <app-details-nav></app-details-nav>
-        </div>
-      </div>
-    </div>
+    <app-details-nav [title]="tag"></app-details-nav>
   </div>
   <div class="browse-bg"></div>
   <div class="details-content">
@@ -30,7 +21,7 @@
         </div>
       </div>
       <div class="popular-week__content mt-3">
-        <app-overview-playlist [data]="tracks"></app-overview-playlist>
+        <app-overview-playlist [data]="playlists"></app-overview-playlist>
       </div>
     </div>
 

@@ -1,7 +1,32 @@
 <div class="container navbar-tab">
   <div class="row">
     <div class="col-12 col-md-12 nav-detail">
+      <h1 class="mb-5 font-weight-bold d-block d-sm-none text-center">{{title | uppercase}}</h1>
       <overlay-scrollbars [options]="{scrollbars: { autoHide: 'scroll' }}">
+        <div class="d-flex align-items-end">
+          <h1 class="font-32 py-1 mb-0 mr-4 font-weight-bold d-none d-sm-block">{{title | uppercase}}</h1>
+          <ul class="menu d-flex px-0 py-1 m-0">
+            <li class="menu-item active">
+              <a href="#" class="menu-link">Overview</a>
+            </li>
+            <li class="menu-item d-flex d-sm-none top-song">
+              <a href="#" class="menu-link">Top Songs </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Playlists</a>
+            </li>
+            <li class="menu-item d-none d-sm-block">
+              <a href="#" class="menu-link">New Releases</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Artists</a>
+            </li>
+          </ul>
+        </div>
+      </overlay-scrollbars>
+    </div>
+  </div>
+  <!-- <overlay-scrollbars [options]="{scrollbars: { autoHide: 'scroll' }}">
         <div class="nav text-center text-uppercase font-weight-bold">
           <div class="col-5 col-md-3 col-lg-3 col-xl-2 active">
             <a routerLink="#">Overview</a>
@@ -19,7 +44,5 @@
             <a routerLink="#">Artists</a>
           </div>
         </div>
-      </overlay-scrollbars>
-    </div>
-  </div>
+      </overlay-scrollbars> -->
 </div>

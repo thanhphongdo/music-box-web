@@ -1,0 +1,63 @@
+.background {
+  display: block;
+  padding: 30px 0;
+  border-radius: 8px;
+  .image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.track-bg {
+  &-0 {
+    background: linear-gradient(to bottom left, #82a1f7, #5ce0dc);
+  }
+  &-1 {
+    background: linear-gradient(to bottom left, #fef9ae, #fecc80);
+  }
+  &-2 {
+    background: linear-gradient(to bottom left, #fb5e98, #a736f7);
+  }
+  &-3 {
+    background: linear-gradient(to bottom left, #88c9ee, #e1b1fc);
+  }
+  &-4 {
+    background: linear-gradient(to bottom left, #f58184, #efb7dc, #fae596);
+  }
+  &-5 {
+    background: linear-gradient(to bottom left, #f44e52, #e26c7e, #ec967e);
+  }
+  &-6 {
+    background: linear-gradient(to bottom left, #d56dff, #b693ff, #71a0dd);
+  }
+  &-7 {
+    background: linear-gradient(to bottom left, #9cf898, #fcde7a, #ef898c);
+  }
+  &-8 {
+    background: linear-gradient(to bottom left, #9a51b7, #d076c5, #c94a71);
+  }
+  &-9 {
+    background: linear-gradient(to bottom left, #fec577, #f3cf94);
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 1199.98px) {
+  .background {
+    padding: 10% 0;
+    .image {
+      max-width: 80%;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .background {
+    padding: 14% 0;
+    .image {
+      max-width: 75%;
+    }
+  }
+}
