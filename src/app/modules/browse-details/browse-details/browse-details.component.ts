@@ -16,16 +16,29 @@ export class BrowseDetailsComponent implements OnInit {
   playlists: Array<PlayListInterface> = [];
   people: Array<SoundCloudUserInterface> = [];
 
+  loadPlaylist = false;
+  loadTrack = false;
+
+
+  osComponentOptions: OverlayScrollbars.Options = {
+    sizeAutoCapable : true,
+	  paddingAbsolute : true,
+  	scrollbars : {
+	  	autoHide : 'scroll'
+	  }
+  };
+
   constructor(private soundCloudService: SoundCloudService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getTrack();
     this.getPlayList();
+    this.getTrack();
     this.getPeople();
   }
 
   getTrack() {
     this.soundCloudService.getTrack(this.tag, 10, 0).subscribe(data => {
+      this.loadTrack = true;
       this.tracks = data.collection;
       console.log(this.tracks)
     }, err => {
@@ -35,6 +48,7 @@ export class BrowseDetailsComponent implements OnInit {
 
   getPlayList() {
     this.soundCloudService.getPlaylist(this.tag, 10, 0).subscribe(data => {
+      this.loadPlaylist = true;
       this.playlists = data.collection;
       console.log(this.playlists)
     }, err => {
@@ -50,15 +64,4 @@ export class BrowseDetailsComponent implements OnInit {
       console.log(err)
     })
   }
-
-
-  populars = [
-    { name: "Workout Rock", image: "../../../../assets/images/details/WORKOUT rock.png", heart: "414,228", router: "#"},
-    { name: "Love Rock", image: "../../../../assets/images/details/LOVE ROCK.png", heart: "98,284", router: "#"},
-    { name: "Rockabilly", image: "../../../../assets/images/details/ROCKABILLY.png", heart: "82,127", router: "#"},
-    { name: "80s Rock Anthems", image: "../../../../assets/images/details/80s ROCK.png", heart: "381,737", router: "#"},
-    { name: "Soft Rock", image: "../../../../assets/images/details/SOFT ROCK.png", heart: "859,919", router: "#"},
-    { name: "Glam Rock", image: "../../../../assets/images/details/GLAM ROCK.png", heart: "74,414", router: "#"},
-  ]
-
 }

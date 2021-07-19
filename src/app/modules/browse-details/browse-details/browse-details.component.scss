@@ -3,16 +3,16 @@
     font-size: 32px;
   }
   position: relative;
-  .browse-nav {
-    height: 90vh; // comment this line.
+  .browse-bg {
+    height: 90;
     background-image: url("../../../../assets/images/browse/BG.png");
     background-size: cover;
     background-position: center;
-    position: absolute;
   }
-  .popular-week {
-    padding-top: 200px;
-  }
+}
+
+img {
+  max-width: 100%;
 }
 
 // Extra small devices (portrait phones, less than 576px)
