@@ -16,6 +16,10 @@ export class BrowseDetailsComponent implements OnInit {
   playlists: Array<PlayListInterface> = [];
   people: Array<SoundCloudUserInterface> = [];
 
+  loadPlaylist = false;
+  loadTrack = false;
+
+
   osComponentOptions: OverlayScrollbars.Options = {
     sizeAutoCapable : true,
 	  paddingAbsolute : true,
@@ -34,6 +38,7 @@ export class BrowseDetailsComponent implements OnInit {
 
   getTrack() {
     this.soundCloudService.getTrack(this.tag, 10, 0).subscribe(data => {
+      this.loadTrack = true;
       this.tracks = data.collection;
       console.log(this.tracks)
     }, err => {
@@ -43,6 +48,7 @@ export class BrowseDetailsComponent implements OnInit {
 
   getPlayList() {
     this.soundCloudService.getPlaylist(this.tag, 10, 0).subscribe(data => {
+      this.loadPlaylist = true;
       this.playlists = data.collection;
       console.log(this.playlists)
     }, err => {
