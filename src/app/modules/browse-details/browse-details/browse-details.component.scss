@@ -1,0 +1,56 @@
+.browse-details {
+  h1 {
+    font-size: 32px;
+  }
+  position: relative;
+  .browse-bg {
+    height: 90;
+    background-image: url("../../../../assets/images/browse/BG.png");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .browse-details {
+    h1 {
+      text-align: center;
+      padding-bottom: 40px;
+      font-size: 28px;
+    }
+    .browse-nav {
+      position: relative;
+      height: 40vh;
+      padding-bottom: 0 !important;
+    }
+    .playlist {
+      padding-top: 0 !important;
+    }
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .browse-details {
+    h1 {
+      font-size: 22px;
+    }
+    .browse-top {
+      align-items: initial !important;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .browse-details {
+    h1 {
+      font-size: 28px;
+    }
+  }
+}

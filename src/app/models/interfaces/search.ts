@@ -1,3 +1,5 @@
+import { UserInterface } from "./user";
+
 export interface SoundCloudUserInterface {
     avatar_url?: string;
     city?: string;
@@ -175,4 +177,28 @@ export interface QueriesSuggessInterface {
     }>;
     next_href?: string;
     query_urn?: string;
+}
+
+export interface trackResultInterface {
+  collection?:  Array<TrackInterface>
+  next_href: string;
+  query_urn: string;
+  total_results: number;
+  result?: trackResultInterface;
+}
+
+export interface playlistResultInterface {
+  collection?: Array<PlayListInterface>
+  next_href: string;
+  query_urn: string;
+  total_results: number;
+  result?: playlistResultInterface;
+}
+
+export interface peopleResultInterface {
+  collection?: Array<UserInterface>
+  next_href: string;
+  query_urn: string;
+  total_results: number;
+  result?: peopleResultInterface;
 }

@@ -5,7 +5,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { HttpClientBaseService } from './httpclient.base.service';
-import { SearchResultInterface } from 'src/app/models';
+import { peopleResultInterface, PlayListInterface, playlistResultInterface, SearchResultInterface, SoundCloudUserInterface, TrackInterface, trackResultInterface } from 'src/app/models';
+import { Track } from 'hls.js';
 
 @Injectable()
 export class SoundCloudService {
@@ -17,7 +18,7 @@ export class SoundCloudService {
             limit,
             offset
         }).pipe(map((res: any) => {
-            return res.result;
+          return res.result;
         }));
     }
 
@@ -35,5 +36,35 @@ export class SoundCloudService {
         }).pipe(map((res: any) => {
             return res.result;
         }));
+    }
+  
+    getTrack(tag: string, limit: number, offset: number): Observable<trackResultInterface> {
+      return this.httpService.post(environment.apiUrl + '/functions/_popularTrackByTag', {
+        tag,
+        limit,
+        offset
+      }).pipe(map((res: trackResultInterface) => {
+        return res.result;
+      }))
+    }
+
+    getPlaylist(tag: string, limit: number, offset: number): Observable<playlistResultInterface> {
+      return this.httpService.post(environment.apiUrl + '/functions/_playlistByTag', {
+        tag,
+        limit,
+        offset
+      }).pipe(map((res: playlistResultInterface) => {
+        return res.result;
+      }))
+    }
+
+    getPeople(tag: string, limit: number, offset: number): Observable<peopleResultInterface> {
+      return this.httpService.post(environment.apiUrl + '/functions/_userByTag', {
+        tag,
+        limit,
+        offset
+      }).pipe(map((res: peopleResultInterface) => {
+        return res.result;
+      }))
     }
 }
