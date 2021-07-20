@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
         this.relaxList = result.collection[2];
         this.partyList = result.collection[1];
         this.studyList = result.collection[0];
+        console.log(result);
     })
   }
 }

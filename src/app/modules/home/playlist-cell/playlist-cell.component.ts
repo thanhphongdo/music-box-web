@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PlayListInterface, TrackInterface } from '@app/models';
 
 @Component({
   selector: 'app-playlist-cell',
@@ -6,10 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./playlist-cell.component.scss']
 })
 export class PlaylistCellComponent implements OnInit {
-  @Input() link: string;
-  @Input() image: string;
-  @Input() title: string;
-  @Input() heart: string;
+  // @Input() title: string;
+  // @Input() heart: string;  
+  @Input() item: TrackInterface | PlayListInterface;
   constructor() { }
 
   ngOnInit(): void {
