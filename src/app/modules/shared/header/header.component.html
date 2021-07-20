@@ -1,27 +1,18 @@
-<nav class="navbar navbar-expand-lg bg-black-color-100">
+<nav class="navbar navbar-expand-lg bg-black-color-100" [ngClass]="bgLanding">
   <div class="container">
     <a class="navbar-brand" routerLink="/">
-        <img src="assets/images/Full_Logo.svg" alt="Logo" width="100">
+      <img src="assets/images/Full_Logo.svg" alt="Logo" width="100">
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <img src="assets/images/Menu.svg" alt="Menu">
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto mr-3">
         <li class="nav-item">
-            <a href="#" class="nav-link color-white-color-100-imp">Download</a>
+          <a href="#" class="nav-link color-white-color-100-imp">Download</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link color-white-color-100-imp">Help</a>
+          <a href="#" class="nav-link color-white-color-100-imp">Help</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
