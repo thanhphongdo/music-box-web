@@ -7,6 +7,15 @@
     display: block;
     margin: 0 auto;
   }
+  .link {
+    display: block;
+    position: relative;
+    .play {
+      position: absolute;
+      left: 5%;
+      bottom: -10%;
+    }
+  }
 }
 
 .track-bg {
@@ -49,6 +58,13 @@
     .image {
       max-width: 80%;
     }
+    .link {
+      .play {
+        width: 28px;
+        left: 5%;
+        bottom: -7%;
+      }
+    }
   }
 }
 
@@ -57,6 +73,11 @@
     padding: 14% 0;
     .image {
       max-width: 75%;
+    }
+    .link {
+      .play {
+        width: 32px;
+      }
     }
   }
   .font-11 {
