@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedService } from '@app/services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +9,18 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  bgLanding: string;
 
-  showBg: boolean;
+  constructor(private router: Router, private sharedService: SharedService) {
 
-  ngOnInit(): void {
-    this.headerBg()
   }
 
-  headerBg() {
-    window.location.href === 'http://localhost:4200/' ? this.showBg = true : this.showBg = false;
+  ngOnInit(): void {
+
+  }
+
+  ngAfterContentChecked() {
+    this.bgLanding = this.sharedService.bgLanding;
   }
 
   goToSignup(): void {
