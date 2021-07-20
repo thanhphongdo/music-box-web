@@ -19,11 +19,11 @@ export class BrowseDetailsComponent implements OnInit {
   loadData = false;
 
   osComponentOptions: OverlayScrollbars.Options = {
-    sizeAutoCapable : true,
-	  paddingAbsolute : true,
-  	scrollbars : {
-	  	autoHide : 'scroll'
-	  }
+    sizeAutoCapable: true,
+    paddingAbsolute: true,
+    scrollbars: {
+      autoHide: 'scroll'
+    }
   };
 
   constructor(private soundCloudService: SoundCloudService, private route: ActivatedRoute) { }
@@ -37,11 +37,11 @@ export class BrowseDetailsComponent implements OnInit {
       this.soundCloudService.getTrack(this.tag, 10, 0),
       this.soundCloudService.getPlaylist(this.tag, 10, 0),
       this.soundCloudService.getPeople(this.tag, 10, 0)
-    ]).subscribe(([tracks,playlists,people]) => {
-      this.tracks = tracks.collection,
-      this.playlists = playlists.collection,
-      this.people = people.collection,
-      this.loadData = true
+    ]).subscribe(([tracks, playlists, people]) => {
+      this.tracks = tracks.collection;
+      this.playlists = playlists.collection;
+      this.people = people.collection;
+      this.loadData = true;
     })
   }
 

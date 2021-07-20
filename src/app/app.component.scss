@@ -1,8 +1,11 @@
+@import "../style.variables.scss";
+
 .app-header {
     height: 71px;
 }
 .app-content {
     min-height: calc(100vh - 712px);
+    background: map-get($black-color, "100");
 }
 .app-footer {
     height: 641px;

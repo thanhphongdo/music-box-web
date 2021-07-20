@@ -1,11 +1,12 @@
 .browse-details {
+  min-height: 100%;
   h1 {
     font-size: 32px;
   }
   position: relative;
   .browse-bg {
     height: auto;
-    background-image: url("../../../../assets/images/browse/BG.png");
+    // background-image: url("../../../../assets/images/browse/BG.png");
     background-size: cover;
     background-position: center;
   }
