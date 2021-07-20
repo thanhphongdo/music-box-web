@@ -1,9 +1,10 @@
 .btn-shape {
-    width: 105px;
-    height: 36px;
+  width: 105px;
+  height: 36px;
 }
+
 @media (min-width: 992px) {
-    .navbar {
-        background-image: url("../../../../assets/images/bg-1st.png");
-    }
+  .navbar-bg {
+    background-image: url("../../../../assets/images/bg-1st.png");
+  }
 }
