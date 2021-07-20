@@ -57,7 +57,7 @@
       <div class="col-12 overflow-auto relax--content">
         <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
           <div class="relax-items d-flex align-items-start justify-content-between">
-            <app-playlist-cell link="#" [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" [title]="item.title" [heart]="item.likes_count" *ngFor="let item of relaxList.items.collection.slice(0,6)"></app-playlist-cell>
+            <app-playlist-cell [item]="item" *ngFor="let item of relaxList.items.collection.slice(0,6)"></app-playlist-cell>
           </div>
         </overlay-scrollbars>
       </div>
@@ -72,7 +72,7 @@
       <div class="col-12 overflow-auto relax--content">
         <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
           <div class="relax-items d-flex align-items-start justify-content-between">
-            <app-playlist-cell link="#" [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" [title]="item.title" [heart]="item.likes_count" *ngFor="let item of partyList.items.collection.slice(0,6)"></app-playlist-cell>
+            <app-playlist-cell [item]="item" *ngFor="let item of partyList.items.collection.slice(0,6)"></app-playlist-cell>
           </div>
         </overlay-scrollbars>
       </div>
@@ -87,7 +87,7 @@
       <div class="col-12 overflow-auto relax--content">
         <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
           <div class="relax-items d-flex align-items-start justify-content-between">
-            <app-playlist-cell link="#" [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" [title]="item.title" [heart]="item.likes_count" *ngFor="let item of studyList.items.collection.slice(0,6)"></app-playlist-cell>
+            <app-playlist-cell [item]="item" *ngFor="let item of studyList.items.collection.slice(0,6)"></app-playlist-cell>
           </div>
         </overlay-scrollbars>
       </div>
