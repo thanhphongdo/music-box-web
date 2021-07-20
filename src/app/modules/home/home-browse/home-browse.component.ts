@@ -14,27 +14,27 @@ export class HomeBrowseComponent implements OnInit {
     this.genres = [
       {
         image: "../../../../assets/images/browse/HIP - HOP.png",
-        router: "#"
+        router: "/browse/hip-hop"
       },
       {
         image: "../../../../assets/images/browse/POP.png",
-        router: "#"
+        router: "/browse/pop"
       },
       {
         image: "../../../../assets/images/browse/rock.png",
-        router: "#"
+        router: "/browse/rock"
       },
       {
         image: "../../../../assets/images/browse/Country.png",
-        router: "#"
+        router: "/browse/country"
       },
       {
         image: "../../../../assets/images/browse/DANCE - ELECTRO.png",
-        router: "#"
+        router: "/browse/dance"
       },
       {
         image: "../../../../assets/images/browse/Indie.png",
-        router: "#"
+        router: "/browse/indie"
       },
     ]
   }

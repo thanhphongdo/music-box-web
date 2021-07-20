@@ -4,7 +4,7 @@
       <app-details-nav [title]="tag"></app-details-nav>
     </div>
     <div class="details-content">
-      <div class="popular-week py-5 d-none d-sm-block" *ngIf="loadPlaylist">
+      <div class="popular-week py-5 d-none d-sm-block" *ngIf="loadData">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  <div class="playlist py-5" *ngIf="loadPlaylist">
+  <div class="playlist py-5" *ngIf="loadData">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -52,7 +52,7 @@
     </overlay-scrollbars>
   </div>
 
-  <div class="new-release py-5" *ngIf="loadTrack">
+  <div class="new-release py-5" *ngIf="loadData">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -76,7 +76,7 @@
     </overlay-scrollbars>
   </div>
 
-  <div class="artists py-5">
+  <div class="artists py-5" *ngIf="loadData">
     <div class="container">
       <div class="row">
         <div class="col-12">

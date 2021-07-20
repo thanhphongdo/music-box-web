@@ -28,7 +28,7 @@
               <small class="color-gray-100">Explore by genre and mood</small>
             </div>
             <div class="browse-view-all">
-              <a routerLink="#" class="text-uppercase text-decoration-none color-gray-300">View all</a>
+              <a routerLink="/browse" class="text-uppercase text-decoration-none color-gray-300">View all</a>
             </div>
           </div>
         </div>
@@ -56,15 +56,9 @@
       </div>
       <div class="col-12 overflow-auto relax--content">
         <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
-        <div class="relax-items d-flex align-items-start justify-content-between">
-          <app-playlist-cell 
-            link="#" 
-            [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" 
-            [title]="item.title"
-            [heart]="item.likes_count" 
-            *ngFor="let item of relaxList.items.collection.slice(0,6)"
-            ></app-playlist-cell>
-        </div>
+          <div class="relax-items d-flex align-items-start justify-content-between">
+            <app-playlist-cell link="#" [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" [title]="item.title" [heart]="item.likes_count" *ngFor="let item of relaxList.items.collection.slice(0,6)"></app-playlist-cell>
+          </div>
         </overlay-scrollbars>
       </div>
     </div>
@@ -77,15 +71,9 @@
       </div>
       <div class="col-12 overflow-auto relax--content">
         <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
-        <div class="relax-items d-flex align-items-start justify-content-between">
-          <app-playlist-cell 
-            link="#" 
-            [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" 
-            [title]="item.title"
-            [heart]="item.likes_count" 
-            *ngFor="let item of partyList.items.collection.slice(0,6)"
-            ></app-playlist-cell>
-        </div>
+          <div class="relax-items d-flex align-items-start justify-content-between">
+            <app-playlist-cell link="#" [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" [title]="item.title" [heart]="item.likes_count" *ngFor="let item of partyList.items.collection.slice(0,6)"></app-playlist-cell>
+          </div>
         </overlay-scrollbars>
       </div>
     </div>
@@ -98,15 +86,9 @@
       </div>
       <div class="col-12 overflow-auto relax--content">
         <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
-        <div class="relax-items d-flex align-items-start justify-content-between">
-          <app-playlist-cell 
-            link="#" 
-            [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" 
-            [title]="item.title"
-            [heart]="item.likes_count" 
-            *ngFor="let item of studyList.items.collection.slice(0,6)"
-            ></app-playlist-cell>
-        </div>
+          <div class="relax-items d-flex align-items-start justify-content-between">
+            <app-playlist-cell link="#" [image]="item.artwork_url || 'assets/images/playlistCell/music.jpg'" [title]="item.title" [heart]="item.likes_count" *ngFor="let item of studyList.items.collection.slice(0,6)"></app-playlist-cell>
+          </div>
         </overlay-scrollbars>
       </div>
     </div>
