@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row flex-nowrap">
-    <div class="col-5 col-md-2 playlist-item" *ngFor="let item of playlists | slice:0:limit">
+  <div class="row">
+    <div class="col-6 col-md-2 playlist-item mb-5" *ngFor="let item of data | slice:0:18">
       <app-background-random [item]="item"></app-background-random>
       <div class="description">
         <h6 class="pt-2 mb-0 text-overflow" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>

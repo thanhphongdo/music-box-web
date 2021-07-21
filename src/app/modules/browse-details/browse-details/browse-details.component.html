@@ -1,99 +1,38 @@
 <div class="browse-details container-fluid bg-black-color-100 text-white master-layout px-0">
-  <div class="browse-bg">
-    <div class="browse-nav py-5 w-100">
-      <app-details-nav [title]="tag"></app-details-nav>
-    </div>
-    <div class="details-content">
-      <div class="popular-week py-5 d-none d-sm-block">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="popular-week__top d-flex justify-content-between align-items-center">
-                <div class="popular-week__title">
-                  <h5>Popular in these week</h5>
-                </div>
-                <div class="popular-week__icon">
-                  <img src="../../../../assets/images/lessthan.svg" alt="">
-                  <img src="../../../../assets/images/morethan.svg" class="ml-3" alt="">
-                </div>
-              </div>
+  <div class="browse-nav py-5 w-100">
+    <div class="container navbar-tab">
+      <div class="row">
+        <div class="col-12 col-md-12 nav-detail">
+          <h1 class="mb-5 font-weight-bold d-block d-sm-none text-center">{{tag | uppercase}}</h1>
+          <overlay-scrollbars [options]="{scrollbars: { autoHide: 'scroll' }}">
+            <div class="d-flex align-items-end">
+              <h1 class="font-32 py-1 mb-0 mr-4 font-weight-bold d-none d-sm-block">{{tag | uppercase}}</h1>
+              <ul class="menu d-flex px-0 py-1 m-0">
+                <li class="menu-item" *ngFor="let item of menuList" [ngClass]="{'active':selectedItem === item}">
+                  <a [routerLink]="" (click)="openMenuList(item)" class="menu-link">{{item}}</a>
+                </li>
+              </ul>
             </div>
-          </div>
+          </overlay-scrollbars>
         </div>
-        <overlay-scrollbars [options]="osComponentOptions" *ngIf="loadData">
-          <div class="popular-week__content pt-3" style="overflow-x: auto;">
-            <app-playlist-item [playlists]="playlists"></app-playlist-item>
-          </div>
-        </overlay-scrollbars>
       </div>
     </div>
   </div>
+  <div class="details-content">
+    <ng-container *ngIf="selectedItem === 'Overview'">
+      <app-overview-tab [tracks]="tracks" [playlists]="playlists" [people]="people" [loadData]="loadData"></app-overview-tab>
+    </ng-container>
 
-  <div class="playlist py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="playlist-top d-flex justify-content-between align-items-center">
-            <div class="playlist-title">
-              <h5>Playlist</h5>
-            </div>
-            <div class="playlist-view d-flex align-items-center">
-              <a routerLink="#" class="text-uppercase color-gray-300">View all</a>
-              <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <overlay-scrollbars [options]="osComponentOptions" *ngIf="loadData">
-      <div class="playlist__content pt-3">
-        <app-playlist-item [playlists]="playlists"></app-playlist-item>
-      </div>
-    </overlay-scrollbars>
-  </div>
+    <ng-container *ngIf="selectedItem === 'Playlists'">
+      <app-playlist-tab [playlists]="playlists" [loadData]="loadData"></app-playlist-tab>
+    </ng-container>
 
-  <div class="new-release py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="release-top d-flex justify-content-between align-items-center">
-            <div class="release-title">
-              <h5 class="d-none d-sm-block">New releases</h5>
-              <h5 class="d-block d-sm-none">Top Songs</h5>
-            </div>
-            <div class="release-view d-flex align-items-center">
-              <a routerLink="#" class="text-uppercase color-gray-300">View all</a>
-              <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <overlay-scrollbars [options]="osComponentOptions" *ngIf="loadData">
-      <div class="new-release__content pt-3">
-        <app-track-item [tracks]="tracks"></app-track-item>
-      </div>
-    </overlay-scrollbars>
-  </div>
+    <ng-container *ngIf="selectedItem === 'Top Songs'">
+      <app-song-tab [tracks]="tracks" [loadData]="loadData"></app-song-tab>
+    </ng-container>
 
-  <div class="artists py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="artist-top d-flex justify-content-between align-items-center">
-            <div class="artist-title">
-              <h5>Artists</h5>
-            </div>
-            <div class="artist-view d-flex align-items-center">
-              <a routerLink="#" class="text-uppercase color-gray-300">View all</a>
-              <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="artists__content pt-3" *ngIf="loadData">
-      <app-overview-artists [people]="people"></app-overview-artists>
-    </div>
+    <ng-container *ngIf="selectedItem === 'Artist'">
+      <app-people-tab [people]="people" [loadData]="loadData"></app-people-tab>
+    </ng-container>
   </div>
 </div>

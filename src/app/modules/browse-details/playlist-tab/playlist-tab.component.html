@@ -1,0 +1,22 @@
+<div class="playlist py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="playlist-top d-flex justify-content-between align-items-center">
+          <div class="playlist-title">
+            <h5>Popular playlists</h5>
+          </div>
+          <div class="playlist-view d-flex align-items-center">
+            <!-- <a routerLink="#" class="text-uppercase color-gray-300">View all</a>
+            <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none"> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <overlay-scrollbars [options]="osComponentOptions" *ngIf="loadData">
+    <div class="playlist__content pt-3">
+      <app-tab-layout [data]="playlists"></app-tab-layout>
+    </div>
+  </overlay-scrollbars>
+</div>

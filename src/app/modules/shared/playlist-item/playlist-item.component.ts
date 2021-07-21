@@ -8,6 +8,7 @@ import { PlayListInterface } from '@app/models';
 })
 export class PlaylistItemComponent implements OnInit {
   @Input() playlists: PlayListInterface;
+  @Input() limit: number;
   bgRandom: string;
 
   constructor() { }

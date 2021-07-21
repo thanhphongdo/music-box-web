@@ -8,9 +8,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DetailsNavComponent implements OnInit {
   @Input() title
 
+  menuList = ['Overview','Playlists','New release', 'Artist']
+  selectedItem: any;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openMenuList(item: any) {
+    this.selectedItem = item
   }
 
 }
