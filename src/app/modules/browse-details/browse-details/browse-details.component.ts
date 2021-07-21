@@ -37,9 +37,9 @@ export class BrowseDetailsComponent implements OnInit {
 
   getData() {
     forkJoin([
-      this.soundCloudService.getTrack(this.tag, 10, 0),
-      this.soundCloudService.getPlaylist(this.tag, 12, 0),
-      this.soundCloudService.getPeople(this.tag, 10, 0)
+      this.soundCloudService.getTrack(this.tag, 30, 0),
+      this.soundCloudService.getPlaylist(this.tag, 30, 0),
+      this.soundCloudService.getPeople(this.tag, 30, 0)
     ]).subscribe(([tracks, playlists, people]) => {
       this.tracks = tracks.collection;
       this.playlists = playlists.collection;

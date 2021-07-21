@@ -10,9 +10,20 @@ export class PeopleTabComponent implements OnInit {
   @Input() people: Array<UserInterface> = [];
   @Input() loadData: boolean;
 
+  itemsPerPage = 18;
+  p = 1;
+  loading = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onScrollDown() {
+    setTimeout(x => {
+      this.itemsPerPage += 12
+      this.loading = false
+    }, 1000)
   }
 
 }

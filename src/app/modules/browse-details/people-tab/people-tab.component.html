@@ -14,11 +14,11 @@
       </div>
     </div>
   </div>
-  <div class="artist__content pt-3">
+  <div class="artist__content pt-3" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="150" (scrolled)="onScrollDown()">
     <overlay-scrollbars [options]="{scrollbars: { autoHide: 'scroll' }}">
       <div class="container">
         <div class="row">
-          <div class="col-6 col-md-2 artist-item mb-5" *ngFor="let artist of people">
+          <div class="col-6 col-md-2 artist-item mb-5" *ngFor="let artist of people | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
             <a routerLink="{{artist.router}}">
               <img src="{{artist.avatar_url ? artist.avatar_url : '../../../../../../assets/images/default/people-default.jpg'}}" alt="artist" class="avt">
             </a>
@@ -29,6 +29,11 @@
                 <span class="ml-1 color-white-color-200">{{artist.likes_count}}</span>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="loading">
+          <div class="col-12 text-center">
+            <p>Loading ...</p>
           </div>
         </div>
       </div>
