@@ -33,5 +33,4 @@ export class SongTabComponent implements OnInit {
       console.log(err)
     })
   }
-
 }

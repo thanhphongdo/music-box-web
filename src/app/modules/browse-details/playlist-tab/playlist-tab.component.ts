@@ -21,7 +21,6 @@ export class PlaylistTabComponent implements OnInit {
   constructor(private soundCloudService: SoundCloudService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-
   }
 
   onScrollDown() {
