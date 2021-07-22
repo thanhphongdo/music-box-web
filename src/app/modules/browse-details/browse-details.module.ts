@@ -9,7 +9,6 @@ import { OverviewArtistsComponent } from './overview-artists/overview-artists.co
 import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
 import { OverviewTabComponent } from './overview-tab/overview-tab.component';
 import { PlaylistTabComponent } from './playlist-tab/playlist-tab.component';
-import { TabLayoutComponent } from './tab-layout/tab-layout.component';
 import { SongTabComponent } from './song-tab/song-tab.component';
 import { PeopleTabComponent } from './people-tab/people-tab.component';
 
@@ -27,7 +26,6 @@ const routes: Routes = [
     OverviewArtistsComponent,
     OverviewTabComponent,
     PlaylistTabComponent,
-    TabLayoutComponent,
     SongTabComponent,
     PeopleTabComponent,
   ],

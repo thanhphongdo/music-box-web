@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserInterface } from '@app/models';
+import { SoundCloudService } from 'src/app/services';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-people-tab',
@@ -10,20 +12,25 @@ export class PeopleTabComponent implements OnInit {
   @Input() people: Array<UserInterface> = [];
   @Input() loadData: boolean;
 
-  itemsPerPage = 18;
+  tag = this.route.snapshot.paramMap.get('name');
+  offset = 0;
+  loading = false;
+  itemsPerPage = 30;
   p = 1;
-  loading = true;
 
-  constructor() { }
+  constructor(private soundCloudService: SoundCloudService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
   onScrollDown() {
-    setTimeout(x => {
-      this.itemsPerPage += 12
-      this.loading = false
-    }, 1000)
+    this.loading = true;
+    this.soundCloudService.getPeople(this.tag, 30, this.offset+=30).subscribe(data => {
+      this.itemsPerPage += 30;
+      this.people.push(...data.collection);
+      this.loading = false;
+    }, err => {
+      console.log(err)
+    })
   }
-
 }
