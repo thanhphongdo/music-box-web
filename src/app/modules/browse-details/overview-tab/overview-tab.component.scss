@@ -1,0 +1,16 @@
+a:hover {
+  text-decoration: none;
+  color: #D5D5D5;
+  opacity: 0.8;
+}
+
+.button-arrow {
+  background-color: transparent;
+  border: none;
+}
+
+.playlist-view,
+.release-view,
+.artist-view {
+  cursor: pointer;
+}
