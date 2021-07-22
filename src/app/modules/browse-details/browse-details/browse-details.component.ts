@@ -18,6 +18,9 @@ export class BrowseDetailsComponent implements OnInit {
   people: Array<SoundCloudUserInterface> = [];
   loadData = false;
 
+  menuList = ['Overview','Playlists','Top Songs', 'Artist']
+  selectedItem = this.menuList[0];
+
   osComponentOptions: OverlayScrollbars.Options = {
     sizeAutoCapable: true,
     paddingAbsolute: true,
@@ -34,9 +37,9 @@ export class BrowseDetailsComponent implements OnInit {
 
   getData() {
     forkJoin([
-      this.soundCloudService.getTrack(this.tag, 10, 0),
-      this.soundCloudService.getPlaylist(this.tag, 10, 0),
-      this.soundCloudService.getPeople(this.tag, 10, 0)
+      this.soundCloudService.getTrack(this.tag, 30, 0),
+      this.soundCloudService.getPlaylist(this.tag, 30, 0),
+      this.soundCloudService.getPeople(this.tag, 30, 0)
     ]).subscribe(([tracks, playlists, people]) => {
       this.tracks = tracks.collection;
       this.playlists = playlists.collection;
@@ -45,6 +48,9 @@ export class BrowseDetailsComponent implements OnInit {
     })
   }
 
+  openMenuList(item: any) {
+    this.selectedItem = item
+  }
   // getTrack() {
   //   this.soundCloudService.getTrack(this.tag, 10, 0).subscribe(data => {
   //     this.loadTrack = true;

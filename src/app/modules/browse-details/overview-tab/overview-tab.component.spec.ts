@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailsNavComponent } from './details-nav.component';
+import { OverviewTabComponent } from './overview-tab.component';
 
-describe('DetailsNavComponent', () => {
-  let component: DetailsNavComponent;
-  let fixture: ComponentFixture<DetailsNavComponent>;
+describe('OverviewTabComponent', () => {
+  let component: OverviewTabComponent;
+  let fixture: ComponentFixture<OverviewTabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetailsNavComponent ]
+      declarations: [ OverviewTabComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DetailsNavComponent);
+    fixture = TestBed.createComponent(OverviewTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

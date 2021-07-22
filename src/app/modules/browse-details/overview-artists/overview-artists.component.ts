@@ -13,5 +13,4 @@ export class OverviewArtistsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

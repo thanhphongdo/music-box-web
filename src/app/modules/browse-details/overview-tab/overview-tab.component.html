@@ -1,0 +1,90 @@
+<div class="popular-week py-5 d-none d-sm-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="popular-week__top d-flex justify-content-between align-items-center">
+          <div class="popular-week__title">
+            <h5>Popular in these week</h5>
+          </div>
+          <div class="popular-week__icon">
+            <img src="../../../../assets/images/lessthan.svg" alt="">
+            <img src="../../../../assets/images/morethan.svg" class="ml-3" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <overlay-scrollbars [options]="osComponentOptions" *ngIf="loadData">
+    <div class="popular-week__content pt-3">
+      <app-playlist-item [playlists]="playlists" [limit]="limit"></app-playlist-item>
+    </div>
+  </overlay-scrollbars>
+</div>
+
+<div class="playlist py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="playlist-top d-flex justify-content-between align-items-center">
+          <div class="playlist-title">
+            <h5>Playlist</h5>
+          </div>
+          <div class="playlist-view d-flex align-items-center">
+            <a routerLink="#" class="text-uppercase color-gray-300">View all</a>
+            <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <overlay-scrollbars [options]="osComponentOptions" *ngIf="loadData">
+    <div class="playlist__content pt-3">
+      <app-playlist-item [playlists]="playlists" [limit]="limit"></app-playlist-item>
+    </div>
+  </overlay-scrollbars>
+</div>
+
+<div class="new-release py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="release-top d-flex justify-content-between align-items-center">
+          <div class="release-title">
+            <h5 class="d-none d-sm-block">New releases</h5>
+            <h5 class="d-block d-sm-none">Top Songs</h5>
+          </div>
+          <div class="release-view d-flex align-items-center">
+            <a routerLink="#" class="text-uppercase color-gray-300">View all</a>
+            <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <overlay-scrollbars [options]="osComponentOptions" *ngIf="loadData">
+    <div class="new-release__content pt-3">
+      <app-track-item [tracks]="tracks"></app-track-item>
+    </div>
+  </overlay-scrollbars>
+</div>
+
+<div class="artists py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="artist-top d-flex justify-content-between align-items-center">
+          <div class="artist-title">
+            <h5>Artists</h5>
+          </div>
+          <div class="artist-view d-flex align-items-center">
+            <a routerLink="#" class="text-uppercase color-gray-300">View all</a>
+            <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="artists__content pt-3" *ngIf="loadData">
+    <app-overview-artists [people]="people"></app-overview-artists>
+  </div>
+</div>
