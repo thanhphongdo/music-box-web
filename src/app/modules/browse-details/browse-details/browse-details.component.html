@@ -20,7 +20,7 @@
   </div>
   <div class="details-content">
     <ng-container *ngIf="selectedItem === 'Overview'">
-      <app-overview-tab [tracks]="tracks" [playlists]="playlists" [people]="people" [loadData]="loadData"></app-overview-tab>
+      <app-overview-tab [tracks]="tracks" [playlists]="playlists" [people]="people" [loadData]="loadData" (getTab)="receiveTab($event)"></app-overview-tab>
     </ng-container>
 
     <ng-container *ngIf="selectedItem === 'Playlists'">
@@ -31,7 +31,7 @@
       <app-song-tab [tracks]="tracks" [loadData]="loadData"></app-song-tab>
     </ng-container>
 
-    <ng-container *ngIf="selectedItem === 'Artist'">
+    <ng-container *ngIf="selectedItem === 'Artists'">
       <app-people-tab [people]="people" [loadData]="loadData"></app-people-tab>
     </ng-container>
   </div>

@@ -7,8 +7,12 @@
             <h5>Popular in these week</h5>
           </div>
           <div class="popular-week__icon">
-            <img src="../../../../assets/images/lessthan.svg" alt="">
-            <img src="../../../../assets/images/morethan.svg" class="ml-3" alt="">
+            <button (click)="previous()" class="button-arrow">
+              <img src="../../../../assets/images/lessthan.svg" alt="">
+            </button>
+            <button (click)="loadItem()" class="button-arrow ml-4">
+              <img src="../../../../assets/images/morethan.svg" alt="">
+            </button>
           </div>
         </div>
       </div>
@@ -16,7 +20,7 @@
   </div>
   <overlay-scrollbars [options]="osComponentOptions" *ngIf="loadData">
     <div class="popular-week__content pt-3">
-      <app-playlist-item [playlists]="playlists" [limit]="limit"></app-playlist-item>
+      <app-playlist-item [playlists]="playlists" [limit]="limit" [p]="p"></app-playlist-item>
     </div>
   </overlay-scrollbars>
 </div>
@@ -30,8 +34,8 @@
             <h5>Playlist</h5>
           </div>
           <div class="playlist-view d-flex align-items-center">
-            <a routerLink="#" class="text-uppercase color-gray-300">View all</a>
-            <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none">
+            <a [routerLink]="" class="text-uppercase color-gray-300" (click)="sendTab('Playlists')">View all</a>
+            <img src="../../../../assets/images/morethan.svg" alt="" (click)="sendTab('Playlists')" class="ml-3 d-block d-sm-none">
           </div>
         </div>
       </div>
@@ -54,8 +58,8 @@
             <h5 class="d-block d-sm-none">Top Songs</h5>
           </div>
           <div class="release-view d-flex align-items-center">
-            <a routerLink="#" class="text-uppercase color-gray-300">View all</a>
-            <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none">
+            <a [routerLink]="" class="text-uppercase color-gray-300" (click)="sendTab('Top Songs')">View all</a>
+            <img src="../../../../assets/images/morethan.svg" alt="" (click)="sendTab('Top Songs')" class="ml-3 d-block d-sm-none">
           </div>
         </div>
       </div>
@@ -77,8 +81,8 @@
             <h5>Artists</h5>
           </div>
           <div class="artist-view d-flex align-items-center">
-            <a routerLink="#" class="text-uppercase color-gray-300">View all</a>
-            <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none">
+            <a [routerLink]="" class="text-uppercase color-gray-300" (click)="sendTab('Artists')">View all</a>
+            <img src="../../../../assets/images/morethan.svg" alt="" (click)="sendTab('Artists')" class="ml-3 d-block d-sm-none">
           </div>
         </div>
       </div>

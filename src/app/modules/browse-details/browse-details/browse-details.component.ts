@@ -17,8 +17,7 @@ export class BrowseDetailsComponent implements OnInit {
   playlists: Array<PlayListInterface> = [];
   people: Array<SoundCloudUserInterface> = [];
   loadData = false;
-
-  menuList = ['Overview','Playlists','Top Songs', 'Artist']
+  menuList = ['Overview','Playlists','Top Songs', 'Artists']
   selectedItem = this.menuList[0];
 
   osComponentOptions: OverlayScrollbars.Options = {
@@ -50,6 +49,10 @@ export class BrowseDetailsComponent implements OnInit {
 
   openMenuList(item: any) {
     this.selectedItem = item
+  }
+
+  receiveTab($event) {
+    this.selectedItem = $event
   }
   // getTrack() {
   //   this.soundCloudService.getTrack(this.tag, 10, 0).subscribe(data => {
