@@ -49,6 +49,12 @@ const routes: Routes = [
     loadChildren: () => import('./modules/auth-callback/auth-callback.module').then(
       (m) => m.AuthCallbackModule
     )
+  },
+  {
+    path: 'player',
+    loadChildren: () => import('./modules/player/player.module').then(
+      (m) => m.PlayerModule
+    )
   }
 ];
 
