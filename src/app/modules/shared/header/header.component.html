@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-black-color-100" [ngClass]="bgLanding">
+<nav class="navbar navbar-expand-lg bg-black-color-100" [ngClass]="bgLanding ? bgLanding : '' ">
   <div class="container">
     <a class="navbar-brand" routerLink="/">
       <img src="assets/images/Full_Logo.svg" alt="Logo" width="100">
@@ -7,7 +7,8 @@
       <img src="assets/images/Menu.svg" alt="Menu">
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto mr-3">
+      <app-input-search class="d-none d-lg-block"></app-input-search>
+      <ul class="navbar-nav ml-auto mr-3" *ngIf="!homeSearch">
         <li class="nav-item">
           <a href="#" class="nav-link color-white-color-100-imp">Download</a>
         </li>

@@ -1,0 +1,7 @@
+<form class="navbar-nav ml-auto mr-3" *ngIf="homeSearch">
+  <div class="form-group mb-0">
+    <img src="../../../../assets/images/search.svg" alt="" class="search-icon" (click)="search()">
+    <input type="text" class="form-control form-search" name="name" [(ngModel)]="name" placeholder="Search" (click)="redirect()">
+    <button (click)="search()" style="display: none;"></button>
+  </div>
+</form>

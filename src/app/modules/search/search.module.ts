@@ -1,31 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { HomeBrowseComponent } from './home-browse/home-browse.component';
 import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
-import { PlaylistCellComponent } from './playlist-cell/playlist-cell.component';
+import { SearchComponent } from './search/search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: SearchComponent,
     canActivate: [],
   },
 ];
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    HomeBrowseComponent,
-    PlaylistCellComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     OverlayscrollbarsModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule
+  ],
+  exports: [
+    SearchComponent,
   ]
 })
-export class HomeModule { }
+export class SearchModule { }

@@ -10,6 +10,8 @@ import { TrackItemComponent } from './track-item/track-item.component';
 import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
 import { PlaylistItemComponent } from './playlist-item/playlist-item.component';
 import { BackgroundRandomComponent } from './background-random/background-random.component';
+import { InputSearchComponent } from './input-search/input-search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,15 @@ import { BackgroundRandomComponent } from './background-random/background-random
     TrackItemComponent,
     PlaylistItemComponent,
     BackgroundRandomComponent,
+    InputSearchComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     OverlayscrollbarsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,
@@ -34,7 +39,8 @@ import { BackgroundRandomComponent } from './background-random/background-random
     DropdownComponent,
     TrackItemComponent,
     PlaylistItemComponent,
-    BackgroundRandomComponent
+    BackgroundRandomComponent,
+    InputSearchComponent
   ]
 })
 export class SharedModule { }

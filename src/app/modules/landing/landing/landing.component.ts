@@ -10,6 +10,7 @@ export class LandingComponent implements OnInit {
 
   constructor(private sharedService: SharedService) {
     this.sharedService.bgLanding = "navbar-bg"
+    this.sharedService.homeSearch = false
   }
 
   ngOnInit(): void {

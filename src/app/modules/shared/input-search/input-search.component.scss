@@ -1,0 +1,22 @@
+.form-group {
+  position: relative;
+  .form-search {
+    background-color: rgba(137, 139, 145, 0.5);
+    border: none;
+    border-radius: 80px;
+    color: #fff;
+    padding-left: 40px;
+    &:focus {
+      box-shadow: none;
+    }
+    &::placeholder {
+      color: #fff;
+    }
+  }
+  .search-icon {
+    position: absolute;
+    bottom: 9px;
+    left: 10px;
+    cursor: pointer;
+  }
+}
