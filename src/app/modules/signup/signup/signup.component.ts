@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services';
 import { UserModel } from 'src/app/models/interfaces/user';
+import { SharedService } from '@app/services/shared.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,9 @@ export class SignupComponent implements OnInit {
   formSignup!: FormGroup;
   userInfo: UserModel = new UserModel();
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router, private sharedService: SharedService) {
+    this.sharedService.homeSearch = false;
+  }
 
   ngOnInit(): void {
     this.formSignup = this.formBuilder.group({

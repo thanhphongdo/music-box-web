@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayListInterface } from '@app/models';
 import { SoundCloudService } from '@app/services';
+import { SharedService } from '@app/services/shared.service';
 import { OverlayScrollbarsComponent } from "ngx-overlayscrollbars";
 
 @Component({
@@ -13,7 +14,11 @@ export class HomeComponent implements OnInit {
   relaxList = {};
   partyList = {};
   studyList = {};
-  constructor(private soundCloudService: SoundCloudService) { }
+
+  constructor(private soundCloudService: SoundCloudService, private sharedService: SharedService) {
+    this.sharedService.homeSearch = true;
+    this.sharedService.bgLanding = ""
+  }
 
   ngOnInit(): void {
     this.getList();
