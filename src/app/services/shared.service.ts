@@ -13,16 +13,16 @@ export class SharedService {
   people: Array<UserInterface>
   name: string;
   loadData: boolean;
-  searching = false;
+  itemActive: string;
 
   constructor() {
     this.bgLanding;
     this.homeSearch;
     this.name;
-    this.searching;
     this.tracks;
     this.playlists;
     this.people;
     this.loadData;
+    this.itemActive;
   }
 }

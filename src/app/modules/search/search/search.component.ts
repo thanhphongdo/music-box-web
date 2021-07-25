@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { PlayListInterface, SoundCloudUserInterface, TrackInterface } from '@app/models';
 import { SharedService } from '@app/services/shared.service';
-import { SoundCloudService } from 'src/app/services';
+
 
 @Component({
   selector: 'app-search',
@@ -20,13 +19,11 @@ export class SearchComponent implements OnInit {
   name: string;
 
   constructor(
-    private route: ActivatedRoute,
     private sharedService: SharedService,
-    private soundCloudService: SoundCloudService,
-    private router: Router
   ) {
     this.sharedService.homeSearch = true;
     this.sharedService.bgLanding = ""
+    this.sharedService.itemActive = "Search"
   }
 
   ngOnInit(): void {

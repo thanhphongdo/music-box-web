@@ -12,6 +12,7 @@ import { PlaylistItemComponent } from './playlist-item/playlist-item.component';
 import { BackgroundRandomComponent } from './background-random/background-random.component';
 import { InputSearchComponent } from './input-search/input-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TabBarComponent } from './tab-bar/tab-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PlaylistItemComponent,
     BackgroundRandomComponent,
     InputSearchComponent,
+    TabBarComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TrackItemComponent,
     PlaylistItemComponent,
     BackgroundRandomComponent,
-    InputSearchComponent
+    InputSearchComponent,
+    TabBarComponent
   ]
 })
 export class SharedModule { }
