@@ -4,9 +4,22 @@
     margin: 0 auto;
     display: block;
   }
+  .view-link {
+    &:hover {
+      text-decoration: none;
+      color: #D5D5D5;
+      opacity: 0.8;
+    }
+    cursor: pointer;
+  }
 }
 
 .search-no-result {
+  height: 55vh;
+  .row {
+    height: 30vh;
+    align-items: center;
+  }
   .btn-try-again {
     width: 260px;
     margin: 0 auto;

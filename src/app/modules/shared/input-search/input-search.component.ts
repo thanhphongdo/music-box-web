@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlayListInterface, SoundCloudUserInterface, TrackInterface } from '@app/models';
 import { SoundCloudService } from '@app/services';
@@ -21,6 +21,7 @@ export class InputSearchComponent implements OnInit {
   name: string;
   status = false;
   queryParam: string;
+  searchName: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,8 @@ export class InputSearchComponent implements OnInit {
         this.queryParam = params.q;
         if(this.queryParam) {
           this.getData(this.queryParam)
+          this.name = this.queryParam
+          this.status = true
         }
       }
     );
@@ -57,6 +60,7 @@ export class InputSearchComponent implements OnInit {
   ngAfterContentChecked() {
     this.bgLanding = this.sharedService.bgLanding;
     this.homeSearch = this.sharedService.homeSearch;
+    this.searchName = this.sharedService.searchName;
   }
 
   redirect(): void {
@@ -66,6 +70,7 @@ export class InputSearchComponent implements OnInit {
   search() {
     this.router.navigate(['/search'], { queryParams: {q: this.name} });
     this.getData(this.name);
+    this.sharedService.searchName = '';
   }
 
   focusEvent() {
@@ -73,6 +78,6 @@ export class InputSearchComponent implements OnInit {
   }
 
   focusOutEvent() {
-    this.status = false;
+    this.name ?  this.status = true : this.status = false
   }
 }

@@ -1,0 +1,18 @@
+<div class="artist__content pt-3" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="150" (scrolled)="onScrollDown()">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-2 artist-item mb-3 artist-mb" *ngFor="let artist of people | paginate: { itemsPerPage: itemsPerPage, currentPage: p } ">
+        <a routerLink="{{artist.router}}" class="artist-avt">
+          <img src="{{artist.avatar_url ? artist.avatar_url : '../../../../../../assets/images/default/people-default.jpg'}} " alt="artist " class="avt ">
+        </a>
+        <div class="description text-center mt-2">
+          <h6 class="mb-1 font-16 text-overflow text-mb" data-toggle="tooltip " data-placement="bottom " title="{{artist.username}} ">{{artist.username}}</h6>
+          <div class="heart font-14 align-items-center justify-content-center d-none d-sm-block ">
+            <img src="../../../../assets/images/heart.svg " alt="heart ">
+            <span class="ml-1 color-white-color-200 ">{{artist.likes_count}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
