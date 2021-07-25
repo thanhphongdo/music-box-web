@@ -9,5 +9,43 @@
 .search-no-result {
   .btn-try-again {
     width: 260px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .search {
+    .artist-mb {
+      display: flex;
+      align-items: center;
+      .avt {
+        max-width: 70%;
+        margin: 0;
+      }
+      .artist-avt {
+        flex: 1;
+      }
+      .description {
+        flex: 2;
+        text-align: left !important;
+      }
+    }
+    .release-item {
+      display: flex;
+      align-items: center;
+      .image {
+        max-width: 70%;
+      }
+      .link {
+        flex: 1;
+        position: relative;
+      }
+      .description {
+        flex: 2;
+      }
+    }
+    .text-mb {
+      -webkit-line-clamp: 1;
+    }
   }
 }

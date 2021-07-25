@@ -1,0 +1,12 @@
+<div class="container-fluid tab-bar text-white">
+  <div class="container">
+    <div class="row text-center pt-3 pb-4">
+      <div class="col-3" *ngFor="let item of tabList" [ngClass]="{'active':selectedItem === item.name}">
+        <div class="tab-item" (click)="openTabList(item)">
+          <img src="{{selectedItem === item.name ? item.active : item.img }}" alt="">
+          <h6>{{item.name}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

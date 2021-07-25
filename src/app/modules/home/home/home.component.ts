@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private soundCloudService: SoundCloudService, private sharedService: SharedService) {
     this.sharedService.homeSearch = true;
-    this.sharedService.bgLanding = ""
+    this.sharedService.bgLanding = "";
+    this.sharedService.itemActive = "Home"
   }
 
   ngOnInit(): void {

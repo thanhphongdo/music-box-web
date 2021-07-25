@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlayListInterface, SoundCloudUserInterface, TrackInterface } from '@app/models';
 import { SoundCloudService } from '@app/services';
 import { SharedService } from '@app/services/shared.service';
@@ -19,8 +19,11 @@ export class InputSearchComponent implements OnInit {
   people: Array<SoundCloudUserInterface> = [];
   loadData = false;
   name: string;
+  status = false;
+  queryParam: string;
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private sharedService: SharedService,
     private soundCloudService: SoundCloudService,
@@ -28,6 +31,27 @@ export class InputSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.queryParams
+      .subscribe(params => {
+        this.queryParam = params.q;
+        if(this.queryParam) {
+          this.getData(this.queryParam)
+        }
+      }
+    );
+  }
+
+  getData(name: string) {
+    forkJoin([
+      this.soundCloudService.getTrack(name, 10, 0),
+      this.soundCloudService.getPlaylist(name, 10, 0),
+      this.soundCloudService.getPeople(name, 10, 0)
+    ]).subscribe(([tracks, playlists, people]) => {
+      this.sharedService.tracks = tracks.collection;
+      this.sharedService.playlists = playlists.collection;
+      this.sharedService.people = people.collection;
+      this.sharedService.loadData = true;
+    })
   }
 
   ngAfterContentChecked() {
@@ -40,15 +64,15 @@ export class InputSearchComponent implements OnInit {
   }
 
   search() {
-    forkJoin([
-      this.soundCloudService.getTrack(this.name, 10, 0),
-      this.soundCloudService.getPlaylist(this.name, 10, 0),
-      this.soundCloudService.getPeople(this.name, 10, 0)
-    ]).subscribe(([tracks, playlists, people]) => {
-      this.sharedService.tracks = tracks.collection;
-      this.sharedService.playlists = playlists.collection;
-      this.sharedService.people = people.collection;
-      this.sharedService.loadData = true;
-    })
+    this.router.navigate(['/search'], { queryParams: {q: this.name} });
+    this.getData(this.name);
+  }
+
+  focusEvent() {
+    this.status = true;
+  }
+
+  focusOutEvent() {
+    this.status = false;
   }
 }
