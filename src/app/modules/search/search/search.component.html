@@ -84,9 +84,24 @@
         </div>
       </div>
       <div class="song-content pt-3">
-        <overlay-scrollbars [options]="osComponentOptions" class="d-none d-sm-block">
-          <app-track-item [tracks]="tracks "></app-track-item>
-        </overlay-scrollbars>
+        <!-- <app-track-item [tracks]="tracks"></app-track-item> -->
+        <div class="container d-none d-sm-block">
+          <div class="row flex-nowrap">
+            <div class="col-5 col-md-2 release-item" *ngFor="let item of tracks | slice:0:6; let i = index">
+              <app-background-random [item]="item"></app-background-random>
+              <div class="d-flex justify-content-between">
+                <div class="description ">
+                  <h6 class="pt-2 mb-0 text-overflow" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
+                  <div class="pt-1 color-white-color-200 font-12 font-11">
+                    <span>{{item.artist}}</span>
+                    <span class="release">Release: {{item.display_date | slice:0:10}}</span>
+                  </div>
+                </div>
+                <app-pop-up-desktop class="mt-1" [item]="item" [index]="i"></app-pop-up-desktop>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="container d-block d-sm-none">
           <div class="row">
@@ -178,5 +193,4 @@
       </div>
     </div>
   </div>
-
 </div>

@@ -1,0 +1,32 @@
+.btn-pop-up {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.modal-content {
+  background-color: #3A3A3D;
+  .modal-header {
+    border-bottom: none;
+    .image {
+      flex: 1;
+      img {
+        max-width: 80%;
+      }
+    }
+    .title {
+      flex: 2;
+      span {
+        color: #929292;
+      }
+    }
+  }
+  .content {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.text-mb {
+  -webkit-line-clamp: 1;
+}
