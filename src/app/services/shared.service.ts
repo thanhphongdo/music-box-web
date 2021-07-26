@@ -14,6 +14,8 @@ export class SharedService {
   name: string;
   loadData: boolean;
   itemActive: string;
+  inputValue: string;
+  searchName: string;
 
   constructor() {
     this.bgLanding;
@@ -24,5 +26,7 @@ export class SharedService {
     this.people;
     this.loadData;
     this.itemActive;
+    this.inputValue;
+    this.searchName;
   }
 }

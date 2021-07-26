@@ -1,0 +1,26 @@
+.avt {
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+@media (max-width: 575.98px) {
+  .artist-mb {
+    display: flex;
+    align-items: center;
+    .avt {
+      max-width: 70%;
+      margin: 0;
+    }
+    .artist-avt {
+      flex: 1;
+    }
+    .description {
+      flex: 2;
+      text-align: left !important;
+    }
+  }
+  .text-mb {
+    -webkit-line-clamp: 1;
+  }
+}

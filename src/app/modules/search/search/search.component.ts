@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PlayListInterface, SoundCloudUserInterface, TrackInterface } from '@app/models';
 import { SharedService } from '@app/services/shared.service';
 
@@ -13,12 +14,12 @@ export class SearchComponent implements OnInit {
   tracks: Array<TrackInterface> = [];
   playlists: Array<PlayListInterface> = [];
   people: Array<SoundCloudUserInterface> = [];
-  searching: boolean;
   loadData = false
-  tag: any;
   name: string;
+  searchName: string;
 
   constructor(
+    private router: Router,
     private sharedService: SharedService,
   ) {
     this.sharedService.homeSearch = true;
@@ -34,5 +35,17 @@ export class SearchComponent implements OnInit {
     this.playlists = this.sharedService.playlists;
     this.people = this.sharedService.people;
     this.loadData = this.sharedService.loadData;
+    this.searchName = this.sharedService.searchName;
+  }
+
+  redirect(): void {
+    this.router.navigate(['search'])
+    .then(() => {
+      window.location.reload();
+    });
+  }
+
+  searchDetails(search: string) {
+    this.sharedService.searchName = search;
   }
 }
