@@ -16,7 +16,7 @@ export class SearchTracksComponent implements OnInit {
   itemsPerPage = 30;
   name: string;
   p = 1;
-  offset = -24;
+  offset = -12;
   loading = false;
 
   constructor(private route: ActivatedRoute,private soundCloudService: SoundCloudService, private sharedService: SharedService) { }
@@ -32,7 +32,7 @@ export class SearchTracksComponent implements OnInit {
   }
 
   getData() {
-    this.soundCloudService.getTrack(this.name, 30, this.offset+=30).subscribe(data => {
+    this.soundCloudService.getTrack(this.name, 18, this.offset+=18).subscribe(data => {
       this.itemsPerPage += 30;
       this.tracks.push(...data.collection);
       this.loading = false;

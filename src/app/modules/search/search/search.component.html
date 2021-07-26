@@ -90,7 +90,7 @@
 
         <div class="container d-block d-sm-none">
           <div class="row">
-            <div class="col-12 col-md-2 release-item mb-4" *ngFor="let item of tracks | slice:0:6">
+            <div class="col-12 col-md-2 release-item mb-4" *ngFor="let item of tracks | slice:0:6 ; let i = index">
               <a routerLink="#" class="link">
                 <img src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}" alt="img" class="image">
                 <!-- <img src="assets/images/playlistCell/Quick Play.svg" alt="Quick play" class="play"> -->
@@ -102,6 +102,7 @@
                   <!-- <span class="release">Release: {{item.display_date | slice:0:10}}</span> -->
                 </div>
               </div>
+              <app-pop-up-song [item]="item" [index]="i"></app-pop-up-song>
             </div>
           </div>
         </div>
@@ -137,7 +138,7 @@
       <div class="artists__content pt-3 " *ngIf="loadData">
         <div class="container">
           <div class="row">
-            <div class="col-12 col-md-2 artist-item mb-3 artist-mb" *ngFor="let artist of people | slice:0:6 ">
+            <div class="col-12 col-md-2 artist-item mb-3 artist-mb" *ngFor="let artist of people | slice:0:6; let i = index ">
               <a routerLink="{{artist.router}}" class="artist-avt">
                 <img src="{{artist.avatar_url ? artist.avatar_url : '../../../../../../assets/images/default/people-default.jpg'}} " alt="artist " class="avt ">
               </a>
@@ -148,6 +149,7 @@
                   <span class="ml-1 color-white-color-200 ">{{artist.likes_count}}</span>
                 </div>
               </div>
+              <app-pop-up [item]="artist" [index]="i"></app-pop-up>
             </div>
           </div>
         </div>

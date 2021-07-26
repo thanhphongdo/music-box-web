@@ -10,6 +10,8 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchPlaylistsComponent } from './search-playlists/search-playlists.component';
 import { SearchTracksComponent } from './search-tracks/search-tracks.component';
 import { SearchPeopleComponent } from './search-people/search-people.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
+import { PopUpSongComponent } from './pop-up-song/pop-up-song.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,8 @@ const routes: Routes = [
     SearchPlaylistsComponent,
     SearchTracksComponent,
     SearchPeopleComponent,
+    PopUpComponent,
+    PopUpSongComponent,
   ],
   imports: [
     CommonModule,

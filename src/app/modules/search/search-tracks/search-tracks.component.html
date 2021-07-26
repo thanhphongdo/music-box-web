@@ -23,7 +23,7 @@
 <div class="track__content pt-3" class="d-block d-sm-none" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="150" (scrolled)="onScrollDown()">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-2 release-item mb-4" *ngFor="let item of tracks | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+      <div class="col-12 col-md-2 release-item mb-4" *ngFor="let item of tracks | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
         <a routerLink="#" class="link">
           <img src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}" alt="img" class="image">
         </a>
@@ -33,6 +33,7 @@
             <span>{{item.artist}}</span>
           </div>
         </div>
+        <app-pop-up-song [item]="item" [index]="i+6"></app-pop-up-song>
       </div>
     </div>
   </div>

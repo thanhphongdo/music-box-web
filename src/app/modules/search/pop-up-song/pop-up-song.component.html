@@ -1,0 +1,36 @@
+<button type="button" class="btn-pop-up" data-toggle="modal" [attr.data-target]="'#s'+index">
+  <img src="../../../../assets/images/more.svg" class="more pl-2 d-block d-sm-none">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" [attr.id]="'s'+index" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="d-flex align-items-center">
+          <div class="image">
+            <img src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}" alt="img" class="">
+          </div>
+          <div class="title">
+            <h6 class="pt-2 mb-0 text-overflow text-mb font-18" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
+            <span class="font-15">{{item.artist ? item.artist : 'Singer'}} / {{time}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="content py-3">
+          <img src="../../../../assets/images/pop-up/play.svg" alt="">
+          <h5 class="mb-0 font-18 ml-4">Play Next</h5>
+        </div>
+        <div class="content py-3">
+          <img src="../../../../assets/images/pop-up/addfavorite.svg" alt="">
+          <h5 class="mb-0 font-18 ml-4">Add to My Favorite Songs</h5>
+        </div>
+        <div class="content py-3">
+          <img src="../../../../assets/images/pop-up/share.svg" alt="">
+          <h5 class="mb-0 font-18 ml-4">Share</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
