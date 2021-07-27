@@ -51,7 +51,7 @@ const routes: Routes = [
     )
   },
   {
-    path: 'player',
+    path: 'player/playlist/:id',
     loadChildren: () => import('./modules/player/player.module').then(
       (m) => m.PlayerModule
     )

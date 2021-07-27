@@ -36,7 +36,8 @@
         z-index: 9999;
         .images-carousel {
             img.center {
-                width: 300;
+                width: 300px;
+                border-radius: 16px;
             }
             img.prev {
                 width: 280px;
