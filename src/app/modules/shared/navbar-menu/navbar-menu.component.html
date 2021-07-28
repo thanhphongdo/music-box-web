@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg bg-black-color-100">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">
+      <img src="assets/images/Full_Logo.svg" alt="Logo" width="100">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="assets/images/Menu.svg" alt="Menu">
+      </button>
+    <ul class="navbar-nav align-items-center d-none d-lg-flex" [ngClass]="{'navbar-home': tabbarActive}">
+      <li class="nav-item" [ngClass]="{'active': itemActive === 'Home'}">
+        <a routerLink="/home" class="nav-link color-gray-100">Home</a>
+      </li>
+      <li class="nav-item dot">
+        <a routerLink="#" class="nav-link color-gray-100">Library</a>
+      </li>
+      <li class="nav-item" [ngClass]="{'active': itemActive === 'Browse'}">
+        <a routerLink="/browse" class="nav-link color-gray-100">Browse</a>
+      </li>
+    </ul>
+    <app-tab-menu class="d-none" [ngClass]="{'d-lg-block': itemActive === 'Browse'}"></app-tab-menu>
+    <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+      <app-input-search class="d-none d-lg-block mr-3"></app-input-search>
+      <form class="form-inline my-2 my-lg-0">
+        <a routerLink="/login"><button class="btn-shape btn-white-outline mr-2">Login</button></a>
+        <!-- <a routerLink="/signup"><button class="btn-shape btn-white">Sign up</button></a> -->
+      </form>
+    </div>
+  </div>
+</nav>

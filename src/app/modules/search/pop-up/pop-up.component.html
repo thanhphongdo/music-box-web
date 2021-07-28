@@ -1,0 +1,37 @@
+<button type="button" class="btn-pop-up" data-toggle="modal" [attr.data-target]="'#a'+index">
+  <img src="../../../../assets/images/more.svg" class="more pl-2 d-block d-sm-none">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" [attr.id]="'a'+index" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="d-flex align-items-center">
+          <div class="image">
+            <!-- <img src="../../../../assets/images/default/track-default.jpg" alt=""> -->
+            <img src="{{item.avatar_url ? item.avatar_url : '../../../../../../assets/images/default/people-default.jpg'}} " alt="artist " class="avt">
+          </div>
+          <div class="title">
+            <h5 class="mb-0 font-18">{{item.username}}</h5>
+            <span class="font-15">{{item.artist}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="content py-3">
+          <img src="../../../../assets/images/pop-up/play.svg" alt="">
+          <h5 class="mb-0 font-18 ml-4">Play Next</h5>
+        </div>
+        <div class="content py-3">
+          <img src="../../../../assets/images/pop-up/addfavorite.svg" alt="">
+          <h5 class="mb-0 font-18 ml-4">Add to My Favorite Songs</h5>
+        </div>
+        <div class="content py-3">
+          <img src="../../../../assets/images/pop-up/share.svg" alt="">
+          <h5 class="mb-0 font-18 ml-4">Share</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

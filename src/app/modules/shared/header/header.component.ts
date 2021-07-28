@@ -10,17 +10,17 @@ import { SharedService } from '@app/services/shared.service';
 export class HeaderComponent implements OnInit {
 
   bgLanding: string;
+  landingMenu: boolean;
 
   constructor(private router: Router, private sharedService: SharedService) {
-
   }
 
   ngOnInit(): void {
-
   }
 
   ngAfterContentChecked() {
     this.bgLanding = this.sharedService.bgLanding;
+    this.landingMenu = this.sharedService.landingMenu;
   }
 
   goToSignup(): void {

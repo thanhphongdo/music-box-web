@@ -10,6 +10,37 @@
     background-size: cover;
     background-position: center;
   }
+  .nav-detail {
+    li {
+      margin-left: 36px;
+      list-style-type: none;
+      display: inline-block;
+      .menu-link {
+        color: white;
+        display: block;
+        white-space: nowrap;
+        text-transform: uppercase;
+        &:hover {
+          text-decoration: none;
+        }
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.active a {
+  position: relative;
+  &::after {
+    content: "";
+    width: 42px;
+    height: 3px;
+    background-color: #2D9BEF;
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 img {
@@ -32,6 +63,20 @@ img {
     .playlist {
       padding-top: 0 !important;
     }
+    .nav-detail {
+      li {
+        margin-left: 0;
+        padding: 10px 0;
+        padding-right: 3rem;
+      }
+      .top-song {
+        flex: none;
+      }
+    }
+  }
+  .btn-back {
+    position: absolute;
+    top: 10px;
   }
 }
 

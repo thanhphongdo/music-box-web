@@ -3,6 +3,7 @@ import { PlayListInterface, SoundCloudUserInterface, TrackInterface } from '@app
 import { SoundCloudService } from 'src/app/services';
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
+import { SharedService } from '@app/services/shared.service';
 
 @Component({
   selector: 'app-browse-details',
@@ -17,6 +18,8 @@ export class BrowseDetailsComponent implements OnInit {
   playlists: Array<PlayListInterface> = [];
   people: Array<SoundCloudUserInterface> = [];
   loadData = false;
+  menuList = ['Overview','Playlists','Top Songs', 'Artists']
+  selectedItem = this.menuList[0];
 
   osComponentOptions: OverlayScrollbars.Options = {
     sizeAutoCapable: true,
@@ -26,7 +29,17 @@ export class BrowseDetailsComponent implements OnInit {
     }
   };
 
-  constructor(private soundCloudService: SoundCloudService, private route: ActivatedRoute) { }
+  constructor(
+    private soundCloudService: SoundCloudService,
+    private route: ActivatedRoute,
+    private sharedService: SharedService
+  ) {
+    this.sharedService.tabbarActive = false;
+    this.sharedService.itemActive = 'Browse';
+    const parsedUrl = new URL(window.location.href);
+    const baseUrl = parsedUrl.pathname;
+    this.sharedService.nameGenres = baseUrl.slice(8);
+  }
 
   ngOnInit(): void {
     this.getData();
@@ -34,9 +47,9 @@ export class BrowseDetailsComponent implements OnInit {
 
   getData() {
     forkJoin([
-      this.soundCloudService.getTrack(this.tag, 10, 0),
-      this.soundCloudService.getPlaylist(this.tag, 10, 0),
-      this.soundCloudService.getPeople(this.tag, 10, 0)
+      this.soundCloudService.getTrack(this.tag, 30, 0),
+      this.soundCloudService.getPlaylist(this.tag, 30, 0),
+      this.soundCloudService.getPeople(this.tag, 30, 0)
     ]).subscribe(([tracks, playlists, people]) => {
       this.tracks = tracks.collection;
       this.playlists = playlists.collection;
@@ -45,6 +58,13 @@ export class BrowseDetailsComponent implements OnInit {
     })
   }
 
+  openMenuList(item: any) {
+    this.selectedItem = item
+  }
+
+  receiveTab($event) {
+    this.selectedItem = $event
+  }
   // getTrack() {
   //   this.soundCloudService.getTrack(this.tag, 10, 0).subscribe(data => {
   //     this.loadTrack = true;

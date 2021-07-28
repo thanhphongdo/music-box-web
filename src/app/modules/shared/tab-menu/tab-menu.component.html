@@ -1,0 +1,15 @@
+<div class="tab" *ngIf="tabbarActive">
+  <ul class="navbar-nav align-items-center d-none d-sm-flex mb-0">
+    <li class="tab-item" *ngFor="let item of menuList">
+      <a [routerLink]="" class="tab-link color-gray-100 font-18" (click)="openMenuList(item)" [ngClass]="{'active':selectedItem === item}">{{item}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="tab ml-4" *ngIf="!tabbarActive">
+  <div class="navbar-nav align-items-center d-none d-sm-flex mb-0">
+    <div class="text font-18">
+      <span class="color-gray-100">Genres & Moods / <span class="text-white text-uppercase">{{nameGenres}}</span> </span>
+    </div>
+  </div>
+</div>

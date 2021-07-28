@@ -1,0 +1,12 @@
+.tab-bar {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  background-color: #303033;
+  .tab-item {
+    cursor: pointer;
+  }
+  .active {
+    color: #2DCEEF
+  }
+}

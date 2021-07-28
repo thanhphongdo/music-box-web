@@ -1,0 +1,14 @@
+<form class="navbar-nav ml-auto">
+  <div class="form-group mb-0 d-none d-sm-block">
+    <img src="../../../../assets/images/search.svg" alt="" class="search-icon" (click)="search()">
+    <input type="text" class="form-control form-search" name="name" [(ngModel)]="name" placeholder="Search" (click)="redirect()">
+    <button (click)="search()" style="display: none;"></button>
+  </div>
+  <div class="form-group mb-0 d-block d-sm-none" [ngClass]="status ? 'focus' : 'focus-out'">
+    <img src="../../../../assets/images/lessthan-white.svg" class="search-icon less-icon" alt="" *ngIf="status">
+    <img src="../../../../assets/images/search-black.svg" alt="" class="search-icon" (click)="search()" *ngIf="!status">
+    <input type="text" class="form-control form-search form-search-mb" name="name" [(ngModel)]="name" placeholder="Search Songs, Albums, Artists" (focus)="focusEvent()" (focusout)="focusOutEvent()">
+    <img src="../../../../assets/images/search.svg" alt="" class="search-icon search-white" *ngIf="status" (click)="search()">
+    <button (click)="search()" style="display: none;"></button>
+  </div>
+</form>

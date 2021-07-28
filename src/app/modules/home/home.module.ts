@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HomeBrowseComponent } from './home-browse/home-browse.component';
 import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
-import { SharedModule } from '../shared/shared.module';
 import { PlaylistCellComponent } from './playlist-cell/playlist-cell.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {

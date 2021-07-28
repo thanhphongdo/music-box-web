@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailsNavComponent } from './details-nav.component';
+import { SearchTracksComponent } from './search-tracks.component';
 
-describe('DetailsNavComponent', () => {
-  let component: DetailsNavComponent;
-  let fixture: ComponentFixture<DetailsNavComponent>;
+describe('SearchTracksComponent', () => {
+  let component: SearchTracksComponent;
+  let fixture: ComponentFixture<SearchTracksComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetailsNavComponent ]
+      declarations: [ SearchTracksComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DetailsNavComponent);
+    fixture = TestBed.createComponent(SearchTracksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

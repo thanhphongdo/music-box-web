@@ -8,6 +8,8 @@ import { PlayListInterface } from '@app/models';
 })
 export class PlaylistItemComponent implements OnInit {
   @Input() playlists: PlayListInterface;
+  @Input() limit: number;
+  @Input() p:number;
   bgRandom: string;
 
   constructor() { }
@@ -19,5 +21,4 @@ export class PlaylistItemComponent implements OnInit {
   getRandomBackground() {
     this.bgRandom = ('track-bg-' + Math.floor(Math.random() * 10))
   }
-
 }

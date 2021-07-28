@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services';
+import { SharedService } from '@app/services/shared.service';
 
 declare var $: any;
 @Component({
@@ -15,7 +16,10 @@ export class LoginComponent implements OnInit {
   password!: string;
   errLogin!: any;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router, private sharedService: SharedService) {
+    this.sharedService.landingMenu = true
+    this.sharedService.bgLanding = "navbar-bg"
+  }
 
   ngOnInit(): void {
     this.formLogin = this.formBuilder.group({
