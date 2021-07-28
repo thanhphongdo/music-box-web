@@ -1,0 +1,42 @@
+.tab {
+  flex-grow: 2;
+  .tab-item {
+    padding: 0 14px;
+  }
+  .tab-link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.active {
+  position: relative;
+  &::after {
+    content: "";
+    width: 67px;
+    height: 3px;
+    position: absolute;
+    background: linear-gradient(to left, #9B2DEF, #2DCEEF);
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  color: #fff;
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .tab {
+    .tab-item {
+      padding: 0 16px;
+      white-space: nowrap;
+    }
+    .tab-link {
+      font-size: 14px;
+    }
+  }
+  .text {
+    font-size: 14px;
+  }
+}

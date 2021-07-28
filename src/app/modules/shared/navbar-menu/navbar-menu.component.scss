@@ -1,0 +1,60 @@
+.btn-shape {
+  width: 105px;
+  height: 36px;
+}
+
+.nav-item {
+  padding: 1px 20px;
+  .nav-link {
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+    &:hover {
+      color: #2DCEEF;
+    }
+  }
+}
+
+.navbar-home {
+  margin-right: auto;
+}
+
+.active {
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 3px;
+  border-radius: 40px;
+  color: #2DCEEF;
+  .nav-link {
+    color: #2DCEEF;
+  }
+}
+
+.dot {
+  position: relative;
+  &::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: #2DCEEF;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .nav-item {
+    padding: 0px 16px;
+    .nav-link {
+      font-size: 16px;
+    }
+  }
+}

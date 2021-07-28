@@ -1,9 +1,12 @@
 <div class="browse-details container-fluid bg-black-color-100 text-white master-layout px-0">
-  <div class="browse-nav py-5 w-100">
+  <div class="browse-nav w-100">
     <div class="container navbar-tab">
       <div class="row">
         <div class="col-12 col-md-12 nav-detail">
-          <h1 class="mb-5 font-weight-bold d-block d-sm-none text-center">{{tag | uppercase}}</h1>
+          <div class="browse-title py-5">
+            <app-back class="btn-back"></app-back>
+            <h1 class="mb-5 font-weight-bold d-block d-sm-none text-center">{{tag | uppercase}}</h1>
+          </div>
           <overlay-scrollbars [options]="{scrollbars: { autoHide: 'scroll' }}">
             <div class="d-flex align-items-end">
               <h1 class="font-32 py-1 mb-0 mr-4 font-weight-bold d-none d-sm-block">{{tag | uppercase}}</h1>

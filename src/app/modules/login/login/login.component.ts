@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   errLogin!: any;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router, private sharedService: SharedService) {
-    this.sharedService.homeSearch = false;
+    this.sharedService.landingMenu = true
+    this.sharedService.bgLanding = "navbar-bg"
   }
 
   ngOnInit(): void {

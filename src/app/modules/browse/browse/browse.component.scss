@@ -9,4 +9,11 @@
   .center-mb {
     text-align: center;
   }
+  .browse-title {
+    position: relative;
+    .btn-back {
+      position: absolute;
+      left: 20px;
+    }
+  }
 }

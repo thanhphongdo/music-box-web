@@ -3,14 +3,16 @@ import { Router } from '@angular/router';
 import { SharedService } from '@app/services/shared.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-navbar-menu',
+  templateUrl: './navbar-menu.component.html',
+  styleUrls: ['./navbar-menu.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class NavbarMenuComponent implements OnInit {
 
   bgLanding: string;
-  landingMenu: boolean;
+  homeSearch = false;
+  itemActive: string;
+  tabbarActive: boolean;
 
   constructor(private router: Router, private sharedService: SharedService) {
   }
@@ -19,8 +21,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngAfterContentChecked() {
-    this.bgLanding = this.sharedService.bgLanding;
-    this.landingMenu = this.sharedService.landingMenu;
+    this.itemActive = this.sharedService.itemActive;
+    this.tabbarActive = this.sharedService.tabbarActive;
   }
 
   goToSignup(): void {
