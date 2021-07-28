@@ -13,6 +13,9 @@ import { BackgroundRandomComponent } from './background-random/background-random
 import { InputSearchComponent } from './input-search/input-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
+import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
+import { TabMenuComponent } from './tab-menu/tab-menu.component';
+import { BackComponent } from './back/back.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { TabBarComponent } from './tab-bar/tab-bar.component';
     BackgroundRandomComponent,
     InputSearchComponent,
     TabBarComponent,
+    NavbarMenuComponent,
+    TabMenuComponent,
+    BackComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +49,9 @@ import { TabBarComponent } from './tab-bar/tab-bar.component';
     PlaylistItemComponent,
     BackgroundRandomComponent,
     InputSearchComponent,
-    TabBarComponent
+    TabBarComponent,
+    NavbarMenuComponent,
+    BackComponent
   ]
 })
 export class SharedModule { }

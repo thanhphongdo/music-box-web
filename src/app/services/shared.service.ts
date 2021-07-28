@@ -7,7 +7,7 @@ import { PlayListInterface, TrackInterface, UserInterface } from '@app/models';
 export class SharedService {
 
   bgLanding: string;
-  homeSearch: boolean;
+  landingMenu: boolean;
   tracks: Array<TrackInterface>
   playlists: Array<PlayListInterface>
   people: Array<UserInterface>
@@ -16,10 +16,13 @@ export class SharedService {
   itemActive: string;
   inputValue: string;
   searchName: string;
+  tabbarActive: boolean;
+  tabbarItem: string;
+  nameGenres: string;
 
   constructor() {
     this.bgLanding;
-    this.homeSearch;
+    this.landingMenu;
     this.name;
     this.tracks;
     this.playlists;
@@ -28,5 +31,8 @@ export class SharedService {
     this.itemActive;
     this.inputValue;
     this.searchName;
+    this.tabbarActive;
+    this.tabbarItem;
+    this.nameGenres;
   }
 }

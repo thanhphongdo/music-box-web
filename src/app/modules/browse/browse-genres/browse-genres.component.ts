@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SharedService } from '@app/services/shared.service';
 
 @Component({
   selector: 'app-browse-genres',
@@ -9,7 +10,8 @@ export class BrowseGenresComponent implements OnInit {
 
   genres!: Array<any>
 
-  constructor() { }
+  constructor(private sharedService: SharedService) {
+  }
 
   ngOnInit(): void {
     this.genres = [
@@ -33,5 +35,4 @@ export class BrowseGenresComponent implements OnInit {
       { image: "../../../../assets/images/browse/REGGAE.png", router: "/browse/reggae" },
     ]
   }
-
 }

@@ -59,7 +59,6 @@ export class InputSearchComponent implements OnInit {
 
   ngAfterContentChecked() {
     this.bgLanding = this.sharedService.bgLanding;
-    this.homeSearch = this.sharedService.homeSearch;
     this.searchName = this.sharedService.searchName;
   }
 

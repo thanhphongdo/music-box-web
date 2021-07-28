@@ -3,6 +3,7 @@ import { PlayListInterface, SoundCloudUserInterface, TrackInterface } from '@app
 import { SoundCloudService } from 'src/app/services';
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
+import { SharedService } from '@app/services/shared.service';
 
 @Component({
   selector: 'app-browse-details',
@@ -28,7 +29,17 @@ export class BrowseDetailsComponent implements OnInit {
     }
   };
 
-  constructor(private soundCloudService: SoundCloudService, private route: ActivatedRoute) { }
+  constructor(
+    private soundCloudService: SoundCloudService,
+    private route: ActivatedRoute,
+    private sharedService: SharedService
+  ) {
+    this.sharedService.tabbarActive = false;
+    this.sharedService.itemActive = 'Browse';
+    const parsedUrl = new URL(window.location.href);
+    const baseUrl = parsedUrl.pathname;
+    this.sharedService.nameGenres = baseUrl.slice(8);
+  }
 
   ngOnInit(): void {
     this.getData();

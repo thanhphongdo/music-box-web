@@ -22,9 +22,9 @@ export class SearchComponent implements OnInit {
     private router: Router,
     private sharedService: SharedService,
   ) {
-    this.sharedService.homeSearch = true;
     this.sharedService.bgLanding = ""
     this.sharedService.itemActive = "Search"
+    this.sharedService.landingMenu = false
   }
 
   ngOnInit(): void {

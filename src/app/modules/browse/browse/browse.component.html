@@ -1,34 +1,59 @@
 <div class="browse container-fluid bg-black-color-100 text-white master-layout px-0">
-  <div class="browse-title text-center py-5 d-block d-sm-none">
-    <h5 class="font-weight-bold">Browser</h5>
-  </div>
-  <div class="browse-genres py-5">
-    <div class="container">
+  <ng-container *ngIf="tabbarItem === 'Genres & Moods'">
+    <div class="browse-title text-center py-5 d-block d-sm-none">
+      <app-back class="btn-back"></app-back>
+      <h5 class="font-weight-bold">Browser</h5>
+    </div>
+    <div class="browse-genres py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="browse-genre__title center-mb">
+              <h5>Genres</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="browse-genres__content pt-3">
+        <app-browse-genres></app-browse-genres>
+      </div>
+    </div>
+    <div class="browse-moods py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="browse-mood__title center-mb">
+              <h5>Moods</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="browse-mood__content pt-3">
+        <app-browse-moods></app-browse-moods>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="tabbarItem === 'New Release'">
+    <div class="container py-5">
       <div class="row">
         <div class="col-12">
           <div class="browse-genre__title center-mb">
-            <h5>Genres</h5>
+            <h5>New Release</h5>
           </div>
         </div>
       </div>
     </div>
-    <div class="browse-genres__content pt-3">
-      <app-browse-genres></app-browse-genres>
-    </div>
-  </div>
-
-  <div class="browse-moods py-5">
-    <div class="container">
+  </ng-container>
+  <ng-container *ngIf="tabbarItem === 'Podcasts'">
+    <div class="container py-5">
       <div class="row">
         <div class="col-12">
-          <div class="browse-mood__title center-mb">
-            <h5>Moods</h5>
+          <div class="browse-genre__title center-mb">
+            <h5>Podcasts</h5>
           </div>
         </div>
       </div>
     </div>
-    <div class="browse-mood__content pt-3">
-      <app-browse-moods></app-browse-moods>
-    </div>
-  </div>
+  </ng-container>
+
 </div>
