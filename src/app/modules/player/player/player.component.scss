@@ -13,7 +13,29 @@
     cursor: pointer;
     background: #2DCEEF;
 }
-
+::ng-deep {
+  .ngx-slider .ngx-slider-bubble {  
+    bottom: -40px !important;  
+    color: #ffffff !important;
+  }
+  .ngx-slider-model-value {
+    left: 0 !important;
+  }
+  .ngx-slider-floor {
+    display: none !important;
+  }
+  .ngx-slider-pointer {
+    width: 11px !important;
+    height: 11px !important;
+    top: -4px !important;
+    &::after {
+      display: none;
+    }
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
 .player {
     height: 100vh;
     position: relative;

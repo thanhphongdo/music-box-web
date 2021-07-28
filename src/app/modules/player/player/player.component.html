@@ -15,7 +15,7 @@
     <div class="player--detail overflow-hidden">
         <div class="images-carousel d-flex align-items-center justify-content-center mb-3">
             <!-- <img src="assets/images/player/Image296.svg" class="prev round-16" alt="Image"> -->
-            <img [src]="track.artwork_url" class="center round-16 mx-3" alt="Image">
+            <img [src]="track.artwork_url.replace('large', 't500x500')" class="center round-16 mx-3" alt="Image">
             <!-- <img src="assets/images/player/Image411.svg" class="next round-16" alt="Image"> -->
         </div>
         <div class="d-flex flex-column align-items-center">
@@ -33,12 +33,8 @@
                     <img src="assets/images/player/Favorite Songs.svg" alt="Favorite song" width="20px">
                     <img src="assets/images/player/More 20.svg" alt="more" height="20px">
                 </div>
-                <div class="col-12 mb-3">
-                    <input type="range" min="1" max="100" [(value)]="currentTime" (change)="seekTo($event)" step="1" class="w-100 seek-slider">
-                    <div class="d-flex align-items-center justify-content-between color-white-color-100">
-                        <span class="font-14">{{ curr_time }}</span>
-                        <span class="font-14">{{ total_duration }}</span>
-                    </div>
+                <div class="col-12 mb-5">
+                    <ngx-slider [(value)]="value" [options]="options" (userChange)="seekTo()"></ngx-slider>
                 </div>
                 <div class="col-12 d-flex align-items-center justify-content-between mb-3">
                     <img src="assets/images/player/Shuffle.svg" alt="Shuffle" height="22px" *ngIf="!shuffleState" (click)="changeShuffleState()">

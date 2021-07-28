@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Options } from '@angular-slider/ngx-slider';
 import { TrackInterface, PlayListInterface, playlistResultInterface } from 'src/app/models';
 import { SoundCloudService, UserService } from 'src/app/services';
 declare var Hls: any;
@@ -17,14 +18,31 @@ export class PlayerComponent implements OnInit {
   audio: any;
   dataLoaded: boolean = false;
   isPlaying: boolean = false;
-  term: string = 'Son tung MTP';
-  currentTime: number = 0;
-  curr_time: string = "0.00"; 
-  total_duration: string = "0.00";
   updateTimer: any;
   repeatState: number = 0;
   repeated: boolean = false;
   shuffleState: boolean = false;
+
+  value: number = 0;
+  options: Options = {
+    floor: 0,
+    ceil: 523000,
+    autoHideLimitLabels: false,
+    animate: false,
+    showSelectionBar: true,
+    getSelectionBarColor: (value: number): string => {
+      return '#2DCEEF';
+    },
+    getPointerColor: (value: number): string => {
+      return '#2DCEEF';
+    },
+    translate: (value: number): string => {
+      const minute = Math.floor(value / 60000);
+      const second = Math.floor((value % 60000) / 600);
+      return `${minute}:${second}`;
+    }
+  };
+
   constructor(private soundCloudService: SoundCloudService, private route: ActivatedRoute) { }
   
   ngOnInit(): void {
@@ -32,7 +50,9 @@ export class PlayerComponent implements OnInit {
   }
   
   getList() {
+    // 127755258
     const playlistId = Number(this.route.snapshot.paramMap.get('id'));
+    console.log(playlistId);
     this.soundCloudService
       .getPlaylistById(playlistId)
       .subscribe(result => {
@@ -93,36 +113,20 @@ export class PlayerComponent implements OnInit {
     this.audio.pause();
     this.isPlaying = false;
   }
-  seekTo(event) {
-    const seekto = (this.track.duration / 1000) * (event.target.value / 100)
-    this.audio.currentTime = seekto;
-    this.currentTimeUpdate();
-  }
-  currentTimeUpdate() {
-    let currentMinutes = Math.floor(this.audio.currentTime / 60);
-    let currentSeconds = Math.floor(this.audio.currentTime - currentMinutes * 60);
-    this.curr_time = `${currentMinutes}:${currentSeconds < 10 ? "0" + currentSeconds : currentSeconds}`;
+  seekTo() {
+    this.audio.currentTime = Math.floor(this.value / 1000)
   }
   totalDuration() {
-    let durationMinutes = Math.floor(this.track.duration / 60000);
-    let durationSeconds = Math.floor((this.track.duration / 1000) - durationMinutes * 60);
-    this.total_duration = `${durationMinutes}:${durationSeconds < 10 ? "0" +  durationSeconds : durationSeconds}`;
+    this.options.ceil = this.track.duration;
   }
   updateSlider() {
-    this.currentTimeUpdate();
-    this.currentTime = Math.floor(this.audio.currentTime / (this.track.duration / 1000))
-  }
-  resetValues() {
-    this.currentTime = 0;
-    this.curr_time = "0.00";
-    this.total_duration = "0.00"; 
+    this.value = Math.floor(this.audio.currentTime * 1000);
   }
   prevTrack() {
     if (this.currentTrack > 0) {
       this.currentTrack -= 1;
     } else this.currentTrack = this.tracks.length;
     this.track = this.tracks[this.currentTrack];
-    this.resetValues();
     this.loadTrack(this.track, true);
   }
   nextTrack() {
@@ -131,7 +135,6 @@ export class PlayerComponent implements OnInit {
     } else if (this.currentTrack < this.tracks.length - 1) this.currentTrack += 1;
     else this.currentTrack = 0;
     this.track = this.tracks[this.currentTrack];
-    this.resetValues();
     this.loadTrack(this.track, true);
   }
 

@@ -4,6 +4,7 @@ import { PlayerComponent } from './player/player.component';
 import { RouterModule, Routes } from '@angular/router';
 import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
 import { SharedModule } from '../shared/shared.module';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     OverlayscrollbarsModule,
     SharedModule,
+    NgxSliderModule
   ]
 })
 export class PlayerModule { }
