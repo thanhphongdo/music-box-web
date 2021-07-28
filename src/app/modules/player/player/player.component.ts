@@ -38,8 +38,8 @@ export class PlayerComponent implements OnInit {
     },
     translate: (value: number): string => {
       const minute = Math.floor(value / 60000);
-      const second = Math.floor((value % 60000) / 600);
-      return `${minute}:${second}`;
+      const second = Math.floor((value - (minute * 60000)) / 1000);
+      return `${minute}:${second < 10 ? '0' + second : second}`;
     }
   };
 
