@@ -48,11 +48,27 @@ export class SoundCloudService {
       }))
     }
 
+    getTrackById(id: number): Observable<trackResultInterface> {
+      return this.httpService.post(environment.apiUrl + '/functions/_trackById', {
+        id
+      }).pipe(map((res: trackResultInterface) => {
+        return res.result;
+      }))
+    }
+
     getPlaylist(tag: string, limit: number, offset: number): Observable<playlistResultInterface> {
       return this.httpService.post(environment.apiUrl + '/functions/_playlistByTag', {
         tag,
         limit,
         offset
+      }).pipe(map((res: playlistResultInterface) => {
+        return res.result;
+      }))
+    }
+
+    getPlaylistById(id: number): Observable<playlistResultInterface> {
+      return this.httpService.post(environment.apiUrl + '/functions/_playlistById', {
+        id
       }).pipe(map((res: playlistResultInterface) => {
         return res.result;
       }))
