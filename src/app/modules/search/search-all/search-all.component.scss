@@ -1,0 +1,67 @@
+.avt {
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.view-link {
+  &:hover {
+    text-decoration: none;
+    color: #D5D5D5;
+    opacity: 0.8;
+  }
+  cursor: pointer;
+}
+
+.search-no-result {
+  height: 55vh;
+  .row {
+    height: 30vh;
+    align-items: center;
+  }
+  .btn-try-again {
+    width: 260px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .artist-mb {
+    display: flex;
+    align-items: center;
+    .avt {
+      max-width: 70%;
+      margin: 0;
+    }
+    .artist-avt {
+      flex: 1;
+    }
+    .description {
+      flex: 2;
+      text-align: left !important;
+    }
+  }
+  .release-item {
+    display: flex;
+    align-items: center;
+    .image {
+      max-width: 70%;
+    }
+    .link {
+      flex: 1;
+      position: relative;
+    }
+    .description {
+      flex: 2;
+    }
+  }
+  .text-mb {
+    -webkit-line-clamp: 1;
+  }
+  .more {
+    cursor: pointer;
+  }
+  .height {
+    height: 100vh;
+  }
+}

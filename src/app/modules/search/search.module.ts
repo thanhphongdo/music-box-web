@@ -14,6 +14,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 import { PopUpSongComponent } from './pop-up-song/pop-up-song.component';
 import { PopUpDesktopComponent } from './pop-up-desktop/pop-up-desktop.component';
 import { SearchAlbumsComponent } from './search-albums/search-albums.component';
+import { SearchAllComponent } from './search-all/search-all.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
     PopUpSongComponent,
     PopUpDesktopComponent,
     SearchAlbumsComponent,
+    SearchAllComponent,
   ],
   imports: [
     CommonModule,

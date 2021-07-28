@@ -33,7 +33,7 @@ const routes: Routes = [
     )
   },
   {
-    path: 'search',
+    path: 'search/:name',
     loadChildren: () => import('./modules/search/search.module').then(
       (m) => m.SearchModule
     )

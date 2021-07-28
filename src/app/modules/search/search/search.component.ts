@@ -18,6 +18,8 @@ export class SearchComponent implements OnInit {
   loadData = false
   name: string;
   searchName: string;
+  parsedUrl: any;
+  baseUrl: any;
 
   constructor(
     private router: Router,
@@ -39,16 +41,16 @@ export class SearchComponent implements OnInit {
     this.albums = this.sharedService.albums;
     this.loadData = this.sharedService.loadData;
     this.searchName = this.sharedService.searchName;
+    this.name = this.sharedService.paramsSearch;
+    this.parsedUrl = new URL(window.location.href);
+    this.baseUrl = this.parsedUrl.pathname;
+    this.sharedService.searchName = this.baseUrl.slice(8);
   }
 
   redirect(): void {
-    this.router.navigate(['search'])
+    this.router.navigate(['search/all'])
     .then(() => {
       window.location.reload();
     });
-  }
-
-  searchDetails(search: string) {
-    this.sharedService.searchName = search;
   }
 }
