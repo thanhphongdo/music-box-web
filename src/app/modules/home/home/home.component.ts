@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
     this.sharedService.bgLanding = "";
     this.sharedService.itemActive = "Home";
     this.sharedService.landingMenu = false;
+    this.sharedService.hideOnMobile = true;
   }
 
   ngOnInit(): void {

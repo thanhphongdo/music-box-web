@@ -11,6 +11,7 @@ export class SharedService {
   tracks: Array<TrackInterface>
   playlists: Array<PlayListInterface>
   people: Array<UserInterface>
+  albums: Array<PlayListInterface>
   name: string;
   loadData: boolean;
   itemActive: string;
@@ -19,6 +20,7 @@ export class SharedService {
   tabbarActive: boolean;
   tabbarItem: string;
   nameGenres: string;
+  hideOnMobile: boolean;
 
   constructor() {
     this.bgLanding;
@@ -34,5 +36,6 @@ export class SharedService {
     this.tabbarActive;
     this.tabbarItem;
     this.nameGenres;
+    this.hideOnMobile;
   }
 }

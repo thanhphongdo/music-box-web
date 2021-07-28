@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from './services/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'music-box-web';
+  hideOnMobile: boolean;
+
+  constructor(private sharedService: SharedService){}
+
+  ngAfterContentChecked() {
+    this.hideOnMobile = this.sharedService.hideOnMobile;
+  }
 }

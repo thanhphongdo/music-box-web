@@ -17,6 +17,7 @@ export class InputSearchComponent implements OnInit {
   tracks: Array<TrackInterface> = [];
   playlists: Array<PlayListInterface> = [];
   people: Array<SoundCloudUserInterface> = [];
+  albums: Array<PlayListInterface> = [];
   loadData = false;
   name: string;
   status = false;
@@ -46,13 +47,15 @@ export class InputSearchComponent implements OnInit {
 
   getData(name: string) {
     forkJoin([
-      this.soundCloudService.getTrack(name, 10, 0),
-      this.soundCloudService.getPlaylist(name, 10, 0),
-      this.soundCloudService.getPeople(name, 10, 0)
-    ]).subscribe(([tracks, playlists, people]) => {
+      this.soundCloudService.searchTrack(name, 10, 0),
+      this.soundCloudService.searchPlaylist(name, 10, 0),
+      this.soundCloudService.searchPeople(name, 10, 0),
+      this.soundCloudService.searchAlbum(name, 10 ,0)
+    ]).subscribe(([tracks, playlists, people, albums]) => {
       this.sharedService.tracks = tracks.collection;
       this.sharedService.playlists = playlists.collection;
       this.sharedService.people = people.collection;
+      this.sharedService.albums = albums.collection;
       this.sharedService.loadData = true;
     })
   }

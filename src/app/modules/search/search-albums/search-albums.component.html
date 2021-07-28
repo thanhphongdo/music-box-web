@@ -1,7 +1,7 @@
-<div class="track__content pt-3" class="d-none d-sm-block" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="250" (scrolled)="onScrollDown()">
+<div class="albums__content pt-3" class="d-none d-sm-block" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="250" (scrolled)="onScrollDown()">
   <div class="container pt-4">
     <div class="row">
-      <div class="col-6 col-md-2 playlist-item mb-4" *ngFor="let item of tracks | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
+      <div class="col-6 col-md-2 album-item mb-4" *ngFor="let item of albums | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
         <app-background-random [item]="item"></app-background-random>
         <div class="d-flex justify-content-between">
           <div class="description">
@@ -23,10 +23,10 @@
   </div>
 </div>
 
-<div class="track__content pt-3" class="d-block d-sm-none" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="150" (scrolled)="onScrollDown()">
+<div class="album__content pt-3" class="d-block d-sm-none" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="150" (scrolled)="onScrollDown()">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-2 release-item mb-4" *ngFor="let item of tracks | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
+      <div class="col-12 col-md-2 album-item mb-4" *ngFor="let item of albums | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
         <a routerLink="#" class="link">
           <img src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}" alt="img" class="image">
         </a>

@@ -1,9 +1,9 @@
-<div class="search-input py-4">
+<div class="search-input py-5">
   <app-input-search class="d-block d-lg-none">
   </app-input-search>
 </div>
 <div class="search-menu container-fluid bg-black-color-100 text-white pt-2">
-  <div class="container py-5 d-block d-sm-none" *ngIf="!loadData">
+  <div class="container py-5 d-block d-sm-none height" *ngIf="!loadData">
     <div class="row">
       <div class="col-12">
         <div class="artist-top d-flex justify-content-between align-items-center">
@@ -67,6 +67,69 @@
       </div>
     </div>
 
+    <div class="album py-5" *ngIf="albums && albums.length">
+      <div class="container">
+        <div class="row ">
+          <div class="col-12 ">
+            <div class="album-top d-flex justify-content-between align-items-center ">
+              <div class="artist-title ">
+                <h5>Albums</h5>
+              </div>
+              <div class="album-view d-flex align-items-center ">
+                <a class="text-uppercase color-gray-300  view-link" (click)="searchDetails('albums')">View all</a>
+                <img src="../../../../assets/images/morethan.svg " alt=" " class="ml-3 d-block d-sm-none ">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="album-content pt-3">
+        <div class="container d-none d-sm-block">
+          <div class="row flex-nowrap">
+            <div class="col-5 col-md-2 release-item" *ngFor="let item of albums | slice:0:6; let i = index">
+              <app-background-random [item]="item"></app-background-random>
+              <div class="d-flex justify-content-between">
+                <div class="description ">
+                  <h6 class="pt-2 mb-0 text-overflow" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
+                  <div class="pt-1 color-white-color-200 font-12 font-11">
+                    <span>{{item.artist}}</span>
+                    <span class="release">Release: {{item.display_date | slice:0:10}}</span>
+                  </div>
+                </div>
+                <app-pop-up-desktop class="mt-1" [item]="item" [id]="item.id"></app-pop-up-desktop>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container d-block d-sm-none">
+          <div class="row">
+            <div class="col-12 col-md-2 release-item mb-4" *ngFor="let item of albums | slice:0:6 ; let i = index">
+              <a routerLink="#" class="link">
+                <img src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}" alt="img" class="image">
+              </a>
+              <div class="description">
+                <h6 class="pt-2 mb-0 text-overflow text-mb" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
+                <div class="pt-1 color-white-color-200 font-12 font-11">
+                  <span>{{item.artist}}</span>
+                </div>
+              </div>
+              <app-pop-up-song [item]="item" [id]="item.id"></app-pop-up-song>
+            </div>
+          </div>
+        </div>
+
+        <ng-container *ngIf="searchName === 'albums'">
+          <div class="row" *ngIf="loading">
+            <div class="col-12 text-center">
+              <p>Loading ...</p>
+            </div>
+          </div>
+          <app-search-albums></app-search-albums>
+        </ng-container>
+      </div>
+    </div>
+
     <div class="song py-5" *ngIf="tracks && tracks.length">
       <div class="container">
         <div class="row ">
@@ -97,7 +160,7 @@
                     <span class="release">Release: {{item.display_date | slice:0:10}}</span>
                   </div>
                 </div>
-                <app-pop-up-desktop class="mt-1" [item]="item" [index]="i"></app-pop-up-desktop>
+                <app-pop-up-desktop class="mt-1" [item]="item" [id]="item.id"></app-pop-up-desktop>
               </div>
             </div>
           </div>
@@ -117,7 +180,7 @@
                   <!-- <span class="release">Release: {{item.display_date | slice:0:10}}</span> -->
                 </div>
               </div>
-              <app-pop-up-song [item]="item" [index]="i"></app-pop-up-song>
+              <app-pop-up-song [item]="item" [id]="item.id"></app-pop-up-song>
             </div>
           </div>
         </div>
@@ -179,7 +242,7 @@
       </div>
     </div>
 
-    <div class="search-no-result" *ngIf="!playlists.length && !tracks.length && !people.length">
+    <div class="search-no-result" *ngIf="!playlists.length && !tracks.length && !people.length && !albums.length">
       <div class="container">
         <div class="row">
           <div class="col-12">
