@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
   tracks: Array<TrackInterface> = [];
   playlists: Array<PlayListInterface> = [];
   people: Array<SoundCloudUserInterface> = [];
+  albums: Array<PlayListInterface> = [];
   loadData = false
   name: string;
   searchName: string;
@@ -22,9 +23,10 @@ export class SearchComponent implements OnInit {
     private router: Router,
     private sharedService: SharedService,
   ) {
-    this.sharedService.bgLanding = ""
-    this.sharedService.itemActive = "Search"
-    this.sharedService.landingMenu = false
+    this.sharedService.bgLanding = "";
+    this.sharedService.itemActive = "Search";
+    this.sharedService.landingMenu = false;
+    this.sharedService.hideOnMobile = true;
   }
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class SearchComponent implements OnInit {
     this.tracks = this.sharedService.tracks;
     this.playlists = this.sharedService.playlists;
     this.people = this.sharedService.people;
+    this.albums = this.sharedService.albums;
     this.loadData = this.sharedService.loadData;
     this.searchName = this.sharedService.searchName;
   }

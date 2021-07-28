@@ -32,7 +32,7 @@ export class SearchPlaylistsComponent implements OnInit {
   }
 
   getData() {
-    this.soundCloudService.getPlaylist(this.name, 30, this.offset+=30).subscribe(data => {
+    this.soundCloudService.searchPlaylist(this.name, 30, this.offset+=30).subscribe(data => {
       this.itemsPerPage += 30;
       this.playlists.push(...data.collection);
       this.loading = false;

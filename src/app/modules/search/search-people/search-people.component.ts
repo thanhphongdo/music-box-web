@@ -32,11 +32,10 @@ export class SearchPeopleComponent implements OnInit {
   }
 
   getData() {
-    this.soundCloudService.getPeople(this.name, 18, this.offset+=6).subscribe(data => {
+    this.soundCloudService.searchPeople(this.name, 18, this.offset+=6).subscribe(data => {
       this.itemsPerPage += 30;
       this.people.push(...data.collection);
       this.loading = false;
-      console.log(this.offset)
     }, err => {
       console.log(err)
     })

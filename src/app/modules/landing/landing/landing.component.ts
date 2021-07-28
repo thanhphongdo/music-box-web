@@ -9,8 +9,9 @@ import { SharedService } from '@app/services/shared.service';
 export class LandingComponent implements OnInit {
 
   constructor(private sharedService: SharedService) {
-    this.sharedService.bgLanding = "navbar-bg"
-    this.sharedService.landingMenu = true
+    this.sharedService.bgLanding = "navbar-bg";
+    this.sharedService.landingMenu = true;
+    this.sharedService.hideOnMobile = false;
   }
 
   ngOnInit(): void {

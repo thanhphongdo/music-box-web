@@ -36,6 +36,7 @@ export class BrowseDetailsComponent implements OnInit {
   ) {
     this.sharedService.tabbarActive = false;
     this.sharedService.itemActive = 'Browse';
+    this.sharedService.hideOnMobile = true;
     const parsedUrl = new URL(window.location.href);
     const baseUrl = parsedUrl.pathname;
     this.sharedService.nameGenres = baseUrl.slice(8);

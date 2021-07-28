@@ -83,4 +83,44 @@ export class SoundCloudService {
         return res.result;
       }))
     }
+
+    searchTrack(term: string, limit: number, offset: number): Observable<trackResultInterface> {
+      return this.httpService.post(environment.apiUrl + '/functions/_searchTracks', {
+        term,
+        limit,
+        offset
+      }).pipe(map((res: trackResultInterface) => {
+        return res.result;
+      }))
+    }
+
+    searchPlaylist(term: string, limit: number, offset: number): Observable<playlistResultInterface> {
+      return this.httpService.post(environment.apiUrl + '/functions/_searchPlaylists', {
+        term,
+        limit,
+        offset
+      }).pipe(map((res: playlistResultInterface) => {
+        return res.result;
+      }))
+    }
+
+    searchPeople(term: string, limit: number, offset: number): Observable<peopleResultInterface> {
+      return this.httpService.post(environment.apiUrl + '/functions/_searchUsers', {
+        term,
+        limit,
+        offset
+      }).pipe(map((res: peopleResultInterface) => {
+        return res.result;
+      }))
+    }
+
+    searchAlbum(term: string, limit: number, offset: number): Observable<playlistResultInterface> {
+      return this.httpService.post(environment.apiUrl + '/functions/_searchAlbums', {
+        term,
+        limit,
+        offset
+      }).pipe(map((res: playlistResultInterface) => {
+        return res.result;
+      }))
+    }
 }

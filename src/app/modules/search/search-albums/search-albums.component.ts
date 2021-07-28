@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TrackInterface } from '@app/models';
+import { PlayListInterface } from '@app/models';
 import { SoundCloudService } from '@app/services';
 import { SharedService } from '@app/services/shared.service';
 
 @Component({
-  selector: 'app-search-tracks',
-  templateUrl: './search-tracks.component.html',
-  styleUrls: ['./search-tracks.component.scss']
+  selector: 'app-search-albums',
+  templateUrl: './search-albums.component.html',
+  styleUrls: ['./search-albums.component.scss']
 })
-export class SearchTracksComponent implements OnInit {
+export class SearchAlbumsComponent implements OnInit {
 
-  tracks: Array<TrackInterface> = [];
+  albums: Array<PlayListInterface> = [];
   loadData: false;
   itemsPerPage = 30;
   name: string;
   p = 1;
-  offset = -12;
+  offset = -24;
   loading = false;
 
   constructor(private route: ActivatedRoute,private soundCloudService: SoundCloudService, private sharedService: SharedService) { }
@@ -32,9 +32,9 @@ export class SearchTracksComponent implements OnInit {
   }
 
   getData() {
-    this.soundCloudService.searchTrack(this.name, 18, this.offset+=18).subscribe(data => {
+    this.soundCloudService.searchAlbum(this.name, 30, this.offset+=30).subscribe(data => {
       this.itemsPerPage += 30;
-      this.tracks.push(...data.collection);
+      this.albums.push(...data.collection);
       this.loading = false;
     }, err => {
       console.log(err)

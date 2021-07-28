@@ -14,11 +14,11 @@ export class BrowseComponent implements OnInit {
   constructor(private soundCloudService: SoundCloudService, private sharedService: SharedService) {
     this.sharedService.itemActive = "Browse";
     this.sharedService.tabbarActive = true;
-    this.sharedService.tabbarItem = 'Genres & Moods'
+    this.sharedService.tabbarItem = 'Genres & Moods';
+    this.sharedService.hideOnMobile = true;
   }
 
   ngOnInit(): void {
-
   }
 
   ngAfterContentChecked() {
