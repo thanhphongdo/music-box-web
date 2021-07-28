@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserInterface } from '@app/models';
 import { SoundCloudService } from '@app/services';
@@ -11,7 +11,7 @@ import { SharedService } from '@app/services/shared.service';
 })
 export class SearchPeopleComponent implements OnInit {
 
-  people: Array<UserInterface> = [];
+  @Input() people: Array<UserInterface> = [];
   loadData: false;
   itemsPerPage = 30;
   name: string;
@@ -25,14 +25,13 @@ export class SearchPeopleComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
         this.name = params.q;
-        this.getData()
-        this.loading = true
       }
     );
   }
 
   getData() {
-    this.soundCloudService.searchPeople(this.name, 18, this.offset+=6).subscribe(data => {
+    this.loading = true;
+    this.soundCloudService.searchPeople(this.name, 30, this.offset+=30).subscribe(data => {
       this.itemsPerPage += 30;
       this.people.push(...data.collection);
       this.loading = false;

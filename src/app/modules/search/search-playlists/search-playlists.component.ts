@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlayListInterface, TrackInterface } from '@app/models';
 import { SoundCloudService } from '@app/services';
@@ -11,12 +11,12 @@ import { SharedService } from '@app/services/shared.service';
 })
 export class SearchPlaylistsComponent implements OnInit {
 
-  playlists: Array<PlayListInterface> = [];
+  @Input() playlists: Array<PlayListInterface> = [];
   loadData: false;
   itemsPerPage = 30;
   name: string;
   p = 1;
-  offset = -24;
+  offset = 0;
   loading = false;
 
   constructor(private route: ActivatedRoute,private soundCloudService: SoundCloudService, private sharedService: SharedService) { }
@@ -25,13 +25,12 @@ export class SearchPlaylistsComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
         this.name = params.q;
-        this.getData()
-        this.loading = true
       }
     );
   }
 
   getData() {
+    this.loading = true;
     this.soundCloudService.searchPlaylist(this.name, 30, this.offset+=30).subscribe(data => {
       this.itemsPerPage += 30;
       this.playlists.push(...data.collection);

@@ -47,10 +47,10 @@ export class InputSearchComponent implements OnInit {
 
   getData(name: string) {
     forkJoin([
-      this.soundCloudService.searchTrack(name, 10, 0),
-      this.soundCloudService.searchPlaylist(name, 10, 0),
-      this.soundCloudService.searchPeople(name, 10, 0),
-      this.soundCloudService.searchAlbum(name, 10 ,0)
+      this.soundCloudService.searchTrack(name, 30, 0),
+      this.soundCloudService.searchPlaylist(name, 30, 0),
+      this.soundCloudService.searchPeople(name, 30, 0),
+      this.soundCloudService.searchAlbum(name, 30 ,0)
     ]).subscribe(([tracks, playlists, people, albums]) => {
       this.sharedService.tracks = tracks.collection;
       this.sharedService.playlists = playlists.collection;
@@ -63,16 +63,16 @@ export class InputSearchComponent implements OnInit {
   ngAfterContentChecked() {
     this.bgLanding = this.sharedService.bgLanding;
     this.searchName = this.sharedService.searchName;
+    this.sharedService.paramsSearch = this.name;
   }
 
   redirect(): void {
-    this.router.navigate(['/search']);
+    this.router.navigate(['/search/all']);
   }
 
   search() {
-    this.router.navigate(['/search'], { queryParams: {q: this.name} });
+    this.router.navigate(['/search/all'], { queryParams: {q: this.name} });
     this.getData(this.name);
-    this.sharedService.searchName = '';
   }
 
   focusEvent() {

@@ -21,6 +21,7 @@ export class SharedService {
   tabbarItem: string;
   nameGenres: string;
   hideOnMobile: boolean;
+  paramsSearch: string;
 
   constructor() {
     this.bgLanding;
@@ -37,5 +38,6 @@ export class SharedService {
     this.tabbarItem;
     this.nameGenres;
     this.hideOnMobile;
+    this.paramsSearch;
   }
 }
