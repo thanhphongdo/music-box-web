@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { PlayListInterface, SoundCloudUserInterface, TrackInterface } from '@app/models';
 import { SharedService } from '@app/services/shared.service';
@@ -14,6 +14,7 @@ export class SearchAllComponent implements OnInit {
   @Input() playlists: Array<PlayListInterface> = [];
   @Input() people: Array<SoundCloudUserInterface> = [];
   @Input() albums: Array<PlayListInterface> = [];
+  @Output() getTab = new EventEmitter();
 
   name: string;
   searchName: string;
@@ -29,8 +30,7 @@ export class SearchAllComponent implements OnInit {
     this.name = this.sharedService.paramsSearch;
   }
 
-  searchDetails(searchName: string) {
-    this.sharedService.searchName = searchName;
-    this.router.navigate(['/search/'+searchName], { queryParams: {q: this.name} });
+  sendTab(tab: any) {
+    this.getTab.emit(tab);
   }
 }

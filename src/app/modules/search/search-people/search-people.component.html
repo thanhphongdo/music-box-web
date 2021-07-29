@@ -12,7 +12,7 @@
 <div class="artist__content pt-3" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="150" (scrolled)="onScrollDown()">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-2 artist-item mb-3 artist-mb" *ngFor="let artist of people | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index ">
+      <div class="col-12 col-md-2 artist-item mb-4 artist-mb" *ngFor="let artist of people | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index ">
         <a routerLink="{{artist.router}}" class="artist-avt">
           <img src="{{artist.avatar_url ? artist.avatar_url : '../../../../../../assets/images/default/people-default.jpg'}} " alt="artist " class="avt ">
         </a>

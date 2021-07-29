@@ -36,7 +36,7 @@
 </div>
 
 <div class="track__content pt-3" class="d-block d-sm-none" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="150" (scrolled)="onScrollDown()">
-  <div class="container">
+  <div class="container pt-4">
     <div class="row">
       <div class="col-12 col-md-2 release-item mb-5" *ngFor="let item of tracks | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
         <a routerLink="#" class="link">
