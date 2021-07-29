@@ -1,4 +1,58 @@
-<div class="playlists pb-5" *ngIf="playlists && playlists.length">
+<div class="song pb-5" *ngIf="tracks && tracks.length">
+  <div class="container">
+    <div class="row ">
+      <div class="col-12 ">
+        <div class="song-top d-flex justify-content-between align-items-center ">
+          <div class="artist-title ">
+            <h5>Songs</h5>
+          </div>
+          <div class="song-view d-flex align-items-center ">
+            <a class="text-uppercase color-gray-300  view-link" (click)="sendTab('songs')">View all</a>
+            <img src="../../../../assets/images/morethan.svg " alt=" " class="ml-3 d-block d-sm-none ">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="song-content pt-4">
+    <div class="container d-none d-sm-block">
+      <div class="row flex-nowrap">
+        <div class="col-5 col-md-2 release-item" *ngFor="let item of tracks | slice:0:6; let i = index">
+          <app-background-random [item]="item"></app-background-random>
+          <div class="d-flex justify-content-between">
+            <div class="description ">
+              <h6 class="pt-2 mb-0 text-overflow" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
+              <div class="pt-1 color-white-color-200 font-12 font-11">
+                <span>{{item.artist}}</span>
+                <span class="release">Release: {{item.display_date | slice:0:10}}</span>
+              </div>
+            </div>
+            <app-pop-up-desktop class="mt-1" [item]="item" [id]="item.id"></app-pop-up-desktop>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-block d-sm-none">
+      <div class="row">
+        <div class="col-12 col-md-2 release-item mb-4" *ngFor="let item of tracks | slice:0:6 ; let i = index">
+          <a routerLink="#" class="link">
+            <img src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}" alt="img" class="image">
+          </a>
+          <div class="description">
+            <h6 class="pt-2 mb-0 text-overflow text-mb" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
+            <div class="pt-1 color-white-color-200 font-12 font-11">
+              <span>{{item.artist}}</span>
+            </div>
+          </div>
+          <app-pop-up-song [item]="item" [id]="item.id"></app-pop-up-song>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="playlists py-4" *ngIf="playlists && playlists.length">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -7,7 +61,7 @@
             <h5>Playlists</h5>
           </div>
           <div class="artist-view d-flex align-items-center">
-            <a class="text-uppercase color-gray-300 view-link" (click)="searchDetails('playlists')">View all</a>
+            <a class="text-uppercase color-gray-300 view-link" (click)="sendTab('playlists')">View all</a>
             <img src="../../../../assets/images/morethan.svg" alt="" class="ml-3 d-block d-sm-none">
           </div>
         </div>
@@ -30,7 +84,7 @@
             <h5>Albums</h5>
           </div>
           <div class="album-view d-flex align-items-center ">
-            <a class="text-uppercase color-gray-300  view-link" (click)="searchDetails('albums')">View all</a>
+            <a class="text-uppercase color-gray-300  view-link" (click)="sendTab('albums')">View all</a>
             <img src="../../../../assets/images/morethan.svg " alt=" " class="ml-3 d-block d-sm-none ">
           </div>
         </div>
@@ -75,74 +129,9 @@
   </div>
 </div>
 
-<div class="song py-5" *ngIf="tracks && tracks.length">
-  <div class="container">
-    <div class="row ">
-      <div class="col-12 ">
-        <div class="song-top d-flex justify-content-between align-items-center ">
-          <div class="artist-title ">
-            <h5>Songs</h5>
-          </div>
-          <div class="song-view d-flex align-items-center ">
-            <a class="text-uppercase color-gray-300  view-link" (click)="searchDetails('tracks')">View all</a>
-            <img src="../../../../assets/images/morethan.svg " alt=" " class="ml-3 d-block d-sm-none ">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="song-content pt-3">
-    <!-- <app-track-item [tracks]="tracks"></app-track-item> -->
-    <div class="container d-none d-sm-block">
-      <div class="row flex-nowrap">
-        <div class="col-5 col-md-2 release-item" *ngFor="let item of tracks | slice:0:6; let i = index">
-          <app-background-random [item]="item"></app-background-random>
-          <div class="d-flex justify-content-between">
-            <div class="description ">
-              <h6 class="pt-2 mb-0 text-overflow" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
-              <div class="pt-1 color-white-color-200 font-12 font-11">
-                <span>{{item.artist}}</span>
-                <span class="release">Release: {{item.display_date | slice:0:10}}</span>
-              </div>
-            </div>
-            <app-pop-up-desktop class="mt-1" [item]="item" [id]="item.id"></app-pop-up-desktop>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="container d-block d-sm-none">
-      <div class="row">
-        <div class="col-12 col-md-2 release-item mb-4" *ngFor="let item of tracks | slice:0:6 ; let i = index">
-          <a routerLink="#" class="link">
-            <img src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}" alt="img" class="image">
-            <!-- <img src="assets/images/playlistCell/Quick Play.svg" alt="Quick play" class="play"> -->
-          </a>
-          <div class="description">
-            <h6 class="pt-2 mb-0 text-overflow text-mb" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
-            <div class="pt-1 color-white-color-200 font-12 font-11">
-              <span>{{item.artist}}</span>
-              <!-- <span class="release">Release: {{item.display_date | slice:0:10}}</span> -->
-            </div>
-          </div>
-          <app-pop-up-song [item]="item" [id]="item.id"></app-pop-up-song>
-        </div>
-      </div>
-    </div>
 
-    <!-- <ng-container *ngIf="searchName === 'tracks'">
-      <div class="row" *ngIf="loading">
-        <div class="col-12 text-center">
-          <p>Loading ...</p>
-        </div>
-      </div>
-      <app-search-tracks></app-search-tracks>
-    </ng-container> -->
-
-  </div>
-</div>
-
-<div class="artists py-5" *ngIf="people && people.length">
+<div class="artists py-4" *ngIf="people && people.length">
   <div class="container ">
     <div class="row ">
       <div class="col-12 ">
@@ -151,7 +140,7 @@
             <h5>Artists</h5>
           </div>
           <div class="artist-view d-flex align-items-center ">
-            <a class="text-uppercase color-gray-300  view-link" (click)="searchDetails('people')">View all</a>
+            <a class="text-uppercase color-gray-300  view-link" (click)="sendTab('artist')">View all</a>
             <img src="../../../../assets/images/morethan.svg " alt=" " class="ml-3 d-block d-sm-none ">
           </div>
         </div>
@@ -176,13 +165,5 @@
         </div>
       </div>
     </div>
-    <!-- <ng-container *ngIf="searchName === 'people'">
-      <div class="row" *ngIf="loading">
-        <div class="col-12 text-center">
-          <p>Loading ...</p>
-        </div>
-      </div>
-      <app-search-people></app-search-people>
-    </ng-container> -->
   </div>
 </div>

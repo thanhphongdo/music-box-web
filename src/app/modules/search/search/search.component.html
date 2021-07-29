@@ -1,6 +1,6 @@
-<div class="search-input py-5">
-  <app-input-search class="d-block d-lg-none">
-  </app-input-search>
+<div class="search-input py-5 d-block d-lg-none">
+  <app-back class="btn-back"></app-back>
+  <app-input-search></app-input-search>
 </div>
 <div class="search-menu container-fluid bg-black-color-100 text-white pt-2">
   <div class="container py-5 d-block d-sm-none height" *ngIf="!loadData">
@@ -22,24 +22,43 @@
 <app-tab-bar class="d-block d-lg-none"></app-tab-bar>
 
 <div class="search container-fluid bg-black-color-100 text-white master-layout px-0" *ngIf="loadData">
+  <div class="search-nav w-100 py-5" *ngIf="playlists.length || tracks.length || people.length || albums.length">
+    <div class="container navbar-tab">
+      <div class="row">
+        <div class="col-12 col-md-12 nav-detail">
+          <overlay-scrollbars [options]="{scrollbars: { autoHide: 'scroll' }}">
+            <div class="d-flex align-items-end">
+              <h1 class="font-32 py-1 mb-0 mr-4 font-weight-bold d-none d-sm-block">Search Result</h1>
+              <ul class="menu d-flex px-0 py-1 m-0">
+                <li class="menu-item" *ngFor="let item of menuList" [ngClass]="{'active':selectedItem === item}">
+                  <a [routerLink]="" (click)="openMenuList(item)" class="menu-link">{{item}}</a>
+                </li>
+              </ul>
+            </div>
+          </overlay-scrollbars>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="search-details pb-5">
-    <ng-container *ngIf="searchName === 'all'">
-      <app-search-all [tracks]="tracks" [playlists]="playlists" [albums]="albums" [people]="people"></app-search-all>
+    <ng-container *ngIf="selectedItem === 'all'">
+      <app-search-all [tracks]="tracks" [playlists]="playlists" [albums]="albums" [people]="people" (getTab)="receiveTab($event)"></app-search-all>
     </ng-container>
 
-    <ng-container *ngIf="searchName === 'playlists'">
+    <ng-container *ngIf="selectedItem === 'playlists'">
       <app-search-playlists [playlists]="playlists"></app-search-playlists>
     </ng-container>
 
-    <ng-container *ngIf="searchName === 'albums'">
+    <ng-container *ngIf="selectedItem === 'albums'">
       <app-search-albums [albums]="albums"></app-search-albums>
     </ng-container>
 
-    <ng-container *ngIf="searchName === 'tracks'">
+    <ng-container *ngIf="selectedItem === 'songs'">
       <app-search-tracks [tracks]="tracks"></app-search-tracks>
     </ng-container>
 
-    <ng-container *ngIf="searchName === 'people'">
+    <ng-container *ngIf="selectedItem === 'artists'">
       <app-search-people [people]="people"></app-search-people>
     </ng-container>
   </div>

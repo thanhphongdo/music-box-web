@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { PlayListInterface, SoundCloudUserInterface, TrackInterface } from '@app/models';
 import { SharedService } from '@app/services/shared.service';
 
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -20,6 +19,8 @@ export class SearchComponent implements OnInit {
   searchName: string;
   parsedUrl: any;
   baseUrl: any;
+  menuList = ['all','songs','playlists','albums','artists'];
+  selectedItem = this.menuList[0];
 
   constructor(
     private router: Router,
@@ -45,6 +46,7 @@ export class SearchComponent implements OnInit {
     this.parsedUrl = new URL(window.location.href);
     this.baseUrl = this.parsedUrl.pathname;
     this.sharedService.searchName = this.baseUrl.slice(8);
+    this.selectedItem = this.baseUrl.slice(8);
   }
 
   redirect(): void {
@@ -52,5 +54,16 @@ export class SearchComponent implements OnInit {
     .then(() => {
       window.location.reload();
     });
+  }
+
+  openMenuList(item: any) {
+    this.selectedItem = item
+    this.sharedService.searchName = item;
+    this.router.navigate(['/search/'+item], { queryParams: {q: this.name} });
+  }
+
+  receiveTab($event) {
+    this.selectedItem = $event;
+    this.router.navigate(['/search/'+$event], { queryParams: {q: this.name} });
   }
 }

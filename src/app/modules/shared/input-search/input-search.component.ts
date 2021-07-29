@@ -67,7 +67,7 @@ export class InputSearchComponent implements OnInit {
   }
 
   redirect(): void {
-    this.router.navigate(['/search/all']);
+    this.name ? '' : this.router.navigate(['/search/all'])
   }
 
   search() {

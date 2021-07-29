@@ -29,3 +29,9 @@
     height: 301px;
   }
 }
+
+@media (max-width: 575px) {
+  .app-content {
+    height: 100vh;
+  }
+}

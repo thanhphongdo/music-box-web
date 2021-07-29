@@ -26,6 +26,47 @@
   }
 }
 
+.nav-detail {
+  li {
+    margin-left: 36px;
+    list-style-type: none;
+    display: inline-block;
+    .menu-link {
+      color: white;
+      display: block;
+      white-space: nowrap;
+      text-transform: uppercase;
+      &:hover {
+        text-decoration: none;
+      }
+      font-weight: bold;
+    }
+  }
+}
+
+.active a {
+  position: relative;
+  &::after {
+    content: "";
+    width: 42px;
+    height: 3px;
+    background-color: #2D9BEF;
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 991.98px) {
+  h1 {
+    font-size: 30px;
+  }
+  .search-nav {
+    padding-top: 0 !important;
+  }
+}
+
 @media (max-width: 575.98px) {
   .search {
     .artist-mb {
@@ -64,7 +105,22 @@
       cursor: pointer;
     }
   }
-  .height {
-    height: 100vh;
+  .nav-detail {
+    li {
+      margin-left: 0;
+      padding: 10px 0;
+      padding-right: 3rem;
+    }
+    .top-song {
+      flex: none;
+    }
+  }
+  .btn-back {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+  }
+  .search-input {
+    padding-top: 80px !important;
   }
 }

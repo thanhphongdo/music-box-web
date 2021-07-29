@@ -29,7 +29,7 @@ export class TabBarComponent implements OnInit {
   }
 
   openTabList(item: any) {
-    this.router.navigate(['/' + item.name.toLowerCase()]);
+    item.name === 'Search' ? this.router.navigate(['/' + item.name.toLowerCase() + '/all']) :   this.router.navigate(['/' + item.name.toLowerCase()]);
     this.selectedItem = item.name;
   }
 }
