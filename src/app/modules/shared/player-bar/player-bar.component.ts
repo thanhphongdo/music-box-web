@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
-import { PlayerService, SoundCloudService } from '@app/services';
-import { TrackInterface } from '@app/models';
-import Hls from 'hls.js';
+import { PlayerService } from '@app/services';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class PlayerBarComponent implements OnInit {
   dataLoaded: Observable<boolean> = this.playerService.hadData$;
-
   value:number = 1;
   options: Options = {
     floor: 0,
@@ -32,13 +29,13 @@ export class PlayerBarComponent implements OnInit {
       return `${minute}:${second < 10 ? '0' + second : second}`;
     }
   };
-  constructor(public playerService: PlayerService, private soundCloudService: SoundCloudService) { }
+  constructor(public playerService: PlayerService) { }
 
   ngOnInit(): void {
     this.totalDuration();
     this.playerService.getCurrentValue().subscribe(v => {
       this.value = v;
-    })
+    });
   }
   
   play() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Options } from '@angular-slider/ngx-slider';
 import { PlayerService } from 'src/app/services';
@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
 })
-export class PlayerComponent implements OnInit {
+export class PlayerComponent implements OnInit, OnDestroy {
   dataLoaded: Observable<boolean> = this.player.hadData$;
 
   value: number = 1;
@@ -34,7 +34,7 @@ export class PlayerComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    public player: PlayerService
+    public player: PlayerService,
     ) { }
   
   ngOnInit(): void {
@@ -43,8 +43,11 @@ export class PlayerComponent implements OnInit {
     this.player.getCurrentValue().subscribe(v => {
       this.value = v;
     })
+    this.player.isPlayerPages();
   }
-  
+  ngOnDestroy(): void {
+    this.player.isNotPlayerPages();
+  }
   loadData() {
     // 127755258
     const playlistId = Number(this.route.snapshot.paramMap.get('id'));

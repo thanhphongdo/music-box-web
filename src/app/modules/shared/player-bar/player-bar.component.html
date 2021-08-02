@@ -1,3 +1,4 @@
+<div *ngIf="!playerService.isPlayerPage">
 <div class="container-fluid player-bar" *ngIf="dataLoaded | async" style="position: fixed; bottom: 10px; z-index: 99999;">
 <div class="row">
     <div class="col-12 d-none d-lg-block">  
@@ -46,9 +47,10 @@
             <div>
                 <img src="assets/images/player-bar/Pause.svg" alt="img" *ngIf="playerService.isPlaying" (click)="pause()" class="mx-3">
                 <img src="assets/images/player-bar/play.svg" alt="img" *ngIf="!playerService.isPlaying" (click)="play()" class="mx-4">
-                <img src="assets/images/player-bar/next.svg" alt="img">
+                <img src="assets/images/player-bar/next.svg" alt="img" (click)="next()">
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>

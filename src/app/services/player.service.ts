@@ -19,7 +19,8 @@ export class PlayerService {
   public hadData$ = this.dataLoaded.asObservable();
   public valuePublic$ = this.value.asObservable();
   public durationPublic$ = this.duration.asObservable();
-
+  
+  public isPlayerPage = false;
   private updateValue: any;
   public isPlaying = false;
   public shuffleState = false;
@@ -52,6 +53,7 @@ export class PlayerService {
       .toPromise()
       .then(data => {
         this.track = data;
+        console.log(this.track);
         this.duration.next(this.track.duration);
         return this.soundCloudService.getHLS(this.track?.media.transcodings[0]?.url)
           .toPromise()
@@ -64,6 +66,7 @@ export class PlayerService {
         });
         if (isPlaying) this.playAudio();
         this.dataLoaded.next(true);
+        this.doEventRepeat();
       })
       .catch(err => {
         console.error(err);
@@ -161,4 +164,10 @@ export class PlayerService {
     }
   }
   
+  public isPlayerPages() {
+    this.isPlayerPage = true;
+  }
+  public isNotPlayerPages() {
+    this.isPlayerPage = false;
+  }
 }
