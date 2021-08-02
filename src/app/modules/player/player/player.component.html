@@ -1,4 +1,4 @@
-<div class="player d-flex flex-column justify-content-between" *ngIf="dataLoaded">
+<div class="player d-flex flex-column justify-content-between" *ngIf="dataLoaded | async">
 <!-- <div class="bg-blur" style="background-image: url(assets/images/player/Image210.svg);"></div> -->
 <div>
     <div class="container mb-4">
@@ -6,7 +6,7 @@
             <div class="player--header col-12">
                 <div class="d-flex flex-column align-items-center color-white-color-100">
                     <div class="font-14">Playlist</div>
-                    <div class="font-18">{{ playlist.title }}</div>
+                    <div class="font-18">{{ player.playlist.title }}</div>
                 </div>
             </div>
         </div>
@@ -14,13 +14,11 @@
 
     <div class="player--detail overflow-hidden">
         <div class="images-carousel d-flex align-items-center justify-content-center mb-3">
-            <!-- <img src="assets/images/player/Image296.svg" class="prev round-16" alt="Image"> -->
-            <img [src]="track.artwork_url.replace('large', 't500x500')" class="center round-16 mx-3" alt="Image">
-            <!-- <img src="assets/images/player/Image411.svg" class="next round-16" alt="Image"> -->
+            <img [src]="player.track.artwork_url?.replace('large', 't500x500')" class="center round-16 mx-3" alt="Image">
         </div>
         <div class="d-flex flex-column align-items-center">
-            <div class="font-16 color-white-color-100">{{ track.label_name }}</div>
-            <div class="font-14 color-white-color-200">{{ track.publisher_metadata.artist }}</div>
+            <div class="font-16 color-white-color-100">{{ player.track.label_name }}</div>
+            <div class="font-14 color-white-color-200">{{ player.track.publisher_metadata?.artist }}</div>
         </div>
     </div>
 </div>
@@ -37,15 +35,15 @@
                     <ngx-slider [(value)]="value" [options]="options" (userChange)="seekTo()"></ngx-slider>
                 </div>
                 <div class="col-12 d-flex align-items-center justify-content-between mb-3">
-                    <img src="assets/images/player/Shuffle.svg" alt="Shuffle" height="22px" *ngIf="!shuffleState" (click)="changeShuffleState()">
-                    <img src="assets/images/player/UnShuffle.svg" alt="Shuffle" height="22px" *ngIf="shuffleState" (click)="changeShuffleState()">
+                    <img src="assets/images/player/Shuffle.svg" alt="Shuffle" height="22px" *ngIf="!player.shuffleState" (click)="player.toggleShuffleState()">
+                    <img src="assets/images/player/UnShuffle.svg" alt="Shuffle" height="22px" *ngIf="player.shuffleState" (click)="player.toggleShuffleState()">
                     <img src="assets/images/player/previous.svg" alt="previous" width="20px" (click)="prevTrack()">
-                    <img src="assets/images/player/Pause.svg" alt="Pause" width="20px" *ngIf="isPlaying" (click)="pause()">
-                    <img src="assets/images/player/play.svg" alt="play" width="20px" *ngIf="!isPlaying" (click)="play()">
+                    <img src="assets/images/player/Pause.svg" alt="Pause" height="30px" *ngIf="player.isPlaying" (click)="pause()">
+                    <img src="assets/images/player/play.svg" alt="play" height="30px" *ngIf="!player.isPlaying" (click)="play()">
                     <img src="assets/images/player/next.svg" alt="next" width="20px" (click)="nextTrack()">
-                    <img src="assets/images/player/norepeat.svg" alt="norepeat" width="20px" *ngIf="repeatState === 0" (click)="changeRepeatState()">
-                    <img src="assets/images/player/repeatone.svg" alt="repeat" width="20px" *ngIf="repeatState === 1" (click)="changeRepeatState()">
-                    <img src="assets/images/player/Repeat.svg" alt="repeat" width="20px" *ngIf="repeatState === 2" (click)="changeRepeatState()">
+                    <img src="assets/images/player/norepeat.svg" alt="norepeat" width="20px" *ngIf="player.repeatState === 0" (click)="player.changeRepeatState()">
+                    <img src="assets/images/player/repeatone.svg" alt="repeat" width="20px" *ngIf="player.repeatState === 1" (click)="player.changeRepeatState()">
+                    <img src="assets/images/player/Repeat.svg" alt="repeat" width="20px" *ngIf="player.repeatState === 2" (click)="player.changeRepeatState()">
                 </div>
             </div>
         </div>

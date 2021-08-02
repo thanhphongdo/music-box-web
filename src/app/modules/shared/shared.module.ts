@@ -16,6 +16,8 @@ import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
 import { TabMenuComponent } from './tab-menu/tab-menu.component';
 import { BackComponent } from './back/back.component';
+import { PlayerBarComponent } from './player-bar/player-bar.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { BackComponent } from './back/back.component';
     NavbarMenuComponent,
     TabMenuComponent,
     BackComponent,
+    PlayerBarComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +41,8 @@ import { BackComponent } from './back/back.component';
     OverlayscrollbarsModule,
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSliderModule
   ],
   exports: [
     HeaderComponent,
@@ -51,6 +55,7 @@ import { BackComponent } from './back/back.component';
     InputSearchComponent,
     TabBarComponent,
     NavbarMenuComponent,
+    PlayerBarComponent,
     BackComponent
   ]
 })

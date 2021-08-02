@@ -1,0 +1,63 @@
+.player-ui {
+    background-color: #3A3A3D;
+    color: white;
+    .volume_slider {
+      height: 3px;
+      &:-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 3px !important;
+        height: 3px !important;
+      }
+    }
+  }
+  .player-ui-mobile {
+    background-color: #3A3A3D;
+    color: white;
+    
+  }
+  ::ng-deep {
+    .player-bar .ngx-slider .ngx-slider-bubble {
+      bottom: -10px !important;
+      color: #ffffff !important;
+    }
+    .player-bar .ngx-slider-model-value {
+      left: -45px !important;
+    }
+    .player-bar .ngx-slider-floor {
+      display: none !important;
+    }
+    .player-bar .ngx-slider-pointer {
+      width: 11px !important;
+      height: 11px !important;
+      top: -4px !important;
+      &::after {
+        display: none;
+      }
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .track-slider {
+      width: 430px;
+    }
+    ::ng-deep {
+      .player-bar .ngx-slider-ceil {
+        left: 445px !important;
+      }
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .track-slider {
+      width: 640px;
+    }
+    ::ng-deep {
+      .player-bar .ngx-slider-ceil {
+        left: 650px !important;
+      }
+    }
+  }
+  
