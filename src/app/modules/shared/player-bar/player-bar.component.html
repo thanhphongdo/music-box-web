@@ -1,0 +1,56 @@
+<div *ngIf="!playerService.isPlayerPage">
+<div class="container-fluid player-bar" *ngIf="dataLoaded | async" style="position: fixed; bottom: 10px; z-index: 99999;">
+<div class="row">
+    <div class="col-12 d-none d-lg-block">  
+        <div class="player-ui rounded p-3 d-flex align-items-center justify-content-between">
+            <div class="player-ui--info d-flex align-items-center">
+            <img src="assets/images/player-bar/Image59.svg" alt="img" width="58px" class="track-img">
+            <div class="mx-3">
+                <div class="track-name mb-1">Rebel Rebel</div>
+                <div class="track-auther">David Bowie</div>
+            </div>
+            <img src="assets/images/player-bar/AddtoFavorite.svg" alt="img" class="mx-lg-2 mx-xl-3">
+            <img src="assets/images/player-bar/AddToPlaylist(web).svg" alt="img" class="mx-lg-2 mx-xl-3">
+            </div>
+
+            <div class="player-ui--player d-flex flex-column align-items-center">
+            <div class="track-control d-flex align-items-center">
+                <img src="assets/images/player/UnShuffle.svg" alt="img" height="18px" *ngIf="playerService.shuffleState" (click)="playerService.toggleShuffleState()" class="mx-4">
+                <img src="assets/images/player-bar/Shuffle18.svg" alt="img" height="18px" *ngIf="!playerService.shuffleState" (click)="playerService.toggleShuffleState()" class="mx-4">
+                <img src="assets/images/player-bar/prev.svg" alt="img" (click)="prev()" class="mx-4">
+                <img src="assets/images/player-bar/Pause.svg" alt="img" *ngIf="playerService.isPlaying" (click)="pause()" class="mx-4">
+                <img src="assets/images/player-bar/play.svg" alt="img" *ngIf="!playerService.isPlaying" (click)="play()" class="mx-4">
+                <img src="assets/images/player-bar/next.svg" alt="img" (click)="next()" class="mx-4">
+                <img src="assets/images/player/norepeat.svg" alt="norepeat" height="18px" *ngIf="playerService.repeatState === 0" (click)="playerService.changeRepeatState()">
+                <img src="assets/images/player/repeatone.svg" alt="repeat" height="18px" *ngIf="playerService.repeatState === 1" (click)="playerService.changeRepeatState()">
+                <img src="assets/images/player/Repeat.svg" alt="repeat" height="18px" *ngIf="playerService.repeatState === 2" (click)="playerService.changeRepeatState()">
+            </div>
+            <div class="track-slider">
+                <ngx-slider [(value)]="value" [options]="options" (userChange)="seekTo()"></ngx-slider>
+            </div>
+            </div>
+
+            <div class="player-ui--other-control d-flex align-items-center">
+                <img src="assets/images/player-bar/Rectangle112(3).svg" alt="img" class="mx-4">
+                <img src="assets/images/player-bar/Rectangle112(2).svg" alt="img" class="mx-1">
+                <input type="range" min="1" max="100" value="99" class="volume_slider">
+            </div>
+        </div>
+    </div>
+        <div class="col-12 d-lg-none d-block">
+        <div class="player-ui-mobile p-3 d-flex align-items-center justify-content-between rounded">
+            <div class="d-flex align-items-center">
+                <img src="assets/images/player-bar/Image59.svg" alt="img" width="42px" class="track-img">
+                <div class="mx-1"></div>
+                <span>Rebel Rebel</span> - <span>David Bowie</span>
+            </div>
+            <div>
+                <img src="assets/images/player-bar/Pause.svg" alt="img" *ngIf="playerService.isPlaying" (click)="pause()" class="mx-3">
+                <img src="assets/images/player-bar/play.svg" alt="img" *ngIf="!playerService.isPlaying" (click)="play()" class="mx-4">
+                <img src="assets/images/player-bar/next.svg" alt="img" (click)="next()">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

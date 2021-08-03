@@ -9,11 +9,12 @@ import { PlayListInterface, TrackInterface } from '@app/models';
 export class BackgroundRandomComponent implements OnInit {
   @Input() item: TrackInterface | PlayListInterface;
   bgRandom: string;
-
+  router: string
   constructor() { }
 
   ngOnInit(): void {
     this.getRandomBackground();
+    this.router = `/player/playlist/${this.item.id}`
   }
 
   getRandomBackground() {

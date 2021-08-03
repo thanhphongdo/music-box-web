@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
   HttpClientBaseService,
+  PlayerService,
   SoundCloudService,
   UserService
 } from './services';
@@ -24,7 +25,8 @@ import {
   providers: [
     HttpClientBaseService,
     SoundCloudService,
-    UserService
+    UserService,
+    PlayerService
   ],
   bootstrap: [AppComponent]
 })
