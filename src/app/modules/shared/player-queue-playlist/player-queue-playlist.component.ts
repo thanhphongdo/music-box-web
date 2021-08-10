@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { TrackInterface } from '@app/models';
+import { PlayerService } from '@app/services';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-player-queue-playlist',
@@ -6,20 +9,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./player-queue-playlist.component.scss']
 })
 export class PlayerQueuePlaylistComponent implements OnInit {
+  dataLoaded: Observable<boolean> = this.playerService.hadData$;
   queueShow = false;
-  items = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14];
+  items$: Observable<TrackInterface[]> = this.playerService.tracks$;
+  next: any
   options = {
-    onUpdate: (event: any) => {
-      console.log(this.items);
-    },
     handle: '.handle',
+    onUpdate: (event: any) => {
+      this.postChangesToService(event);
+    }
   };
-  constructor() { }
+  constructor(public playerService: PlayerService) { }
 
   ngOnInit(): void {
+    this.playerService.nextTrack$.subscribe(i => {this.next = i})
   }
 
   toggleQueueShow(): void {
     this.queueShow = !this.queueShow;
+  }
+  postChangesToService(e: any) {
+    // console.log(e);
+    this.playerService.sortableDisplayTracks(e.oldIndex, e.newIndex);
   }
 }

@@ -1,5 +1,6 @@
 import { Options } from '@angular-slider/ngx-slider';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { PlayerService } from '@app/services';
 
 @Component({
   selector: 'app-player-popup',
@@ -30,13 +31,37 @@ export class PlayerPopupComponent implements OnInit {
     }
   };
   
-  constructor() { }
+  constructor(public playerService: PlayerService) { }
 
   ngOnInit(): void {
+    this.playerService.getCurrentValue().subscribe(v => {
+      this.sliderValue = v;
+    })
+    this.playerService.durationPublic$.subscribe(d => {
+      this.sliderOptions = {
+        ...this.sliderOptions,
+        ceil: d
+      };
+    });
   }
 
   downPlayerPopup(): void {
     this.show = false;
     this.hide.emit(this.show);
+  }
+  play() {
+    this.playerService.playAudio();
+  }
+  pause() {
+    this.playerService.pauseAudio();
+  }
+  seekTo() {
+    this.playerService.seekAudio(Math.floor(this.sliderValue / 1000));
+  }
+  prevTrack() {
+    this.playerService.prevTrack();
+  }
+  nextTrack() {
+    this.playerService.nextTrack();
   }
 }

@@ -1,17 +1,10 @@
 <div class="player .container-fluid" [ngClass]="{ mobile: isMobile }">
-  <div class="col-12 px-0">
-    <app-player-in-web
-      [track]="track"
-      [sliderValue]="sliderValue"
-      [sliderOptions]="sliderOptions"
-      *ngIf="!isMobile"
-    ></app-player-in-web>
+  <div class="col-12 px-0" *ngIf="dataLoaded | async">
+    <app-player-in-web *ngIf="!isMobile"></app-player-in-web>
     <app-player-in-mobile
-      [track]="track"
-      [sliderValue]="sliderValue"
-      [sliderOptions]="sliderOptions"
       *ngIf="isMobile"
       (click)="showPlayer()"
+      (isControlEvent)="checkControlEvent($event)"
     ></app-player-in-mobile>
   </div>
 </div>
