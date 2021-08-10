@@ -1,0 +1,21 @@
+.queue-playlist {
+    background-color: #18191C;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    overflow-y: hidden;
+    transition: 500ms all ease-in-out;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: 1000;
+    & .queue-header {
+        height: 60px;
+    }
+    & .queue-items {
+        max-height: calc(100vh - 65px);
+    }
+    &.up {
+        height: 100vh;
+    }
+}

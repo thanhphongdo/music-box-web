@@ -53,7 +53,7 @@ export class PlayerService {
       .toPromise()
       .then(data => {
         this.track = data;
-        console.log(this.track);
+        // console.log(JSON.stringify(this.track));
         this.duration.next(this.track.duration);
         return this.soundCloudService.getHLS(this.track?.media.transcodings[0]?.url)
           .toPromise()

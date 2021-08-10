@@ -18,6 +18,13 @@ import { TabMenuComponent } from './tab-menu/tab-menu.component';
 import { BackComponent } from './back/back.component';
 import { PlayerBarComponent } from './player-bar/player-bar.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { PlayerComponent } from './player/player.component';
+import { PlayerInWebComponent } from './player-in-web/player-in-web.component';
+import { PlayerInMobileComponent } from './player-in-mobile/player-in-mobile.component';
+import { PlayerPopupComponent } from './player-popup/player-popup.component';
+import { PlayerQueuePlaylistComponent } from './player-queue-playlist/player-queue-playlist.component';
+import { PlayerQueueItemComponent } from './player-queue-item/player-queue-item.component';
+import { SortablejsModule } from 'ngx-sortablejs';
 
 @NgModule({
   declarations: [
@@ -34,6 +41,12 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     TabMenuComponent,
     BackComponent,
     PlayerBarComponent,
+    PlayerComponent,
+    PlayerInWebComponent,
+    PlayerInMobileComponent,
+    PlayerPopupComponent,
+    PlayerQueuePlaylistComponent,
+    PlayerQueueItemComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +55,9 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxSliderModule
+    NgxSliderModule,
+    SortablejsModule.forRoot({ animation: 150 }),
+    SortablejsModule
   ],
   exports: [
     HeaderComponent,
@@ -56,7 +71,9 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     TabBarComponent,
     NavbarMenuComponent,
     PlayerBarComponent,
-    BackComponent
+    BackComponent,
+    PlayerComponent,
+    PlayerPopupComponent
   ]
 })
 export class SharedModule { }

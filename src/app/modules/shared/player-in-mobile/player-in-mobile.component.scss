@@ -1,0 +1,19 @@
+.player-mobile {
+  background-color: #303033;
+  height: 62px;
+  overflow: hidden;
+  ::ng-deep {
+    .ngx-slider {
+      margin: 0 !important;
+      padding: 0 !important;
+      top: -11px;
+      & .ngx-slider-span {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+    }
+    .ngx-slider-pointer {
+      display: none !important;
+    }
+  }
+}

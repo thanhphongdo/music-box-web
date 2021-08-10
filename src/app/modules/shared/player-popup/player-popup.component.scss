@@ -1,0 +1,56 @@
+.player-popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 0;
+  overflow-y: hidden;
+  background-color: rgba($color: rgb(48, 44, 0), $alpha: 1);
+  z-index: 999;
+  color: white;
+  transition: 500ms all ease-in-out;
+  ::ng-deep {
+    .ngx-slider .ngx-slider-bubble {
+      bottom: -25px !important;
+      color: #ffffff !important;
+    }
+    .ngx-slider-model-value {
+      left: 0px !important;
+    }
+    .ngx-slider-floor {
+      display: none !important;
+    }
+    .ngx-slider-pointer-min {
+      width: 11px !important;
+      height: 11px !important;
+      top: -4px !important;
+      &::after {
+        display: none;
+      }
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+}
+.up {
+  height: 100vh;
+}
+.player-control {
+  position: absolute;
+  bottom: 100px;
+  height: 0;
+  overflow: hidden;
+  left: 0;
+  transition: 100ms all ease-in-out;
+}
+.control-up {
+  height: auto;
+}
+
+
+@media (max-width: 320px) {
+  .player-control {
+    bottom: 5px;
+  }
+}

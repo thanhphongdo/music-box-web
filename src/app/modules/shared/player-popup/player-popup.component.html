@@ -1,0 +1,36 @@
+<div class="player-popup" [ngClass]="{'up': show}">
+    <div class="w-100">
+        <div class="w-100 px-4 d-flex align-items-center justify-content-between my-3">
+            <img src="assets/playericons/Path112.png" alt="icon" width="18px" height="8px" (click)="downPlayerPopup()">
+            <div class="text-center">
+                <span class="color-white-color-200 font-14">Playlist</span>
+                <br>
+                <span class="color-white-color-100 font-18">70s Rock Anthems</span>
+            </div>
+            <img src="assets/playericons/Path112.png" alt="icon" width="18px" height="8px" style="visibility: hidden;">
+        </div>
+        <div class="text-center w-100 mt-4">
+            <img src="assets/playericons/Image210.png" alt="image" class="rounded mb-3" width="300px" height="300px"><br>
+            <span class="color-white-color-100 font-16">Rebel Rebel</span><br>
+            <span class="color-white-color-200 font-14">David Bowie</span>
+        </div>
+    </div>
+    <div class="w-100 player-control" [ngClass]="{'control-up': show}">
+        <div class="w-100 d-flex align-items-center justify-content-around mb-3">
+            <img src="assets/playericons/AddtoPlaylist.png" alt="icon" width="20px" height="20px">
+            <img src="assets/playericons/addtofav.png" alt="icon" width="22px" height="20px">
+            <img src="assets/playericons/More20.png" alt="icon" width="4px" height="20px">
+        </div>
+        <div class="w-100 px-4 mb-3">
+            <ngx-slider [value]="sliderValue" [options]="sliderOptions"></ngx-slider>
+        </div>
+        <div class="w-100 px-4 d-flex align-items-center justify-content-between">
+            <img src="assets/playericons/Shuffle18.png" alt="icon" width="22px" height="22px">
+            <img src="assets/playericons/prev.png" alt="icon" width="22px" height="22px">
+            <img src="assets/playericons/Pause.png" alt="icon" width="26px" height="30px">
+            <img src="assets/playericons/next.png" alt="icon" width="22px" height="22px">
+            <img src="assets/playericons/Repeat18.png" alt="icon" width="22px" height="22px">
+        </div>
+    </div>
+    <app-player-queue-playlist></app-player-queue-playlist>
+</div>

@@ -1,0 +1,19 @@
+<div class="queue-playlist w-100 px-4" [ngClass]="{'up': queueShow}">
+    <div class="queue-header w-100 d-flex align-items-center">
+        <img src="assets/playericons/Queue.png" alt="icon" width="20px" height="20px" class="mr-2">
+        <span class="color-white-color-100 font-15 flex-grow-1">Next Up: Baba O'Riley - The Who - The Who</span>
+        <img 
+            [src]="!queueShow ? 'assets/playericons/Path111.png' : 'assets/playericons/Path112.png'" 
+            alt="icon" 
+            width="16px" 
+            height="8px" 
+            class="ml-2" 
+            (click)="toggleQueueShow()"
+        >
+    </div>
+    <overlay-scrollbars [options]="{ scrollbars: { visibility: 'hidden' } }">
+        <div class="queue-items w-100" [sortablejs]="items" [sortablejsOptions]="options">
+            <app-player-queue-item *ngFor="let item of items" [item]="item"></app-player-queue-item>
+        </div>
+    </overlay-scrollbars>
+</div>
