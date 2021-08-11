@@ -33,6 +33,18 @@ const routes: Routes = [
     )
   },
   {
+    path: 'library',
+    loadChildren: () => import('./modules/library/library.module').then(
+      (m) => m.LibraryModule
+    )
+  },
+  {
+    path: 'library/:name',
+    loadChildren: () => import('./modules/library/library.module').then(
+      (m) => m.LibraryModule
+    )
+  },
+  {
     path: 'search/:name',
     loadChildren: () => import('./modules/search/search.module').then(
       (m) => m.SearchModule

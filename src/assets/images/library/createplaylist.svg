@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="18" height="18" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Create_Playlist" data-name="Create Playlist" clip-path="url(#clip-path)">
+    <path id="Path_835" data-name="Path 835" d="M14,0H4A4.012,4.012,0,0,0,0,4V14a4.012,4.012,0,0,0,4,4H14a4.012,4.012,0,0,0,4-4V4A4.012,4.012,0,0,0,14,0Zm2.5,14A2.476,2.476,0,0,1,14,16.5H4A2.476,2.476,0,0,1,1.5,14V4A2.476,2.476,0,0,1,4,1.5H14A2.476,2.476,0,0,1,16.5,4Z" fill="#fff"/>
+    <path id="Path_836" data-name="Path 836" d="M9.8,4H8.3V8.3H4V9.8H8.3V14H9.7V9.8H14V8.3H9.8Z" fill="#fff"/>
+  </g>
+</svg>

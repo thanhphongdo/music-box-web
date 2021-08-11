@@ -1,0 +1,12 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 mb-4" *ngFor="let item of menuList">
+      <div class="d-flex">
+        <img src="{{item.image}}" alt="">
+        <a routerLink="{{item.router}}" class="text-white">
+          <h5 class="mb-0 ml-3">{{item.name}}</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
