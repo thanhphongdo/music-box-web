@@ -16,6 +16,7 @@ import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
 import { TabMenuComponent } from './tab-menu/tab-menu.component';
 import { BackComponent } from './back/back.component';
+import { LibraryMenuComponent } from './library-menu/library-menu.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { BackComponent } from './back/back.component';
     NavbarMenuComponent,
     TabMenuComponent,
     BackComponent,
+    LibraryMenuComponent,
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { BackComponent } from './back/back.component';
     InputSearchComponent,
     TabBarComponent,
     NavbarMenuComponent,
-    BackComponent
+    BackComponent,
+    LibraryMenuComponent
   ]
 })
 export class SharedModule { }

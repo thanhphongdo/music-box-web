@@ -22,6 +22,7 @@ export class SharedService {
   nameGenres: string;
   hideOnMobile: boolean;
   paramsSearch: string;
+  libraryMenuItem: string;
 
   constructor() {
     this.bgLanding;
@@ -39,5 +40,6 @@ export class SharedService {
     this.nameGenres;
     this.hideOnMobile;
     this.paramsSearch;
+    this.libraryMenuItem;
   }
 }
