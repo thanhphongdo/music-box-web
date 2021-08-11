@@ -1,106 +1,77 @@
-@mixin rangeThumb {
-    width: 11px;
-    height: 11px;
-    margin: -4px 0  0;
-    border-radius: 50%;
-    background: #2DCEEF;
-    cursor: pointer;
-    border: 0 !important;
-}
-@mixin rangeTrack {
-    width: 100%;
-    height: 3px;
-    cursor: pointer;
-    background: #2DCEEF;
-}
-::ng-deep {
-  .ngx-slider .ngx-slider-bubble {  
-    bottom: -40px !important;  
-    color: #ffffff !important;
-  }
-  .ngx-slider-model-value {
-    left: 0 !important;
-  }
-  .ngx-slider-floor {
-    display: none !important;
-  }
-  .ngx-slider-pointer {
-    width: 11px !important;
-    height: 11px !important;
-    top: -4px !important;
-    &::after {
-      display: none;
+.playlist {
+  background-color: #161a1a;
+  & .playlist-header {
+    & .playlist-header--info {
+      & .title {
+        font-size: 30px;
+        font-weight: bold;
+      }
     }
-    &:focus-visible {
+    & .playlist-header--control {
+      & .btn-desktop {
+        width: 171px;
+        height: 42px;
+        border-radius: 21px !important;
+        font-weight: bold;
+      }
+      & .btn-play {
+        width: 171px;
+        height: 42px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  & .search-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  & .playlist-search-input {
+    height: 29.5px;
+    width: 133px;
+    padding-left: 30px;
+    padding-bottom: 8px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    font-size: 16px;
+    color: white;
+    &::placeholder {
+      font-size: 16px;
+      color: white;
+    }
+    &:focus {
       outline: none;
     }
   }
+  & .pointer {
+    cursor: pointer;
+  }
 }
-.player {
-    height: 100vh;
-    position: relative;
-    .bg-blur {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0px;
-        left: 0px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        -webkit-filter: blur(15px);
-        -moz-filter: blur(15px);
-        -o-filter: blur(15px);
-        -ms-filter: blur(15px);
-        filter: blur(15px);
-    }
-    .player--detail {
-        z-index: 9999;
-        .images-carousel {
-            img.center {
-                width: 300px;
-                border-radius: 16px;
-            }
-            img.prev {
-                width: 280px;
-            }
-            img.next {
-                width: 280px;
-            }
+
+@media (min-width: 768px) {
+  .playlist {
+    & .playlist-header {
+      & .playlist-header--info {
+        & .title {
+          font-size: 50px;
+          font-weight: bold;
         }
-    }
-    .player--control {
-        .seek-slider {
-            appearance: none;
-            height: 0;
-            background: #fff;
-            opacity: 0.7;
-            transition: opacity .2s;
-            &::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                @include rangeThumb;
-              }
-            
-              &::-moz-range-thumb {
-                @include rangeThumb;
-              }
-            
-              &::-ms-thumb {
-                @include rangeThumb;
-              }
-            
-              // Track
-              &::-webkit-slider-runnable-track {
-                @include rangeTrack;
-              }
-            
-              &::-moz-range-track {
-                @include rangeTrack;
-              }
-            
-              &::-ms-track {
-                @include rangeTrack;
-              }
+      }
+      & .playlist-header--control {
+        & .btn-desktop {
+          width: 40px;
+          height: 40px;
         }
+        & .btn-play {
+          width: 168px;
+          height: 40px;
+        }
+      }
     }
+    .scrollbars-items {
+      height: 70vh;
+    }
+  }
 }

@@ -1,54 +1,56 @@
-<div class="player d-flex flex-column justify-content-between" *ngIf="dataLoaded | async">
-<!-- <div class="bg-blur" style="background-image: url(assets/images/player/Image210.svg);"></div> -->
-<div>
-    <div class="container mb-4">
+<div class="playlist w-100 p-0 mt-5" *ngIf="dataLoaded">
+    <div class="container-lg">
         <div class="row">
-            <div class="player--header col-12">
-                <div class="d-flex flex-column align-items-center color-white-color-100">
-                    <div class="font-14">Playlist</div>
-                    <div class="font-18">{{ player.playlist.title }}</div>
+            <div class="col-12">
+                <div class="playlist-header w-100 d-flex flex-column flex-md-row align-items-center justify-content-between">
+                    <div class="playlist-header--info d-flex flex-column flex-md-row align-items-center">
+                        <img [src]="playlist.artwork_url?.replace('large', 't500x500') || 'assets/playericons/music.jpg'" class="mr-md-4 round-8" alt="img" width="225px" height="225px">
+                        <div class="color-white-color-100 my-3 my-md-0">
+                            <div class="font-18 d-none d-md-block">Playlist</div>
+                            <div class="title font-50">{{ playlist.title }}</div>
+                            <div class="font-16 d-none d-md-block mb-2">{{ playlist.tag_list }}</div>
+                            <div class="font-14 color-white-color-200 d-none d-md-block">
+                                <span>{{ playlist.tracks.length }}</span> Songs, <span>{{ converToHours(playlist.duration) }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playlist-header--control d-flex flex-row-reverse flex-md-row align-items-center">
+                        <div class="btn-main d-flex align-items-center justify-content-center btn-play mr-2 pointer">
+                            <img src="assets/playericons/Play.png" class="mr-2 d-md-none" alt="icon" width="15.5px" height="18px">
+                            <span>PLAY</span>
+                        </div>
+                        <div class="btn-white-outline rounded-circle btn-desktop d-flex align-items-center justify-content-center mr-2 pointer">
+                            <img src="assets/playericons/addtofav.png" alt="icon" width="20px" height="18px">
+                            <span class="d-md-none ml-2 font-16">FOLLOW</span>
+                        </div>
+                        <div class="btn-white-outline rounded-circle btn-desktop d-none d-md-flex align-items-center justify-content-center pointer">
+                            <img src="assets/playericons/More.png" alt="icon" width="20px" height="4px">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-12 d-none d-md-block mt-4">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div style="position: relative;">
+                        <img src="assets/playericons/Search.png" class="search-icon" alt="icon" width="22px" height="22px">
+                        <input type="text" placeholder="Playlist search" class="playlist-search-input">
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="color-white-color-100 font-16 mr-2">Playlist songs</span>
+                        <img src="assets/playericons/Path111.png" class="pointer" alt="icon" width="18px" height="9px">
+                    </div>
+                </div>
+            </div>
 
-    <div class="player--detail overflow-hidden">
-        <div class="images-carousel d-flex align-items-center justify-content-center mb-3">
-            <img [src]="player.track.artwork_url?.replace('large', 't500x500')" class="center round-16 mx-3" alt="Image">
-        </div>
-        <div class="d-flex flex-column align-items-center">
-            <div class="font-16 color-white-color-100">{{ player.track.label_name }}</div>
-            <div class="font-14 color-white-color-200">{{ player.track.publisher_metadata?.artist }}</div>
-        </div>
-    </div>
-</div>
-<div>
-    <div class="container mb-3">
-        <div class="player--control">
-            <div class="row">
-                <div class="col-12 d-flex align-items-center justify-content-around mb-2">
-                    <img src="assets/images/player/Add to Playlist.svg" alt="Add to Playlist" width="20px">
-                    <img src="assets/images/player/Favorite Songs.svg" alt="Favorite song" width="20px">
-                    <img src="assets/images/player/More 20.svg" alt="more" height="20px">
-                </div>
-                <div class="col-12 mb-5">
-                    <ngx-slider [(value)]="value" [options]="options" (userChange)="seekTo()"></ngx-slider>
-                </div>
-                <div class="col-12 d-flex align-items-center justify-content-between mb-3">
-                    <img src="assets/images/player/Shuffle.svg" alt="Shuffle" height="22px" *ngIf="!player.shuffleState" (click)="player.toggleShuffleState()">
-                    <img src="assets/images/player/UnShuffle.svg" alt="Shuffle" height="22px" *ngIf="player.shuffleState" (click)="player.toggleShuffleState()">
-                    <img src="assets/images/player/previous.svg" alt="previous" width="20px" (click)="prevTrack()">
-                    <img src="assets/images/player/Pause.svg" alt="Pause" height="30px" *ngIf="player.isPlaying" (click)="pause()">
-                    <img src="assets/images/player/play.svg" alt="play" height="30px" *ngIf="!player.isPlaying" (click)="play()">
-                    <img src="assets/images/player/next.svg" alt="next" width="20px" (click)="nextTrack()">
-                    <img src="assets/images/player/norepeat.svg" alt="norepeat" width="20px" *ngIf="player.repeatState === 0" (click)="player.changeRepeatState()">
-                    <img src="assets/images/player/repeatone.svg" alt="repeat" width="20px" *ngIf="player.repeatState === 1" (click)="player.changeRepeatState()">
-                    <img src="assets/images/player/Repeat.svg" alt="repeat" width="20px" *ngIf="player.repeatState === 2" (click)="player.changeRepeatState()">
-                </div>
+            <div class="col-12 mt-4">
+                <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'hidden' } }">
+                    <div class="w-100 scrollbars-items">
+                        <app-track-items *ngFor="let track of playlist.tracks" [track]="track"></app-track-items>
+                    </div>
+                </overlay-scrollbars>
             </div>
         </div>
     </div>
-
-    <div class="player--queue"></div>
-</div>
 </div>

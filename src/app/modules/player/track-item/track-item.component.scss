@@ -1,0 +1,63 @@
+.track-items {
+    &:hover {
+        background-color: #313131;
+    }
+    & .track-items-web {
+        display: none;
+    }
+    & .track-items-mobile {
+        display: grid;
+        grid-template-columns: 60px 1fr 50px;
+    }
+    & .artwork-group {
+        position: relative;
+        cursor: pointer;
+        & .artwork {
+            width: 45px;
+            height: 45px;
+            z-index: 1;
+        }
+       
+
+    }
+}
+
+@media (min-width: 768px) {
+    .track-items {
+        & .option-more {
+            visibility: hidden;
+        }
+        &:hover .option-more {
+            visibility: visible;
+        }
+        & .track-items-web {
+            display: grid;
+            grid-template-columns: 50px 1fr 1fr 1fr 50px 100px;
+        }
+        & .track-items-mobile {
+            display: none;
+        }
+        & .artwork-group {
+            overflow: hidden;
+            &:hover .play-link {
+                height: 35px;
+            }
+            & .artwork {
+                width: 35px;
+                height: 35px;
+            }
+            & .play-link {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 35px;
+                height: 0;
+                display: block;
+                transition: 250ms all ease-in-out;
+                background-color: #11111166;
+                z-index: 2;
+                overflow: hidden;
+            }
+        }
+    }
+}
