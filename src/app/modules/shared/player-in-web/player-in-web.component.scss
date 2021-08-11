@@ -1,0 +1,46 @@
+.player-web {
+  background-color: #3a3a3d;
+
+  & .player-main-control {
+    flex-grow: 1;
+  }
+  & .player-header,
+  & .player-other-control {
+    flex-grow: 0;
+  }
+  & .volume {
+    height: 3px;
+    &:-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 3px !important;
+      height: 3px !important;
+    }
+  }
+  ::ng-deep {
+    .ngx-slider .ngx-slider-bubble {
+      bottom: -10px !important;
+      color: #ffffff !important;
+    }
+    .ngx-slider-model-value {
+      left: -40px !important;
+    }
+    .ngx-slider-limit {
+      left: auto !important;
+      right: -40px !important;
+    }
+    .ngx-slider-floor {
+      display: none !important;
+    }
+    .ngx-slider-pointer {
+      width: 11px !important;
+      height: 11px !important;
+      top: -4px !important;
+      &::after {
+        display: none;
+      }
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+}

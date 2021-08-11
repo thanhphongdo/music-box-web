@@ -16,4 +16,5 @@
     </div>
   </div>
 </div>
-<app-player-bar></app-player-bar>
+<app-player [showPlayerPopup]="showPlayerPopup" (showPlayerPopupClick)="oneShowPlayerPopup($event)"></app-player>
+<app-player-popup [show]="showPlayerPopup" (hide)="onHidePlayerPopup($event)"></app-player-popup>

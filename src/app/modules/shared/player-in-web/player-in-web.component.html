@@ -1,0 +1,38 @@
+<div class="player-web rounded d-flex align-items-center p-2">
+    <div class="player-header">
+        <div class="d-flex align-items-center">
+            <img [src]="playerService.track.artwork_url?.replace('large', 't500x500')" alt="image" class="rounded mr-2" width="58px">
+            <div class="mr-4">
+                <div class="font-16 color-white-color-100">{{ playerService.track.label_name || 'Track name' }}</div>
+                <div class="font-14 color-white-color-200">{{ playerService.track.publisher_metadata?.artist || 'Artist' }}</div>
+            </div>
+            <img src="assets/playericons/addtofav.png" alt="image" class="mr-3" width="19.75px">
+            <img src="assets/playericons/Done.png" alt="image" width="18px">
+        </div>
+    </div>
+    <div class="player-main-control px-5">
+        <div class="d-flex flex-column align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="assets/playericons/Shuffle18.png" alt="image" width="18px" height="18px" class="mr-4" *ngIf="!playerService.shuffleState" (click)="playerService.toggleShuffleState()">
+                <img src="assets/playericons/UnShuffle.svg" alt="icon" width="18px" height="18px" class="mr-4" *ngIf="playerService.shuffleState" (click)="playerService.toggleShuffleState()">
+                <img src="assets/playericons/prev.png" (click)="prevTrack()" alt="image" width="18px" height="18px" class="mx-4">
+                <img src="assets/playericons/Pause.png" *ngIf="playerService.isPlaying" (click)="pause()" alt="image" width="22px" height="26px" class="mx-4">
+                <img src="assets/playericons/Play.png" *ngIf="!playerService.isPlaying" (click)="play()" alt="image" width="22px" height="26px" class="mx-4">
+                <img src="assets/playericons/next.png" (click)="nextTrack()" alt="image" width="18px" height="18px" class="mx-4">
+                <img src="assets/playericons/norepeat.svg" alt="icon" width="18px" height="18px" class="ml-4" *ngIf="playerService.repeatState === 0" (click)="playerService.changeRepeatState()">
+                <img src="assets/playericons/repeatone.svg" alt="icon" width="18px" height="18px" class="ml-4" *ngIf="playerService.repeatState === 1" (click)="playerService.changeRepeatState()">
+                <img src="assets/playericons/Repeat18.png" alt="image" width="18px" height="18px" class="ml-4" *ngIf="playerService.repeatState === 2" (click)="playerService.changeRepeatState()">
+            </div>
+            <div class="w-100">
+                <ngx-slider [(value)]="sliderValue" [options]="sliderOptions" (userChange)="seekTo()"></ngx-slider>
+            </div>
+        </div>
+    </div>
+    <div class="player-other-control d-flex justify-content-end">
+        <div class="d-flex align-items-center">
+            <img src="assets/playericons/Queue.png" alt="image" width="18px" height="18px" class="mr-4">
+            <img src="assets/playericons/Volume.png" alt="image" width="21px" height="18px" class="mr-2">
+            <input type="range" value="99" min="0" max="100" class="volume" #ref (change)="setVolume(ref.value)">
+        </div>
+    </div>
+</div>

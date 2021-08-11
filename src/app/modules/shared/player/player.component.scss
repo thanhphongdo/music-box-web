@@ -1,0 +1,15 @@
+.player {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  color: white;
+  &.mobile {
+    bottom: 93px;
+  }
+  & app-player-in-web,
+  & app-player-in-mobile {
+    width: 100%;
+  }
+  
+}

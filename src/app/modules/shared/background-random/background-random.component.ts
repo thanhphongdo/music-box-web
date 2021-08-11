@@ -14,7 +14,8 @@ export class BackgroundRandomComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRandomBackground();
-    this.router = `/player/playlist/${this.item.id}`
+    // this.router = `/player/playlist/${this.item.id}`;
+    this.router = `#`;
   }
 
   getRandomBackground() {

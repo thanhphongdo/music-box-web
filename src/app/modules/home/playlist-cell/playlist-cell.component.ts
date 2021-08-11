@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PlayListInterface, TrackInterface } from '@app/models';
+import { PlayerService } from '@app/services';
 
 @Component({
   selector: 'app-playlist-cell',
@@ -7,12 +8,13 @@ import { PlayListInterface, TrackInterface } from '@app/models';
   styleUrls: ['./playlist-cell.component.scss']
 })
 export class PlaylistCellComponent implements OnInit {
-  // @Input() title: string;
-  // @Input() heart: string;  
   @Input() item: TrackInterface | PlayListInterface;
-  constructor() { }
+  constructor(private playerService: PlayerService) { }
 
   ngOnInit(): void {
   }
 
+  playPlaylist(id: number) {
+    this.playerService.initPlaylist(id);
+  }
 }
