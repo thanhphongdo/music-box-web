@@ -32,4 +32,11 @@ export class PlayerQueuePlaylistComponent implements OnInit {
     // console.log(e);
     this.playerService.sortableDisplayTracks(e.oldIndex, e.newIndex);
   }
+
+  replaceNameTrack(name: string, length: number) {
+    if (name.length > length) {
+      let nameSlice = name.slice(0, length);
+      return `${nameSlice}...`;
+    } else return name;
+  }
 }

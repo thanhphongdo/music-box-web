@@ -1,6 +1,15 @@
-<div class="playlist w-100 p-0 mt-5" *ngIf="dataLoaded">
+<div class="playlist w-100 p-0 mt-lg-5" *ngIf="dataLoaded">
     <div class="container-lg">
         <div class="row">
+            <div class="col-12 d-block d-md-none my-3">
+                <div class="w-100 d-flex align-items-center justify-content-between">
+                    <img src="assets/playericons/BackArrow.png" alt="icon" width="18px" height="18px" (click)="goBack()">
+                    <div class="d-flex align-items-center">
+                        <img src="assets/playericons/Share.png" class="mr-3" alt="icon" width="18px" height="18px">
+                        <img src="assets/playericons/More20.png" alt="icon" width="4px" height="18px">
+                    </div>
+                </div>
+            </div>
             <div class="col-12">
                 <div class="playlist-header w-100 d-flex flex-column flex-md-row align-items-center justify-content-between">
                     <div class="playlist-header--info d-flex flex-column flex-md-row align-items-center">
@@ -15,7 +24,7 @@
                         </div>
                     </div>
                     <div class="playlist-header--control d-flex flex-row-reverse flex-md-row align-items-center">
-                        <div class="btn-main d-flex align-items-center justify-content-center btn-play mr-2 pointer">
+                        <div class="btn-main d-flex align-items-center justify-content-center btn-play mr-2 pointer" (click)="playThisPlaylist()">
                             <img src="assets/playericons/Play.png" class="mr-2 d-md-none" alt="icon" width="15.5px" height="18px">
                             <span>PLAY</span>
                         </div>

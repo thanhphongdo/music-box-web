@@ -35,11 +35,11 @@ export class PlayerInMobileComponent implements OnInit {
   }
 
   replaceNameTrack() {
-    if (!this.playerService.track.label_name) return;
-    if (this.playerService.track.label_name.length > 30) {
-      let name = this.playerService.track.label_name.slice(0, 30);
+    if (!this.playerService.track.title) return;
+    if (this.playerService.track.title.length > 30) {
+      let name = this.playerService.track.title.slice(0, 30);
       return `${name}...`;
-    } else return this.playerService.track.label_name;
+    } else return this.playerService.track.title;
   }
 
   rebuildSlider() {

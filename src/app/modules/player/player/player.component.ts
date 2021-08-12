@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlayerService, SoundCloudService } from 'src/app/services';
 import { Observable } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-player',
@@ -16,7 +17,8 @@ export class PlayerComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public playerService: PlayerService,
-    private soundCloudService: SoundCloudService
+    private soundCloudService: SoundCloudService,
+    private location: Location
     ) { }
   
   ngOnInit(): void {
@@ -41,9 +43,18 @@ export class PlayerComponent implements OnInit {
       });
   }
 
+  playThisPlaylist() {
+    this.playerService.initPlaylist(this.playlistId);
+  }
+
   converToHours(duration: number) {
     const hr = Math.floor(duration / 1000 / 60 / 60);
     const min = Math.floor((duration - (hr * 1000 * 60 * 60)) / 60000)
     return `${hr} hr ${min} min`;
   }
+
+  goBack(): void {
+    this.location.back();
+  }
+  
 }

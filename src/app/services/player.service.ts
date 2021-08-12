@@ -45,6 +45,7 @@ export class PlayerService {
   }
 
   public initPlaylist(playlistId: number): void {
+    this.displayTracks = [];
     this.soundCloudService.getPlaylistById(playlistId)
       .toPromise()
       .then(data => {

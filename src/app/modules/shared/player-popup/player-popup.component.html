@@ -5,14 +5,14 @@
             <div class="text-center">
                 <span class="color-white-color-200 font-14">Playlist</span>
                 <br>
-                <span class="color-white-color-100 font-18">{{ playerService.playlist?.label_name || 'Playlist name' }}</span>
+                <span class="color-white-color-100 font-18">{{ playerService.playlist?.title || 'Playlist name' }}</span>
             </div>
             <img src="assets/playericons/Path112.png" alt="icon" width="18px" height="8px" style="visibility: hidden;">
         </div>
         <div class="text-center w-100 mt-4">
             <img [src]="playerService.track?.artwork_url?.replace('large', 't500x500')" alt="image" class="rounded mb-3" width="300px" height="300px"><br>
-            <span class="color-white-color-100 font-16">{{ playerService.track?.label_name || 'Track name' }}</span><br>
-            <span class="color-white-color-200 font-14">{{ playerService.track?.publisher_metadata?.artist || 'Artist' }}</span>
+            <span class="color-white-color-100 font-16">{{ playerService.track?.title || 'Track name' }}</span><br>
+            <span class="color-white-color-200 font-14">{{ playerService.track?.publisher_metadata?.writer_composer || 'Artist' }}</span>
         </div>
     </div>
     <div class="w-100 player-control" [ngClass]="{'control-up': show}">

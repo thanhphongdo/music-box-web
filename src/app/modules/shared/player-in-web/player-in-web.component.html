@@ -1,10 +1,10 @@
-<div class="player-web rounded d-flex align-items-center p-2">
-    <div class="player-header">
+<div class="player-web rounded p-2">
+    <div class="player-header d-flex align-items-center justify-content-start">
         <div class="d-flex align-items-center">
-            <img [src]="playerService.track.artwork_url?.replace('large', 't500x500')" alt="image" class="rounded mr-2" width="58px">
+            <img [src]="playerService.track.artwork_url?.replace('large', 't500x500') || 'assets/playericons/music.jpg'" alt="image" class="rounded mr-2" width="58px">
             <div class="mr-4">
-                <div class="font-16 color-white-color-100">{{ playerService.track.label_name || 'Track name' }}</div>
-                <div class="font-14 color-white-color-200">{{ playerService.track.publisher_metadata?.artist || 'Artist' }}</div>
+                <div class="font-16 color-white-color-100">{{ replaceNameTrack(playerService.track.title, 30) || 'Track name' }}</div>
+                <div class="font-14 color-white-color-200">{{ playerService.track.publisher_metadata?.writer_composer || 'Artist' }}</div>
             </div>
             <img src="assets/playericons/addtofav.png" alt="image" class="mr-3" width="19.75px">
             <img src="assets/playericons/Done.png" alt="image" width="18px">
