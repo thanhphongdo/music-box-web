@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
 import { SharedModule } from '../shared/shared.module';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { TrackItemComponent } from './track-item/track-item.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    PlayerComponent
+    PlayerComponent,
+    TrackItemComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,9 @@ const routes: Routes = [
     OverlayscrollbarsModule,
     SharedModule,
     NgxSliderModule
+  ],
+  exports: [
+    TrackItemComponent
   ]
 })
 export class PlayerModule { }

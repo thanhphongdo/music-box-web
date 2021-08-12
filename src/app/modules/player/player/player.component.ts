@@ -1,77 +1,60 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Options } from '@angular-slider/ngx-slider';
-import { PlayerService } from 'src/app/services';
+import { PlayerService, SoundCloudService } from 'src/app/services';
 import { Observable } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
 })
-export class PlayerComponent implements OnInit, OnDestroy {
-  dataLoaded: Observable<boolean> = this.player.hadData$;
-
-  value: number = 1;
-  options: Options = {
-    floor: 0,
-    ceil: 0,
-    autoHideLimitLabels: false,
-    animate: false,
-    showSelectionBar: true,
-    getSelectionBarColor: (value: number): string => {
-      return '#2DCEEF';
-    },
-    getPointerColor: (value: number): string => {
-      return '#2DCEEF';
-    },
-    translate: (value: number): string => {
-      const minute = Math.floor(value / 60000);
-      const second = Math.floor((value - (minute * 60000)) / 1000);
-      return `${minute}:${second < 10 ? '0' + second : second}`;
-    }
-  };
+export class PlayerComponent implements OnInit {
+  dataLoaded: boolean = false;
+  playlistId: number;
+  playlist:any;
 
   constructor(
     private route: ActivatedRoute,
-    public player: PlayerService,
+    public playerService: PlayerService,
+    private soundCloudService: SoundCloudService,
+    private location: Location
     ) { }
   
   ngOnInit(): void {
-    this.loadData();
-    this.totalDuration();
-    this.player.getCurrentValue().subscribe(v => {
-      this.value = v;
-    })
-    this.player.isPlayerPages();
+    this.getPlaylistId();
+    this.loadPlaylist();
   }
-  ngOnDestroy(): void {
-    this.player.isNotPlayerPages();
-  }
-  loadData() {
+  
+  getPlaylistId() {
     // 127755258
-    const playlistId = Number(this.route.snapshot.paramMap.get('id'));
-    this.player.initPlaylist(playlistId)
+    this.playlistId = Number(this.route.snapshot.paramMap.get('id'));
+  }
+  
+  loadPlaylist() {
+    this.soundCloudService.getPlaylistById(this.playlistId).toPromise()
+      .then(data => {
+        this.dataLoaded = true;
+        this.playlist = data;
+        console.log(this.playlist);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
-  play() {
-    this.player.playAudio();
+  playThisPlaylist() {
+    this.playerService.initPlaylist(this.playlistId);
   }
-  pause() {
-    this.player.pauseAudio();
+
+  converToHours(duration: number) {
+    const hr = Math.floor(duration / 1000 / 60 / 60);
+    const min = Math.floor((duration - (hr * 1000 * 60 * 60)) / 60000)
+    return `${hr} hr ${min} min`;
   }
-  seekTo() {
-    this.player.seekAudio(Math.floor(this.value / 1000))
+
+  goBack(): void {
+    this.location.back();
   }
-  totalDuration() {
-    this.player.getDuration().subscribe(d => {
-      this.options.ceil = d;
-    })
-  }
-  prevTrack() {
-    this.player.prevTrack();
-  }
-  nextTrack() {
-    this.player.nextTrack();
-  }
+  
 }

@@ -1,5 +1,7 @@
 .player-web {
   background-color: #3a3a3d;
+  display: grid;
+  grid-template-columns: 1fr 650px 1fr;
 
   & .player-main-control {
     flex-grow: 1;

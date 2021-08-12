@@ -62,4 +62,11 @@ export class PlayerInWebComponent implements OnInit {
   setVolume(v: number) {
     this.playerService.setVolume(v);
   }
+  replaceNameTrack(name: string, length: number) {
+    if (!name) return;
+    if (name.length > length) {
+      let nameSlice = name.slice(0, length);
+      return `${nameSlice}...`;
+    } else return name;
+  }
 }

@@ -10,11 +10,11 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="app-footer col-md-12 px-0 d-sm-block" [ngClass]="{'d-none': hideOnMobile}">
       <app-footer></app-footer>
     </div>
-  </div>
+  </div> -->
 </div>
 <app-player [showPlayerPopup]="showPlayerPopup" (showPlayerPopupClick)="oneShowPlayerPopup($event)"></app-player>
 <app-player-popup [show]="showPlayerPopup" (hide)="onHidePlayerPopup($event)"></app-player-popup>
