@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedService } from '@app/services/shared.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class LibraryMenuComponent implements OnInit {
   selectedItem = this.menuList[0];
 
 
-  constructor(private sharedService: SharedService) {
+  constructor(private router: Router, private sharedService: SharedService) {
     this.sharedService.libraryMenuItem = 'Playlists';
   }
 

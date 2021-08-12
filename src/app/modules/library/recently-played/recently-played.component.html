@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-12">
+      <h5>Recently played</h5>
+    </div>
+  </div>
+  <div class="row recently-played">
+    <div class="col-12" *ngFor="let item of listRecentlyPlayed">
+      <div class="d-flex align-items-center mb-4">
+        <img
+          src="{{item.detailInfo.image ? item.detailInfo.image : '../../../../../../assets/images/default/track-default.jpg'}}"
+          alt="">
+        <div class="ml-3">
+          <h5 class="text-overflow mb-0">{{item.detailInfo.title}}</h5>
+          <span class="color-white-color-200">{{item.type === 2 ? 'playlist' : 'track'}}</span>
+        </div>
+        <app-recently-popup class="ml-auto" [item]="item"></app-recently-popup>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,8 @@ import { LibraryMenuMbComponent } from './library-menu-mb/library-menu-mb.compon
 import { MyPlaylistComponent } from './my-playlist/my-playlist.component';
 import { FavoriteSongsComponent } from './favorite-songs/favorite-songs.component';
 import { ListeningHistoryComponent } from './listening-history/listening-history.component';
+import { RecentlyPlayedComponent } from './recently-played/recently-played.component';
+import { RecentlyPopupComponent } from './recently-popup/recently-popup.component';
 
 const routes: Routes = [
   {
@@ -39,7 +41,9 @@ const routes: Routes = [
     LibraryMenuMbComponent,
     MyPlaylistComponent,
     FavoriteSongsComponent,
-    ListeningHistoryComponent
+    ListeningHistoryComponent,
+    RecentlyPlayedComponent,
+    RecentlyPopupComponent
   ],
   imports: [
     CommonModule,

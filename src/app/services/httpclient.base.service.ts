@@ -10,14 +10,20 @@ export class HttpClientBaseService {
   constructor(private http: HttpClient, private router: Router) { }
 
   buildHeader(opts: any): { [key: string]: any } {
-    const token = localStorage.getItem('accessToken');
+
+    const user = JSON.parse(localStorage.getItem('user'))!;
+    const token = user ? user.sessionToken : '';
+
     let header: any = {
       'Content-Type': 'application/json',
-      'X-Parse-Application-Id': environment.applicationId
+      'X-Parse-Application-Id': environment.applicationId,
+      'X-Parse-Session-Token': token
     };
+
     // if (token) {
-    //   header.Authorization = 'Bearer ' + JSON.parse(token).access_token;
+    //   header.Authorization = token;
     // }
+
     if (opts && opts.header) {
       header = {
         ...header,

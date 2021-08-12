@@ -16,7 +16,6 @@ import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
 import { TabMenuComponent } from './tab-menu/tab-menu.component';
 import { BackComponent } from './back/back.component';
-<<<<<<< HEAD
 import { PlayerBarComponent } from './player-bar/player-bar.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { PlayerComponent } from './player/player.component';
@@ -26,9 +25,7 @@ import { PlayerPopupComponent } from './player-popup/player-popup.component';
 import { PlayerQueuePlaylistComponent } from './player-queue-playlist/player-queue-playlist.component';
 import { PlayerQueueItemComponent } from './player-queue-item/player-queue-item.component';
 import { SortablejsModule } from 'ngx-sortablejs';
-=======
 import { LibraryMenuComponent } from './library-menu/library-menu.component';
->>>>>>> 45c25327b680645b9ad5c5cef1f264d824961b95
 
 @NgModule({
   declarations: [
@@ -44,7 +41,6 @@ import { LibraryMenuComponent } from './library-menu/library-menu.component';
     NavbarMenuComponent,
     TabMenuComponent,
     BackComponent,
-<<<<<<< HEAD
     PlayerBarComponent,
     PlayerComponent,
     PlayerInWebComponent,
@@ -52,9 +48,7 @@ import { LibraryMenuComponent } from './library-menu/library-menu.component';
     PlayerPopupComponent,
     PlayerQueuePlaylistComponent,
     PlayerQueueItemComponent,
-=======
     LibraryMenuComponent,
->>>>>>> 45c25327b680645b9ad5c5cef1f264d824961b95
   ],
   imports: [
     CommonModule,
@@ -78,15 +72,12 @@ import { LibraryMenuComponent } from './library-menu/library-menu.component';
     InputSearchComponent,
     TabBarComponent,
     NavbarMenuComponent,
-<<<<<<< HEAD
     PlayerBarComponent,
     BackComponent,
     PlayerComponent,
-    PlayerPopupComponent
-=======
+    PlayerPopupComponent,
     BackComponent,
-    LibraryMenuComponent
->>>>>>> 45c25327b680645b9ad5c5cef1f264d824961b95
+    LibraryMenuComponent,
   ]
 })
 export class SharedModule { }

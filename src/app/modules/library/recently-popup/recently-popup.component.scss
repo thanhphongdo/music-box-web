@@ -1,0 +1,26 @@
+.btn-pop-up {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.modal-content {
+  background-color: #3a3a3d;
+  .modal-header {
+    border-bottom: none;
+    .image {
+      img {
+        max-width: 80%;
+      }
+    }
+    .title {
+      span {
+        color: #929292;
+      }
+    }
+  }
+  .content {
+    display: flex;
+    align-items: center;
+  }
+}
