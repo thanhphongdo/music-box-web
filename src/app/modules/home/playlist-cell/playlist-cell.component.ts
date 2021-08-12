@@ -13,8 +13,8 @@ export class PlaylistCellComponent implements OnInit {
   @Input() item: TrackInterface | PlayListInterface;
   constructor(private playerService: PlayerService, private soundCloudService: SoundCloudService, private libraryService: LibraryService) { }
 
-  recentlyPlayed: any
-  dateNow = new Date();
+  recentlyPlayed: any;
+
 
   ngOnInit(): void {
 
@@ -30,7 +30,6 @@ export class PlaylistCellComponent implements OnInit {
 
       let playlist = {
         id: id.toString(),
-        playedAt: this.dateNow,
         type: TYPE.playlist,
         detailInfo: {
           id: id.toString(),

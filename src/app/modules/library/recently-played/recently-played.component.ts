@@ -17,7 +17,8 @@ export class RecentlyPlayedComponent implements OnInit {
 
   getListRecentlyPlayed() {
     this.libraryService.getListRecentlyPlayed('').subscribe(data => {
-      this.listRecentlyPlayed = data.data;
+      this.listRecentlyPlayed = data.today as any;
+      console.log(data)
     }, err => {
       console.log(err)
     })

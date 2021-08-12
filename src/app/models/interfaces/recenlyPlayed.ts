@@ -9,14 +9,13 @@ export interface RecentlyPlayed {
 
 export interface RequestRecentlyPlayed {
   id: string;
-  playedAt: Date;
   type: TYPE.track | TYPE.playlist;
   detailInfo: {};
 }
 
 export interface listRecentlyPlayed {
-  data: Array<RecentlyPlayed>;
-  page: number;
-  perpage: number;
-  totalRow: number;
+  today: Array<RecentlyPlayed>;
+  lastday: Array<RecentlyPlayed>;
+  last7days: Array<RecentlyPlayed>;
+  last30days: Array<RecentlyPlayed>;
 }
