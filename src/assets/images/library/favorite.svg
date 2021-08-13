@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="18" height="18" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Sorting_mobile" data-name="Sorting (mobile" clip-path="url(#clip-path)">
+    <path id="Path_834" data-name="Path 834" d="M-5.9-7.6-7-6.5-2.4-2,2.1-6.5,1-7.6-1.7-4.9V-20H-3.2V-4.9Z" transform="translate(7 20)" fill="#fff"/>
+    <rect id="Rectangle_3408" data-name="Rectangle 3408" width="9.5" height="1.5" transform="translate(8.5)" fill="#fff"/>
+    <rect id="Rectangle_3409" data-name="Rectangle 3409" width="7.5" height="1.5" transform="translate(10.5 5)" fill="#fff"/>
+    <rect id="Rectangle_3410" data-name="Rectangle 3410" width="5.5" height="1.5" transform="translate(12.5 10)" fill="#fff"/>
+    <rect id="Rectangle_3411" data-name="Rectangle 3411" width="3.5" height="1.5" transform="translate(14.5 15)" fill="#fff"/>
+  </g>
+</svg>

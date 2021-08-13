@@ -1,0 +1,12 @@
+<div class="tab" *ngIf="!showAccount">
+  <ul class="navbar-nav align-items-center d-none d-lg-flex mb-0">
+    <li class="tab-item" *ngFor="let item of menuList">
+      <a [routerLink]="item.router" class="tab-link color-gray-100 font-18" (click)="openMenuList(item)"
+        [ngClass]="{'active':selectedItem === item}">{{item.name}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="account text-white" *ngIf="showAccount">
+  <h5 class="text-center font-18 mb-0">Account / Setting</h5>
+</div>

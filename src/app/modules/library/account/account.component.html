@@ -1,0 +1,96 @@
+<div class="account container-fluid bg-black-color-100 text-white master-layout px-0">
+  <div class="container pt-5 text-white d-block d-lg-none">
+    <div class="row">
+      <div class="col-12">
+        <div>
+          <app-back></app-back>
+        </div>
+        <div class="listening-top d-flex align-items-center justify-content-center">
+          <h5 class="mb-0 font-18 text-center">Account</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container py-5 text-white">
+    <div class="row pt-5">
+      <div class="col-12">
+        <app-account-form></app-account-form>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-12 social py-5">
+        <h4 class="mb-4">Info</h4>
+        <div class="social-text d-flex justify-content-between mb-3">
+          <h6>Facebook</h6>
+          <span class="font-14 color-white-color-200">Not connected</span>
+        </div>
+        <div class="social-text d-flex justify-content-between">
+          <h6>Google</h6>
+          <span class="font-14 color-white-color-200">Not connected</span>
+        </div>
+      </div>
+    </div>
+    <div class="row d-none d-lg-block pt-3">
+      <div class="col-12 streaming py-4">
+        <h4 class="mb-4">Streaming</h4>
+        <h6>Audio Quality (Premium feature)</h6>
+        <div class="audio-quality">
+          <hr>
+          <div class="checkbox checkbox-circle">
+            <input id="" class="mr-3 checkbox-round" disabled type="checkbox" checked>
+            <label for="">Normal (128 kb/s)</label>
+          </div>
+          <div class="checkbox checkbox-info checkbox-circle">
+            <input id="" class="mr-3 checkbox-round" disabled type="checkbox">
+            <label for="">High (192 kb/s)</label>
+          </div>
+          <div class="checkbox checkbox-info checkbox-circle">
+            <input id="" class="mr-3 checkbox-round" disabled type="checkbox">
+            <label for="">Highest (320 kb/s)</label>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="account-details col-12 pt-5">
+        <h4>Account</h4>
+        <div class="details py-4">
+          <div class="d-flex justify-content-between mb-none pb-2">
+            <span>Enable Browser Notifications</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="d-flex justify-content-between mb-none pb-3">
+            <span>Language</span>
+            <span style="color:#35EDFB">English</span>
+          </div>
+          <div class="account-nav">
+            <div class="account-link pb-3">
+              <app-account-password></app-account-password>
+            </div>
+            <div class="account-link pb-3 ">
+              <a [routerLink]="" class="text-white">Add new account</a>
+            </div>
+            <div class="account-link mb-none pb-3">
+              <a [routerLink]="">Terms and Conditions</a>
+            </div>
+            <div class="account-link mb-none pb-3">
+              <a [routerLink]="">Privacy Policy</a>
+            </div>
+            <div class="account-link mb-none pb-3">
+              <a [routerLink]="">Support</a>
+            </div>
+          </div>
+        </div>
+        <div class="logout text-center">
+          <button class="btn-shape btn-white-outline btn-logout mr-2 text-uppercase font-weight-bold"
+            (click)="logout()">Log
+            out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

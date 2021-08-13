@@ -25,6 +25,7 @@ import { PlayerPopupComponent } from './player-popup/player-popup.component';
 import { PlayerQueuePlaylistComponent } from './player-queue-playlist/player-queue-playlist.component';
 import { PlayerQueueItemComponent } from './player-queue-item/player-queue-item.component';
 import { SortablejsModule } from 'ngx-sortablejs';
+import { LibraryMenuComponent } from './library-menu/library-menu.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SortablejsModule } from 'ngx-sortablejs';
     PlayerPopupComponent,
     PlayerQueuePlaylistComponent,
     PlayerQueueItemComponent,
+    LibraryMenuComponent,
   ],
   imports: [
     CommonModule,
@@ -73,7 +75,9 @@ import { SortablejsModule } from 'ngx-sortablejs';
     PlayerBarComponent,
     BackComponent,
     PlayerComponent,
-    PlayerPopupComponent
+    PlayerPopupComponent,
+    BackComponent,
+    LibraryMenuComponent,
   ]
 })
 export class SharedModule { }

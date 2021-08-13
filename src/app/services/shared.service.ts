@@ -22,6 +22,9 @@ export class SharedService {
   nameGenres: string;
   hideOnMobile: boolean;
   paramsSearch: string;
+  libraryMenuItem: string;
+  user = JSON.parse(localStorage.getItem('user'));
+  showAccount: boolean;
 
   constructor() {
     this.bgLanding;
@@ -39,5 +42,8 @@ export class SharedService {
     this.nameGenres;
     this.hideOnMobile;
     this.paramsSearch;
+    this.libraryMenuItem;
+    this.user;
+    this.showAccount;
   }
 }

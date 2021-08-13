@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     this.sharedService.itemActive = "Home";
     this.sharedService.landingMenu = false;
     this.sharedService.hideOnMobile = true;
+    this.sharedService.user = JSON.parse(localStorage.getItem('user'))
   }
 
   ngOnInit(): void {
@@ -34,6 +35,6 @@ export class HomeComponent implements OnInit {
         this.relaxList = result.collection[2];
         this.partyList = result.collection[1];
         this.studyList = result.collection[0];
-    })
+      })
   }
 }
