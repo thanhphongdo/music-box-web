@@ -11,6 +11,9 @@ import { FavoriteSongsComponent } from './favorite-songs/favorite-songs.componen
 import { ListeningHistoryComponent } from './listening-history/listening-history.component';
 import { RecentlyPlayedComponent } from './recently-played/recently-played.component';
 import { RecentlyPopupComponent } from './recently-popup/recently-popup.component';
+import { AccountComponent } from './account/account.component';
+import { AccountFormComponent } from './account-form/account-form.component';
+import { AccountPasswordComponent } from './account-password/account-password.component';
 
 const routes: Routes = [
   {
@@ -32,6 +35,11 @@ const routes: Routes = [
     path: 'favorite-songs',
     component: FavoriteSongsComponent,
     canActivate: [],
+  },
+  {
+    path: 'account',
+    component: AccountComponent,
+    canActivate: [],
   }
 ];
 
@@ -43,7 +51,10 @@ const routes: Routes = [
     FavoriteSongsComponent,
     ListeningHistoryComponent,
     RecentlyPlayedComponent,
-    RecentlyPopupComponent
+    RecentlyPopupComponent,
+    AccountComponent,
+    AccountFormComponent,
+    AccountPasswordComponent
   ],
   imports: [
     CommonModule,

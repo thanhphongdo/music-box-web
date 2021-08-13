@@ -1,0 +1,93 @@
+<div class="account-top d-none center-mb d-sm-flex align-items-center justify-content-between">
+  <div class="account-avt d-flex align-items-center">
+    <div class="avt d-flex align-items-center justify-content-center">
+      <img src="../../../../assets/images/library/account-large.svg" alt="">
+    </div>
+    <div class="text ml-4">
+      <h5 class="font-18 mb-0" *ngIf="userInfo">{{userInfo.username}}</h5>
+      <span class="color-white-color-200">Free Account</span>
+    </div>
+  </div>
+  <div class="premium">
+    <button class="btn-main btn-premium pb-10 pl-10 pr-10 mr-1 text-uppercase font-14 font-weight-bold">
+      Go To Premium </button>
+  </div>
+</div>
+
+<div class="account-top-mb d-block d-sm-none center-mb ">
+  <div class="text-center">
+    <div class="text">
+      <h5 class="font-18 mb-0" *ngIf="userInfo">{{userInfo.username}}</h5>
+      <div class="py-3">
+        <div class="image">
+          <img src="../../../../assets/images/library/user-lg.svg" class="user" alt="">
+        </div>
+      </div>
+      <span class="text-white">Free Account</span>
+    </div>
+  </div>
+  <div class="premium text-center pt-3">
+    <button class="btn-main btn-premium pb-10 pl-10 pr-10 mr-1 text-uppercase font-14 font-weight-bold">
+      Go To Premium </button>
+  </div>
+</div>
+
+<div class="mt-5">
+  <h4>Contact</h4>
+</div>
+<div>
+  <div class="mx-auto">
+    <form class="mt-4" [formGroup]="formUpdate">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control bg-transparent shadow-none" formControlName="userName" minlength="6"
+          placeholder="Username">
+        <small class="error"
+          *ngIf="formUpdate.get('userName')?.invalid && formUpdate.get('userName')?.touched ">Username from 6
+          character or more</small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control bg-transparent shadow-none" disabled formControlName="email" email="true"
+          placeholder="Enter email">
+        <small class="error" *ngIf="formUpdate.get('email')?.invalid && formUpdate.get('email')?.touched ">Email is
+          required</small>
+      </div>
+      <div class="form-group d-flex justify-content-between">
+        <div class="w-50">
+          <label>Date of Birth</label>
+          <div>
+            <app-dropdown #datePickerDropdown>
+              <input dropdown-toggle class="form-control bg-transparent shadow-none border-white-xs color-white"
+                type="text" name="dateOfBirth" formControlName="dateOfBirth" data-toggle="dropdown"
+                placeholder="Date of Birth">
+              <div dropdown-menu>
+                <app-date-picker format="yyyy-mm-dd"
+                  (onChange)="datePickerDropdown.hide(); formUpdate.get('dateOfBirth').setValue($event.date)">
+                </app-date-picker>
+              </div>
+            </app-dropdown>
+          </div>
+          <small class="error"
+            *ngIf="formUpdate.get('dateOfBirth')?.invalid && formUpdate.get('dateOfBirth')?.touched ">DOB is
+            required</small>
+        </div>
+        <div class="px-3"></div>
+        <div class="w-50">
+          <label for="gender">Gender</label>
+          <select formControlName="sex" class="custom-select shadow-none bg-transparent color-black">
+            <option disabled selected>Gender</option>
+            <option [ngValue]="1">Male</option>
+            <option [ngValue]="2">Female</option>
+          </select>
+          <small class="error" *ngIf="formUpdate.get('sex')?.invalid && formUpdate.get('sex')?.touched ">Gender is
+            required</small>
+        </div>
+      </div>
+      <div class="update text-right pt-2">
+        <button class="btn-shape btn-white-outline btn-update text-uppercase font-14 font-weight-bold"
+          (click)="updateUser()">Update</button>
+      </div>
+    </form>
+  </div>
+</div>

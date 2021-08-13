@@ -11,6 +11,7 @@ export class ListeningHistoryComponent implements OnInit {
   constructor(private sharedService: SharedService) {
     this.sharedService.itemActive = "Library";
     this.sharedService.hideOnMobile = true;
+    this.sharedService.showAccount = false;
   }
 
   ngOnInit(): void {

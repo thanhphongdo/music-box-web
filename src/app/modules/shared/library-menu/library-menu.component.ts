@@ -16,7 +16,7 @@ export class LibraryMenuComponent implements OnInit {
     { name: "Listening History", router: "/library/history" }
   ]
   selectedItem = this.menuList[0];
-
+  showAccount: boolean;
 
   constructor(private router: Router, private sharedService: SharedService) {
     this.sharedService.libraryMenuItem = 'Playlists';
@@ -27,7 +27,7 @@ export class LibraryMenuComponent implements OnInit {
   }
 
   ngAfterContentChecked() {
-
+    this.showAccount = this.sharedService.showAccount;
   }
 
   openMenuList(item: any) {

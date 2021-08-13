@@ -23,9 +23,22 @@
     <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
       <app-input-search class="d-none d-lg-block mr-3"></app-input-search>
       <form class="form-inline my-2 my-lg-0">
-        <a routerLink="/login"><button class="btn-shape btn-white-outline mr-2">Login</button></a>
+        <a routerLink="/login"><button class="btn-shape btn-white-outline mr-2" *ngIf="!user">Login</button></a>
         <!-- <a routerLink="/signup"><button class="btn-shape btn-white">Sign up</button></a> -->
       </form>
+      <div class="account text-white d-flex align-items-center" *ngIf="user">
+        <div class="img">
+          <a routerLink="/library/account">
+            <img src="../../../../assets/images/library/account-icon.svg" alt="">
+          </a>
+        </div>
+        <div class="info d-flex align-items-center ml-2">
+          <a routerLink="/library/account" class="text-white">
+            <h6 class="mb-0 mr-1">{{user.username | slice:0:7}}</h6>
+          </a>
+          <img src="../../../../assets/images/library/arrow-bot.svg" alt="">
+        </div>
+      </div>
     </div>
   </div>
 </nav>

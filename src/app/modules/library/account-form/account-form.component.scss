@@ -1,0 +1,57 @@
+.account-top {
+  .avt {
+    height: 85px;
+    width: 85px;
+    background-color: #313131;
+    border-radius: 50%;
+  }
+  .btn-premium {
+    background: linear-gradient(90deg, #35edfb 0%, #2d9bef 27%, #9b2def 100%);
+    width: 190px;
+  }
+}
+
+.error {
+  color: red;
+}
+
+.btn-update {
+  height: 34px;
+  padding: 0 16px;
+}
+
+.form-control,
+.custom-select {
+  border: none;
+  border-bottom: 1px solid #929292;
+  border-radius: 0px;
+  color: #fff;
+  padding: 0;
+}
+
+.custom-select {
+  background-color: #000;
+}
+
+label {
+  color: #99999f;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .account-top-mb {
+    .image {
+      background-color: #313131;
+      border-radius: 50%;
+      height: 140px;
+      width: 140px;
+      margin: 0 auto;
+      display: flex;
+      .user {
+        width: 82px;
+        height: 64px;
+        margin: auto;
+      }
+    }
+  }
+}
