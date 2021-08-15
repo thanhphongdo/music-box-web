@@ -15,7 +15,7 @@ export class LibraryMenuComponent implements OnInit {
     { name: "Favorite Songs", router: "/library/favorite-songs" },
     { name: "Listening History", router: "/library/history" }
   ]
-  selectedItem = '';
+  selectedItem = this.menuList[0].name;
   showAccount: boolean;
 
   constructor(private router: Router, private sharedService: SharedService) {

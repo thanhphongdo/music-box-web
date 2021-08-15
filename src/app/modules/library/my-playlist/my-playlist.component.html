@@ -1,22 +1,79 @@
-<div class="container py-5 text-white d-block d-lg-none">
-  <div class="row">
-    <div class="col-12">
-      <div class="d-flex justify-content-between align-items-center">
-        <div>
-          <app-back></app-back>
+<div class="listening-history container-fluid bg-black-color-100 text-white master-layout px-0">
+  <div class="container py-5 text-white d-block d-lg-none">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <app-back></app-back>
+          </div>
+          <h5 class="mb-0 font-18 mr-5">My Playlists</h5>
+          <app-my-playlist-create></app-my-playlist-create>
         </div>
-        <h5 class="mb-0 font-18 mr-5">My Playlists</h5>
-        <img src="../../../../assets/images/library/createplaylist.svg" alt="">
       </div>
     </div>
   </div>
-</div>
-<app-tab-bar class="d-block d-lg-none"></app-tab-bar>
-<div class="container py-5 text-white d-none d-lg-block">
-  <div class="row">
-    <div class="col-12">
-      <div class="playlist__title center-mb">
-        <h5>My Playlists</h5>
+  <app-tab-bar class="d-block d-lg-none"></app-tab-bar>
+  <div class="container py-5 text-white d-none d-lg-block">
+    <div class="row">
+      <div class="col-12">
+        <div class="playlist__title center-mb">
+          <h5>My Playlists</h5>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-4">
+      <div class="col-12">
+        <div class="d-flex flex-wrap">
+          <div class="create-playlist d-flex flex-column justify-content-center align-items-center mr-4">
+            <app-my-playlist-create [id]="'desktop'"></app-my-playlist-create>
+            <div class="text mt-3">
+              <h5>Create playlist</h5>
+            </div>
+          </div>
+          <div class="my-item mr-4 mb-5" *ngFor="let item of myPlaylist">
+            <app-my-playlist-item [item]="item"></app-my-playlist-item>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-5 text-white d-block d-lg-none">
+    <div class="row">
+      <div class="col-12">
+        <div class="playlist__title center-mb">
+          <h5>Recently updated</h5>
+        </div>
+      </div>
+    </div>
+    <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
+      <div class="row flex-nowrap pt-4">
+        <div class="ml-3 mr-4" *ngFor="let item of myPlaylist">
+          <div class="my-item  mb-1">
+            <app-my-playlist-item [item]="item"></app-my-playlist-item>
+          </div>
+        </div>
+      </div>
+    </overlay-scrollbars>
+    <div class="row py-5">
+      <div class="col-12 mb-3">
+        <div class="playlist__title center-mb">
+          <h5>My Playlists</h5>
+        </div>
+      </div>
+      <div class="col-12 mb-4" *ngFor="let item of myPlaylist">
+        <div class="d-flex align-items-center">
+          <a [routerLink]="item.objectId">
+            <img src="../../../../assets/images/default/track-default.jpg" width="60" alt="">
+          </a>
+          <div class="description ml-3">
+            <h5 class="mb-0 font-16 mt-2">{{item.title}}</h5>
+            <span class="font-14 color-white-color-200">0 song, 26 hr 49 min</span>
+          </div>
+          <div class="ml-auto">
+            <img src="../../../../assets/images/more.svg" alt="">
+          </div>
+        </div>
       </div>
     </div>
   </div>

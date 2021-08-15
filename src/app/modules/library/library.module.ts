@@ -20,6 +20,10 @@ import { ListeningPopUpComponent } from './listening-pop-up/listening-pop-up.com
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ListeningHistoryItemComponent } from './listening-history-item/listening-history-item.component';
 import { ListeningHistoryItemMbComponent } from './listening-history-item-mb/listening-history-item-mb.component';
+import { MyPlaylistCreateComponent } from './my-playlist-create/my-playlist-create.component';
+import { MyPlaylistItemComponent } from './my-playlist-item/my-playlist-item.component';
+import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
+import { MyPlaylistDetailComponent } from './my-playlist-detail/my-playlist-detail.component';
 
 const routes: Routes = [
   {
@@ -30,6 +34,11 @@ const routes: Routes = [
   {
     path: 'playlists',
     component: MyPlaylistComponent,
+    canActivate: [],
+  },
+  {
+    path: 'playlists/:id',
+    component: MyPlaylistDetailComponent,
     canActivate: [],
   },
   {
@@ -64,7 +73,10 @@ const routes: Routes = [
     ListeningHistoryViewComponent,
     ListeningPopUpComponent,
     ListeningHistoryItemComponent,
-    ListeningHistoryItemMbComponent
+    ListeningHistoryItemMbComponent,
+    MyPlaylistCreateComponent,
+    MyPlaylistItemComponent,
+    MyPlaylistDetailComponent
   ],
   imports: [
     CommonModule,
@@ -74,6 +86,7 @@ const routes: Routes = [
     SharedModule,
     NgxPaginationModule,
     InfiniteScrollModule,
+    OverlayscrollbarsModule,
   ]
 })
 export class LibraryModule { }
