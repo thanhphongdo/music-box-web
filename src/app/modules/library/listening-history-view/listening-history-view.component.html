@@ -1,0 +1,29 @@
+<div class="listening-history-container d-none d-lg-block" *ngIf="data">
+  <div class="row py-4">
+    <div class="col-12">
+      <app-listening-history-item [title]="title[0]" [data]="data.today"></app-listening-history-item>
+    </div>
+  </div>
+  <div class="row py-4">
+    <div class="col-12">
+      <app-listening-history-item [title]="title[1]" [data]="data.lastday"></app-listening-history-item>
+    </div>
+  </div>
+  <div class="row py-4">
+    <div class="col-12">
+      <app-listening-history-item [title]="title[2]" [data]="data.last7days"></app-listening-history-item>
+    </div>
+  </div>
+  <div class="row py-4">
+    <div class="col-12">
+      <app-listening-history-item [title]="title[3]" [data]="data.last30days"></app-listening-history-item>
+    </div>
+  </div>
+</div>
+
+<div class="listening-history-container d-block d-lg-none" *ngIf="data">
+  <app-listening-history-item-mb [data]="data.today" [title]="title[0]"></app-listening-history-item-mb>
+  <app-listening-history-item-mb [data]="data.lastday" [title]="title[1]"></app-listening-history-item-mb>
+  <app-listening-history-item-mb [data]="data.last7days" [title]="title[2]"></app-listening-history-item-mb>
+  <app-listening-history-item-mb [data]="data.last30days" [title]="title[3]"></app-listening-history-item-mb>
+</div>

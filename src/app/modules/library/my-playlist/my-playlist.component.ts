@@ -12,6 +12,7 @@ export class MyPlaylistComponent implements OnInit {
     this.sharedService.itemActive = "Library";
     this.sharedService.hideOnMobile = true;
     this.sharedService.showAccount = false;
+    this.sharedService.libraryMenuItem = 'Playlists';
   }
 
   ngOnInit(): void {

@@ -14,6 +14,12 @@ import { RecentlyPopupComponent } from './recently-popup/recently-popup.componen
 import { AccountComponent } from './account/account.component';
 import { AccountFormComponent } from './account-form/account-form.component';
 import { AccountPasswordComponent } from './account-password/account-password.component';
+import { ListeningHistoryViewComponent } from './listening-history-view/listening-history-view.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ListeningPopUpComponent } from './listening-pop-up/listening-pop-up.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ListeningHistoryItemComponent } from './listening-history-item/listening-history-item.component';
+import { ListeningHistoryItemMbComponent } from './listening-history-item-mb/listening-history-item-mb.component';
 
 const routes: Routes = [
   {
@@ -54,14 +60,20 @@ const routes: Routes = [
     RecentlyPopupComponent,
     AccountComponent,
     AccountFormComponent,
-    AccountPasswordComponent
+    AccountPasswordComponent,
+    ListeningHistoryViewComponent,
+    ListeningPopUpComponent,
+    ListeningHistoryItemComponent,
+    ListeningHistoryItemMbComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule,
+    InfiniteScrollModule,
   ]
 })
 export class LibraryModule { }

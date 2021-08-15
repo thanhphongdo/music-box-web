@@ -1,0 +1,41 @@
+<div class="d-none d-lg-block">
+  <div class="history__title center-mb">
+    <h5>{{title}}</h5>
+  </div>
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col" class="pl-0">#</th>
+        <th scope="col"><span class="ml-5">Title</span></th>
+        <th scope="col">Artist</th>
+        <th scope="col">Album</th>
+        <th scope="col">Time</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data | paginate:{itemsPerPage: itemsPerPage, currentPage: p} ; let i = index">
+        <td class="color-white-color-200" style="width: 10px;">{{i+1}}</td>
+        <td class="long-text-overflow">
+          <img
+            src="{{item.detailInfo.image ? item.detailInfo.image : '../../../../assets/images/default/track-default.jpg'}}"
+            width="35" height="35" alt="">
+          <span class="font-15 ml-3 text-white" data-toggle="tooltip" title="{{item.detailInfo.title}}"
+            data-placement="bottom">{{item.detailInfo.title}}</span>
+        </td>
+        <td class="text-white">Artist</td>
+        <td class="color-white-color-200">Playlist</td>
+        <td class="color-white-color-200">{{translate(item.detailInfo.duration)}}</td>
+        <td>
+          <img src="../../../../assets/images/library/heart-history.svg" class="mr-4" alt="">
+          <img src="../../../../assets/images/library/plus.svg" alt="">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="show-more text-center pt-2" *ngIf="data?.length > 3 && itemsPerPage < data?.length">
+    <button (click)="showMore()"
+      class="btn-shape btn-white-outline btn-show-more text-uppercase font-14 font-weight-bold">Show
+      More</button>
+  </div>
+</div>
