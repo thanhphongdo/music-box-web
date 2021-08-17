@@ -1,0 +1,53 @@
+.btn-edit {
+  width: 94px;
+  height: 40px;
+}
+
+.change-password {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 0;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-content {
+  background-color: #161a1a;
+}
+
+.modal-footer {
+  border-bottom: none;
+}
+
+.error {
+  color: red;
+}
+
+label,
+small {
+  color: #99999f;
+}
+
+.form-control {
+  border: none;
+  border-bottom: 1px solid #929292;
+  border-radius: 0px;
+  color: #fff;
+  padding: 0;
+}
+
+.btn-size {
+  width: 137px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 575.98px) {
+  .btn-edit {
+    width: 130px;
+    margin: 0 15px 0 0 !important;
+  }
+}

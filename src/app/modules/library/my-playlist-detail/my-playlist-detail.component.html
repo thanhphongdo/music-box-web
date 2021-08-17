@@ -1,0 +1,93 @@
+<div class="myplaylist-detail container-fluid bg-black-color-100 text-white master-layout px-0">
+  <div class="container">
+    <div class="pt-3">
+      <app-back></app-back>
+    </div>
+    <div class="row py-5">
+      <div class="col-12">
+        <div class="playlist-top d-flex align-items-center">
+          <img src="../../../../assets/images/library/playlistdetail/Image 574.png" alt="" class="playlist-image">
+          <div class="description ml-5">
+            <span class="font-18 hidden-mb">Created Playlist</span>
+            <h3 class="font-40 font-weight-bold">{{myPlaylist?.title}}</h3>
+            <h6 class="font-14">{{myPlaylist?.description}}</h6>
+            <span class="font-14 color-white-color-200">{{myPlaylist?.tracks.length}} Song,
+              {{translateHour(myPlaylist?.duration)}}</span>
+          </div>
+          <div class="playlist-button ml-auto">
+            <button class="btn-main btn-shuffle pb-10 pl-10 pr-10 mr-1 text-uppercase font-14 font-weight-bold">Shuffle
+              Play</button>
+            <app-my-playlist-edit (updateCurrentPlaylist)="receiveData($event)"></app-my-playlist-edit>
+            <img src="../../../../assets/images/library/playlistdetail/more.svg" class="hidden-mb" alt="">
+          </div>
+          <div class="created-at color-white-color-200 hidden-mb">
+            <span>Created: {{myPlaylist?.createdAt | slice:0:10}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-5">
+      <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="search">
+            <form>
+              <div class="d-flex form-search">
+                <img src="../../../../assets/images/search.svg" alt="" class="search-icon">
+                <input type="text" class="form-control shadow-none form-search" placeholder="Playlist search"
+                  name="name">
+              </div>
+            </form>
+          </div>
+          <div class="playlist-songs">
+            <h6 class="mb-0">Playlist songs</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col" class="pl-0 hidden-mb">#</th>
+              <th scope="col"><span class="ml-5 hidden-mb">Title</span></th>
+              <th scope="col" class="hidden-mb">Artist</th>
+              <th scope="col" class="hidden-mb">Album</th>
+              <th scope="col" class="hidden-mb">Time</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of myPlaylist?.tracks ; let i = index">
+              <td class="color-white-color-200 hidden-mb" style="width: 10px;">{{i+1}}</td>
+              <td class="long-text-overflow">
+                <img
+                  src="{{item.artwork_url ? item.artwork_url : '../../../../assets/images/default/track-default.jpg'}}"
+                  width="35" height="35" alt="" class="image">
+                <span class="font-15 ml-3 text-white" data-toggle="tooltip" title="{{item.title}}"
+                  data-placement="bottom">{{item.title}}</span>
+                <span class="d-block d-sm-none des-mb font-14 color-white-color-200">Singer /
+                  {{translate(item.duration)}}</span>
+              </td>
+              <td class="text-white hidden-mb">Singer</td>
+              <td class="color-white-color-200 hidden-mb">Album</td>
+              <td class="color-white-color-200 hidden-mb">{{translate(item.duration)}}</td>
+              <td>
+                <app-my-playlist-popup (deleteTrack)="receiveReload($event)" [item]="item" [id]="item.id">
+                </app-my-playlist-popup>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row pt-4 pb-5">
+      <div class="col-12">
+        <app-recommend-song (updateTrackInPlaylist)="receiveTracks($event)"></app-recommend-song>
+      </div>
+    </div>
+  </div>
+</div>

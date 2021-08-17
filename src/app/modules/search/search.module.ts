@@ -31,8 +31,6 @@ const routes: Routes = [
     SearchTracksComponent,
     SearchPeopleComponent,
     PopUpComponent,
-    PopUpSongComponent,
-    PopUpDesktopComponent,
     SearchAlbumsComponent,
     SearchAllComponent,
   ],

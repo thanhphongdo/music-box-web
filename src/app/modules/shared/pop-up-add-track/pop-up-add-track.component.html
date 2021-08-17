@@ -1,0 +1,34 @@
+<!-- <div class="d-flex align-items-center" data-toggle="modal" [attr.data-target]="'#addtrack'">
+  <img src="../../../../assets/images/pop-up/addtoplaylist.svg" alt="">
+  <h5 class="mb-0 font-18 ml-4">Add to Playlist</h5>
+</div> -->
+
+<button type="button" class="btn-pop-up" data-toggle="modal" [attr.data-target]="'#addtrack'">
+  <img src="../../../../assets/images/more.svg" class="more pl-2 ">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" [attr.id]="'addtrack'" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+
+      </div>
+      <div class="modal-body text-white">
+        <div class="content py-3">
+          <img src="../../../../assets/images/pop-up/play.svg" alt="">
+          <h5 class="mb-0 font-18 ml-4">Play Next</h5>
+        </div>
+        <div class="content py-3">
+          <img src="../../../../assets/images/pop-up/addfavorite.svg" alt="">
+          <h5 class="mb-0 font-18 ml-4">Add to My Favorite Songs</h5>
+        </div>
+        <div class="content py-3">
+          <img src="../../../../assets/images/pop-up/share.svg" alt="">
+          <h5 class="mb-0 font-18 ml-4">Share</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

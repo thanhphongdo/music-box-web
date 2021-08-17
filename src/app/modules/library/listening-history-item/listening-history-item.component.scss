@@ -1,0 +1,26 @@
+.table {
+  thead th {
+    border-bottom: none;
+    text-transform: uppercase;
+  }
+  th {
+    color: #99999f;
+  }
+
+  td {
+    vertical-align: initial;
+  }
+}
+
+.long-text-overflow {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.btn-show-more {
+  padding: 0 28px;
+  height: 40px;
+}

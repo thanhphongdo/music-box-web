@@ -1,22 +1,17 @@
-<div class="container py-5 text-white d-block d-lg-none">
-  <div class="row">
-    <div class="col-12">
-      <div class="listening-top d-flex align-items-center">
+<div class="listening-history container-fluid bg-black-color-100 text-white master-layout px-0">
+  <div class="container py-5 text-white d-block d-lg-none">
+    <div class="row">
+      <div class="col-12">
         <div>
           <app-back></app-back>
         </div>
-        <h5 class="mb-0 font-18 ml-5">Listening History</h5>
-        <div></div>
+        <div class="listening-top text-center">
+          <h5 class="mb-0 font-18">Listening History</h5>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="container py-5 text-white d-none d-lg-block">
-  <div class="row">
-    <div class="col-12">
-      <div class="history__title center-mb">
-        <h5>Listening History</h5>
-      </div>
-    </div>
+  <div class="container py-5 text-white">
+    <app-listening-history-view [data]="data"></app-listening-history-view>
   </div>
 </div>

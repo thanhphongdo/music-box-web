@@ -4,7 +4,7 @@
 }
 
 .app-content {
-  min-height: calc(100vh - 712px);
+  min-height: calc(100vh - 71px);
   background: map-get($black-color, "100");
 }
 
@@ -14,7 +14,7 @@
 
 @media (min-width: 576px) {
   .app-content {
-    min-height: calc(100vh - 524px);
+    // min-height: calc(100vh - 524px);
   }
   .app-footer {
     height: 453px;
@@ -23,7 +23,7 @@
 
 @media (min-width: 576px) {
   .app-content {
-    min-height: calc(100vh - 378px);
+    // min-height: calc(100vh - 378px);
   }
   .app-footer {
     height: 301px;

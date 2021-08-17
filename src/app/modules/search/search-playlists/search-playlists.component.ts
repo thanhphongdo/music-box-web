@@ -19,19 +19,20 @@ export class SearchPlaylistsComponent implements OnInit {
   offset = 0;
   loading = false;
 
-  constructor(private route: ActivatedRoute,private soundCloudService: SoundCloudService, private sharedService: SharedService) { }
+  constructor(private route: ActivatedRoute, private soundCloudService: SoundCloudService, private sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
         this.name = params.q;
       }
-    );
+      );
+    console.log(this.playlists)
   }
 
   getData() {
     this.loading = true;
-    this.soundCloudService.searchPlaylist(this.name, 30, this.offset+=30).subscribe(data => {
+    this.soundCloudService.searchPlaylist(this.name, 30, this.offset += 30).subscribe(data => {
       this.itemsPerPage += 30;
       this.playlists.push(...data.collection);
       this.loading = false;
