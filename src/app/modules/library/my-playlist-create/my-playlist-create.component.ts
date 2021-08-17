@@ -40,7 +40,6 @@ export class MyPlaylistCreateComponent implements OnInit {
       this.router.navigate(['/library/playlists/' + playlist.objectId]);
     }, err => {
       console.log(err)
-      alert('Playlist is exist')
     })
   }
 }

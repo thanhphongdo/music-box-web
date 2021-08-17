@@ -68,7 +68,8 @@
           </a>
           <div class="description ml-3">
             <h5 class="mb-0 font-16 mt-2">{{item.title}}</h5>
-            <span class="font-14 color-white-color-200">0 song, 26 hr 49 min</span>
+            <span class="font-14 color-white-color-200">{{item.tracks.length}} song,
+              {{translateHour(item.duration)}}</span>
           </div>
           <div class="ml-auto">
             <img src="../../../../assets/images/more.svg" alt="">

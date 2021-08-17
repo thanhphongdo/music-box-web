@@ -21,13 +21,15 @@
           <app-background-random [item]="item"></app-background-random>
           <div class="d-flex justify-content-between">
             <div class="description ">
-              <h6 class="pt-2 mb-0 text-overflow" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
+              <h6 class="pt-2 mb-0 text-overflow" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">
+                {{item.title}}</h6>
               <div class="pt-1 color-white-color-200 font-12 font-11">
                 <span>{{item.artist}}</span>
                 <span class="release">Release: {{item.display_date | slice:0:10}}</span>
               </div>
             </div>
-            <app-pop-up-desktop class="mt-1" [item]="item" [id]="item.id"></app-pop-up-desktop>
+            <app-pop-up-song [item]="item" [idModal]="item.id+'smb'"></app-pop-up-song>
+            <!-- <app-pop-up-desktop class="mt-1" [item]="item" [id]="item.id"></app-pop-up-desktop> -->
           </div>
         </div>
       </div>
@@ -37,15 +39,19 @@
       <div class="row">
         <div class="col-12 col-md-2 release-item mb-4" *ngFor="let item of tracks | slice:0:6 ; let i = index">
           <a routerLink="#" class="link">
-            <img src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}" alt="img" class="image">
+            <img
+              src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}"
+              alt="img" class="image">
           </a>
           <div class="description">
-            <h6 class="pt-2 mb-0 text-overflow text-mb" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
+            <h6 class="pt-2 mb-0 text-overflow text-mb" data-toggle="tooltip" data-placement="bottom"
+              title="{{item.title}}">{{item.title}}</h6>
             <div class="pt-1 color-white-color-200 font-12 font-11">
               <span>{{item.artist}}</span>
             </div>
           </div>
-          <app-pop-up-song [item]="item" [id]="item.id"></app-pop-up-song>
+          <app-pop-up-song [item]="item" [idModal]="item.id+'smb'"></app-pop-up-song>
+          <!-- <app-pop-up-song [item]="item" [id]="item.id"></app-pop-up-song> -->
         </div>
       </div>
     </div>
@@ -69,7 +75,8 @@
     </div>
   </div>
   <div class="playlists-content pt-3">
-    <overlay-scrollbars [options]="osComponentOptions" class="d-sm-block" [ngClass]="{'d-none': searchName === 'playlists'}">
+    <overlay-scrollbars [options]="osComponentOptions" class="d-sm-block"
+      [ngClass]="{'d-none': searchName === 'playlists'}">
       <app-playlist-item [playlists]="playlists"></app-playlist-item>
     </overlay-scrollbars>
   </div>
@@ -98,13 +105,14 @@
           <app-background-random [item]="item"></app-background-random>
           <div class="d-flex justify-content-between">
             <div class="description ">
-              <h6 class="pt-2 mb-0 text-overflow" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
+              <h6 class="pt-2 mb-0 text-overflow" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">
+                {{item.title}}</h6>
               <div class="pt-1 color-white-color-200 font-12 font-11">
                 <span>{{item.artist}}</span>
                 <span class="release">Release: {{item.display_date | slice:0:10}}</span>
               </div>
             </div>
-            <app-pop-up-desktop class="mt-1" [item]="item" [id]="item.id"></app-pop-up-desktop>
+            <!-- <app-pop-up-desktop class="mt-1" [item]="item" [id]="item.id"></app-pop-up-desktop> -->
           </div>
         </div>
       </div>
@@ -114,15 +122,18 @@
       <div class="row">
         <div class="col-12 col-md-2 release-item mb-4" *ngFor="let item of albums | slice:0:6 ; let i = index">
           <a routerLink="#" class="link">
-            <img src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}" alt="img" class="image">
+            <img
+              src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}"
+              alt="img" class="image">
           </a>
           <div class="description">
-            <h6 class="pt-2 mb-0 text-overflow text-mb" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">{{item.title}}</h6>
+            <h6 class="pt-2 mb-0 text-overflow text-mb" data-toggle="tooltip" data-placement="bottom"
+              title="{{item.title}}">{{item.title}}</h6>
             <div class="pt-1 color-white-color-200 font-12 font-11">
               <span>{{item.artist}}</span>
             </div>
           </div>
-          <app-pop-up-song [item]="item" [id]="item.id"></app-pop-up-song>
+          <!-- <app-pop-up-song [item]="item" [id]="item.id"></app-pop-up-song> -->
         </div>
       </div>
     </div>
@@ -150,12 +161,16 @@
   <div class="artists__content pt-3 ">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-2 artist-item mb-3 artist-mb" *ngFor="let artist of people | slice:0:6; let i = index ">
+        <div class="col-12 col-md-2 artist-item mb-3 artist-mb"
+          *ngFor="let artist of people | slice:0:6; let i = index ">
           <a routerLink="{{artist.router}}" class="artist-avt">
-            <img src="{{artist.avatar_url ? artist.avatar_url : '../../../../../../assets/images/default/people-default.jpg'}} " alt="artist " class="avt ">
+            <img
+              src="{{artist.avatar_url ? artist.avatar_url : '../../../../../../assets/images/default/people-default.jpg'}} "
+              alt="artist " class="avt ">
           </a>
           <div class="description text-center mt-2">
-            <h6 class="mb-1 font-16 text-overflow text-mb" data-toggle="tooltip " data-placement="bottom " title="{{artist.username}} ">{{artist.username}}</h6>
+            <h6 class="mb-1 font-16 text-overflow text-mb" data-toggle="tooltip " data-placement="bottom "
+              title="{{artist.username}} ">{{artist.username}}</h6>
             <div class="heart font-14 align-items-center justify-content-center d-none d-sm-block ">
               <img src="../../../../assets/images/heart.svg " alt="heart ">
               <span class="ml-1 color-white-color-200 ">{{artist.likes_count}}</span>

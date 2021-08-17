@@ -1,0 +1,41 @@
+<div class="recomend-top py-4 d-flex justify-content-between align-items-center">
+  <button (click)="refreshSong()"
+    class="btn-shape btn-white-outline btn-rf text-uppercase font-14 font-weight-bold">Refresh</button>
+  <h6 class="mb-0">Recommend songs</h6>
+</div>
+<div class="table-responsive">
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col" class="pl-0 hidden-mb">#</th>
+        <th scope="col"><span class="ml-5 hidden-mb">Title</span></th>
+        <th scope="col" class="hidden-mb">Artist</th>
+        <th scope="col" class="hidden-mb">Album</th>
+        <th scope="col" class="hidden-mb">Time</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of tracks | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
+        <td class="color-white-color-200 hidden-mb" style="width: 10px;">{{i+1}}</td>
+        <td class="long-text-overflow">
+          <img
+            src="{{item.artwork_url ? item.artwork_url : '../../../../../../assets/images/default/track-default.jpg'}}"
+            alt="img" class="image" width="35" height="35" alt="">
+          <span class="font-15 ml-3 text-white" data-toggle="tooltip" title="{{item.title}}"
+            data-placement="bottom">{{item.title}}</span>
+          <span class="d-block d-sm-none des-mb font-14 color-white-color-200">Singer /
+            {{translate(item.duration)}}</span>
+        </td>
+        <td class="text-white hidden-mb">Singer</td>
+        <td class="color-white-color-200 hidden-mb">Album</td>
+        <td class="color-white-color-200 hidden-mb">{{translate(item.duration)}}</td>
+        <td>
+          <button (click)="addToPlaylist(item.id)"
+            class="btn-shape btn-white-outline text-uppercase font-14 font-weight-bold">Add</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

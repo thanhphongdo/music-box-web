@@ -18,8 +18,32 @@ export class PlaylistService {
     }));
   }
 
+  updatePlaylist(playlist: RequestCreatePlaylist): Observable<Playlist> {
+    return this.httpService.post(environment.apiUrl + '/functions/updatePlaylist', playlist).pipe(map((res: any) => {
+      return res.result;
+    }));
+  }
+
   getMyPlaylist(): Observable<listPlaylist> {
     return this.httpService.post(environment.apiUrl + '/functions/getMyPlaylist', null).pipe(map((res: any) => {
+      return res.result;
+    }));
+  }
+
+  getMyPlaylistById(id: any): Observable<Playlist> {
+    return this.httpService.post(environment.apiUrl + '/functions/getMyPlaylistById', id).pipe(map((res: any) => {
+      return res.result;
+    }));
+  }
+
+  addToPlaylist(item: any): Observable<Playlist> {
+    return this.httpService.post(environment.apiUrl + '/functions/addToPlaylist', item).pipe(map((res: any) => {
+      return res.result;
+    }));
+  }
+
+  deleteTrackInPlaylist(track): Observable<any> {
+    return this.httpService.post(environment.apiUrl + '/functions/deleteTrackInPlaylist', track).pipe(map((res: any) => {
       return res.result;
     }));
   }

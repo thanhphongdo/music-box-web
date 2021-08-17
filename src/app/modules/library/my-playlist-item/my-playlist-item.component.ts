@@ -14,4 +14,10 @@ export class MyPlaylistItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  translateHour(value: any) {
+    let hours = Math.floor(value / 3600000 % 24);
+    let minutes = Math.floor(value / 60000 % 60);
+
+    return hours + ' hr ' + minutes + ' min';
+  }
 }

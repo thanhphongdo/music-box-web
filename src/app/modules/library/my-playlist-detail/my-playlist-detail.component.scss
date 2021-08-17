@@ -1,0 +1,90 @@
+.playlist-top {
+  .created-at {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+  }
+  .btn-shuffle {
+    width: 188px;
+    height: 40px;
+  }
+}
+
+.search {
+  .form-search {
+    border-bottom: 1px solid #fff;
+    width: 140px;
+  }
+  .form-control {
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    color: #fff;
+  }
+  ::placeholder {
+    color: #fff;
+  }
+}
+
+.table {
+  thead th {
+    border-bottom: none;
+    text-transform: uppercase;
+  }
+  th {
+    color: #99999f;
+  }
+
+  td {
+    vertical-align: initial;
+  }
+}
+
+.long-text-overflow {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  position: relative;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .hidden-mb {
+    display: none !important;
+  }
+  .playlist-top {
+    flex-direction: column;
+    justify-content: space-between;
+    h3 {
+      margin-top: 10px;
+      font-size: 30px;
+    }
+    .description {
+      margin-left: 0 !important;
+    }
+    .btn-shuffle {
+      width: 60%;
+    }
+  }
+  .playlist-image {
+    width: 174px;
+    height: 174px;
+  }
+  .playlist-button {
+    margin-left: 0 !important;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+  }
+  .image {
+    width: 50px;
+    height: 50px;
+  }
+  .des-mb {
+    position: absolute;
+    bottom: 9px;
+    left: 79px;
+  }
+}

@@ -24,6 +24,9 @@ import { MyPlaylistCreateComponent } from './my-playlist-create/my-playlist-crea
 import { MyPlaylistItemComponent } from './my-playlist-item/my-playlist-item.component';
 import { OverlayscrollbarsModule } from 'ngx-overlayscrollbars';
 import { MyPlaylistDetailComponent } from './my-playlist-detail/my-playlist-detail.component';
+import { RecommendSongComponent } from './recommend-song/recommend-song.component';
+import { MyPlaylistEditComponent } from './my-playlist-edit/my-playlist-edit.component';
+import { MyPlaylistPopupComponent } from './my-playlist-popup/my-playlist-popup.component';
 
 const routes: Routes = [
   {
@@ -76,7 +79,10 @@ const routes: Routes = [
     ListeningHistoryItemMbComponent,
     MyPlaylistCreateComponent,
     MyPlaylistItemComponent,
-    MyPlaylistDetailComponent
+    MyPlaylistDetailComponent,
+    RecommendSongComponent,
+    MyPlaylistEditComponent,
+    MyPlaylistPopupComponent
   ],
   imports: [
     CommonModule,

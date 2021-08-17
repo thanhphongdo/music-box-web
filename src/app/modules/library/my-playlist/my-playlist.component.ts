@@ -31,4 +31,11 @@ export class MyPlaylistComponent implements OnInit {
       console.log(err)
     })
   }
+
+  translateHour(value: any) {
+    let hours = Math.floor(value / 3600000 % 24);
+    let minutes = Math.floor(value / 60000 % 60);
+
+    return hours + ' hr ' + minutes + ' min';
+  }
 }
