@@ -24,8 +24,8 @@ export class PlaylistService {
     }));
   }
 
-  getMyPlaylist(): Observable<listPlaylist> {
-    return this.httpService.post(environment.apiUrl + '/functions/getMyPlaylist', null).pipe(map((res: any) => {
+  getMyPlaylist(page: number, perPage: number): Observable<listPlaylist> {
+    return this.httpService.post(environment.apiUrl + '/functions/getMyPlaylist', { page, perPage }).pipe(map((res: any) => {
       return res.result;
     }));
   }

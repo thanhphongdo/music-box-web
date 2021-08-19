@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PlayerService } from '@app/services';
 import { PlaylistService } from '@app/services/playlist.service';
 import { SharedService } from '@app/services/shared.service';
 
@@ -11,8 +12,8 @@ import { SharedService } from '@app/services/shared.service';
 export class MyPlaylistDetailComponent implements OnInit {
 
   myPlaylist!: any;
-
-  constructor(private route: ActivatedRoute, private sharedService: SharedService, private playlistService: PlaylistService) {
+  nameSearch: string;
+  constructor(private route: ActivatedRoute, private sharedService: SharedService, private playlistService: PlaylistService, private playerService: PlayerService) {
     this.sharedService.itemActive = "Library";
     this.sharedService.hideOnMobile = true;
     this.sharedService.showAccount = false;
@@ -29,6 +30,10 @@ export class MyPlaylistDetailComponent implements OnInit {
     }, err => {
       console.log(err);
     })
+  }
+
+  playPlaylist(id: string) {
+    this.playerService.initMyPlaylist({ id: id });
   }
 
   receiveData(data) {

@@ -24,8 +24,8 @@ export class MyPlaylistComponent implements OnInit {
   }
 
   getMyPlaylist() {
-    this.playlistService.getMyPlaylist().subscribe(data => {
-      this.myPlaylist = data as any;
+    this.playlistService.getMyPlaylist(1, 30).subscribe(data => {
+      this.myPlaylist = data.data as any;
       console.log(this.myPlaylist)
     }, err => {
       console.log(err)

@@ -13,5 +13,6 @@ export interface RequestCreatePlaylist {
 }
 
 export interface listPlaylist {
+
   data?: Array<Playlist>
 }

@@ -35,7 +35,8 @@
           </div>
           <div class="playlist-view d-flex align-items-center">
             <a [routerLink]="" class="text-uppercase color-gray-300" (click)="sendTab('Playlists')">View all</a>
-            <img src="../../../../assets/images/morethan.svg" alt="" (click)="sendTab('Playlists')" class="ml-3 d-block d-sm-none">
+            <img src="../../../../assets/images/morethan.svg" alt="" (click)="sendTab('Playlists')"
+              class="ml-3 d-block d-sm-none">
           </div>
         </div>
       </div>
@@ -59,17 +60,40 @@
           </div>
           <div class="release-view d-flex align-items-center">
             <a [routerLink]="" class="text-uppercase color-gray-300" (click)="sendTab('Top Songs')">View all</a>
-            <img src="../../../../assets/images/morethan.svg" alt="" (click)="sendTab('Top Songs')" class="ml-3 d-block d-sm-none">
+            <img src="../../../../assets/images/morethan.svg" alt="" (click)="sendTab('Top Songs')"
+              class="ml-3 d-block d-sm-none">
           </div>
         </div>
       </div>
     </div>
   </div>
-  <overlay-scrollbars [options]="osComponentOptions" *ngIf="loadData">
+  <overlay-scrollbars class="d-block d-sm-none" [options]="osComponentOptions" *ngIf="loadData">
     <div class="new-release__content pt-3">
       <app-track-item [tracks]="tracks"></app-track-item>
     </div>
   </overlay-scrollbars>
+  <div class="new-release__content pt-3 d-none d-sm-block">
+    <div class="container">
+      <div class="row flex-nowrap">
+        <div class="col-5 col-md-2 release-item" *ngFor="let item of tracks | slice:0:6">
+          <app-background-random [item]="item"></app-background-random>
+          <div class="d-flex justify-content-between">
+            <div class="description ">
+              <h6 class="pt-2 mb-0 text-overflow" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}">
+                {{item.title}}</h6>
+              <div class="pt-1 color-white-color-200 font-12 font-11">
+                <span>{{item.artist}}</span>
+                <span class="release">Release: {{item.display_date | slice:0:10}}</span>
+              </div>
+            </div>
+            <div class="pop-up">
+              <app-pop-up-song [item]="item" [idModal]="item.id+'ovwtab'"></app-pop-up-song>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="artists py-5">
@@ -82,7 +106,8 @@
           </div>
           <div class="artist-view d-flex align-items-center">
             <a [routerLink]="" class="text-uppercase color-gray-300" (click)="sendTab('Artists')">View all</a>
-            <img src="../../../../assets/images/morethan.svg" alt="" (click)="sendTab('Artists')" class="ml-3 d-block d-sm-none">
+            <img src="../../../../assets/images/morethan.svg" alt="" (click)="sendTab('Artists')"
+              class="ml-3 d-block d-sm-none">
           </div>
         </div>
       </div>

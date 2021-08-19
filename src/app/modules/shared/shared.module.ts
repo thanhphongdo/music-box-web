@@ -28,6 +28,7 @@ import { SortablejsModule } from 'ngx-sortablejs';
 import { LibraryMenuComponent } from './library-menu/library-menu.component';
 import { PopUpSongComponent } from './pop-up-song/pop-up-song.component';
 import { PopUpAddTrackComponent } from './pop-up-add-track/pop-up-add-track.component';
+import { ToastrComponent } from './toastr/toastr.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { PopUpAddTrackComponent } from './pop-up-add-track/pop-up-add-track.comp
     LibraryMenuComponent,
     PopUpSongComponent,
     PopUpAddTrackComponent,
+    ToastrComponent,
   ],
   imports: [
     CommonModule,
@@ -82,7 +84,8 @@ import { PopUpAddTrackComponent } from './pop-up-add-track/pop-up-add-track.comp
     PlayerPopupComponent,
     BackComponent,
     LibraryMenuComponent,
-    PopUpSongComponent
+    PopUpSongComponent,
+    ToastrComponent
   ]
 })
 export class SharedModule { }
