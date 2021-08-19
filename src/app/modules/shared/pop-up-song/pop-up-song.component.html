@@ -1,4 +1,4 @@
-<button type="button" class="btn-pop-up" data-toggle="modal" [attr.data-target]="'#popup'+idModal">
+<button type="button" class="btn-pop-up mt-1" data-toggle="modal" [attr.data-target]="'#popup'+idModal">
   <img src="../../../../assets/images/more.svg" class="more pl-2 ">
 </button>
 
@@ -8,11 +8,10 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        {{item.id}}
         <button type="button" #closeModal class="close d-none" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" *ngIf="hidden">
           <div class="image">
             <img src="{{item.artwork_url ? item.artwork_url : '../../../../assets/images/default/track-default.jpg'}}"
               alt="img" class="">
@@ -23,17 +22,17 @@
             <span class="font-15">{{item.artist ? item.artist : 'Singer'}} / {{translate(item.duration)}}</span>
           </div>
         </div>
+        <h5 *ngIf="!hidden">Add to Playlist</h5>
       </div>
-      <div class="modal-body text-white">
+
+      <div class="modal-body text-white" *ngIf="hidden">
         <div class="content py-3">
           <img src="../../../../assets/images/pop-up/play.svg" alt="">
           <h5 class="mb-0 font-18 ml-4">Play Next</h5>
         </div>
-        <div class="content py-3" (click)="openNewModal(item.id)" data-toggle="modal" [attr.data-target]="'#addtrack'">
+        <div class="content py-3" (click)="hide()">
           <img src="../../../../assets/images/pop-up/addtoplaylist.svg" alt="">
           <h5 class="mb-0 font-18 ml-4">Add to Playlist</h5>
-          <input type="text" name="someInput" [(ngModel)]="trackId">
-          <!-- <app-pop-up-add-track></app-pop-up-add-track> -->
         </div>
         <div class="content py-3">
           <img src="../../../../assets/images/pop-up/addfavorite.svg" alt="">
@@ -44,28 +43,15 @@
           <h5 class="mb-0 font-18 ml-4">Share</h5>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" [attr.id]="'addtrack'" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-center">
-        <button type="button" #closeModal2 class="close d-none" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h5>Add to Playlist</h5>
-      </div>
-      <div class="modal-body text-white">
-        {{item.id}}
-        <div class="content py-3" *ngFor="let playlist of myPlaylist" (click)="addToPlaylist(playlist,item)">
-          <img src="../../../../assets/images/default/track-default.jpg" alt="">
-          <div class="description  ml-4">
+      <div class="modal-body text-white" *ngIf="!hidden">
+        <div class="content py-3" *ngFor="let playlist of myPlaylist">
+          <div (click)="addToPlaylist(playlist, item)">
+            <img src="../../../../assets/images/default/track-default.jpg" alt="">
+          </div>
+          <div class="des-mb ml-4">
             <h5 class="mb-0 font-18">{{playlist.title}}</h5>
-            <span class="color-white-color-200">{{playlist.tracks.length}} songs</span>
+            <span class="font-15 color-white-color-200">{{playlist.tracks.length}} songs</span>
           </div>
         </div>
       </div>

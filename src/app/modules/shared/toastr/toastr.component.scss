@@ -1,0 +1,11 @@
+::ng-deep {
+  #toast-container > {
+    div {
+      box-shadow: 0 0 12px #000;
+    }
+    .toast-success {
+      width: 500px;
+      background-color: #161a1a;
+    }
+  }
+}

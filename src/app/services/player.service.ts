@@ -3,6 +3,7 @@ import { TrackInterface } from '@app/models';
 import Hls from 'hls.js';
 import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { PlaylistService } from './playlist.service';
 import { SoundCloudService } from './sound_cloud.service';
 
 @Injectable({
@@ -17,7 +18,7 @@ export class PlayerService {
   public track: any;
   public numberOfloaded: number = 0;
   public length: number = 0;
-  
+
   private dataLoaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private value: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private duration: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -32,7 +33,7 @@ export class PlayerService {
   public length$ = this.lengthSubject.asObservable();
   public numberOfloaded$ = this.numberOfloadedSubject.asObservable();
   public nextTrack$ = this.nextTrackSubject.asObservable();
-  
+
   public isPlayerPage = false;
   private updateValue: any;
   public isPlaying = false;
@@ -40,7 +41,7 @@ export class PlayerService {
   public repeatState: number = 0;
   public repeated: boolean = false;
 
-  constructor(private soundCloudService: SoundCloudService) {
+  constructor(private soundCloudService: SoundCloudService, private playlistService: PlaylistService) {
     this.audio = new Audio();
   }
 
@@ -63,6 +64,27 @@ export class PlayerService {
         console.error(err);
       })
   }
+
+  public initMyPlaylist(playlistId: any): void {
+    this.displayTracks = [];
+    this.playlistService.getMyPlaylistById(playlistId)
+      .toPromise()
+      .then(data => {
+        this.playlist = data;
+        this.tracks = this.playlist.tracks;
+        this.currentTrack = 0;
+        this.numberOfloaded = 0;
+        this.track = this.tracks[0];
+        this.duration.next(this.track.duration);
+        this.dataLoaded.next(true);
+        this.initTrack(this.track.id, true);
+        this.loadInfoTrack();
+      })
+      .catch(err => {
+        console.error(err);
+      })
+  }
+
   public initTrack(trackId: number, isPlaying: boolean): void {
     this.pauseAudio();
     this.soundCloudService.getTrackById(trackId)
@@ -118,7 +140,7 @@ export class PlayerService {
           this.soundCloudService.getTrackById(track.id).toPromise()
         )
     ]).then(values => {
-      this.displayTracks = [...this.displayTracks,...values];
+      this.displayTracks = [...this.displayTracks, ...values];
       this.updateTrackList();
       this.nextPhase(true);
     }).catch(err => {
@@ -152,8 +174,8 @@ export class PlayerService {
       index = Math.floor(Math.random() * this.displayTracks.length);
     } else if (index < this.displayTracks.length - 1) index += 1;
     else index = 0;
-      const trackResult = this.displayTracks[index];
-      this.nextTrackSubject.next(trackResult);
+    const trackResult = this.displayTracks[index];
+    this.nextTrackSubject.next(trackResult);
   }
   public playThisTrack(item: TrackInterface) {
     this.currentTrack = this.displayTracks.findIndex(track => track.id === item.id);
@@ -173,7 +195,7 @@ export class PlayerService {
     this.displayTracks[newIndex] = trackTemp;
     this.updateTrackList();
   }
-  
+
   public getAudio(): HTMLAudioElement {
     return this.audio;
   }
@@ -208,8 +230,8 @@ export class PlayerService {
   }
 
   public changeRepeatState() {
-    switch(this.repeatState) {
-      case 0: 
+    switch (this.repeatState) {
+      case 0:
         this.repeatState = 1;
         this.doEventRepeat();
         break;
@@ -235,14 +257,14 @@ export class PlayerService {
         this.repeatState = 0;
         this.repeated = false;
       } else {
-        this.audio.onended = function() {
+        this.audio.onended = function () {
           this.resetValues();
           this.initTrack(this.track.id, true);
           this.repeated = true;
         }.bind(this);
       }
     } else {
-      this.audio.onended = function() {
+      this.audio.onended = function () {
         this.resetValues();
         this.initTrack(this.track.id, true);
       }.bind(this);
@@ -262,7 +284,7 @@ export class PlayerService {
     }
     return result;
   }
-  
+
   public isPlayerPages() {
     this.isPlayerPage = true;
   }

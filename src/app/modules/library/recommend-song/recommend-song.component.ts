@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TrackInterface } from '@app/models';
 import { SoundCloudService } from '@app/services';
 import { PlaylistService } from '@app/services/playlist.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-recommend-song',
@@ -17,7 +18,7 @@ export class RecommendSongComponent implements OnInit {
   name = 'nhac viet';
   p = 1;
 
-  constructor(private route: ActivatedRoute, private soundCloudService: SoundCloudService, private playlistService: PlaylistService) { }
+  constructor(private route: ActivatedRoute, private soundCloudService: SoundCloudService, private playlistService: PlaylistService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getData();
@@ -52,10 +53,10 @@ export class RecommendSongComponent implements OnInit {
       this.playlistService.addToPlaylist(item).subscribe(data => {
         let reload = true;
         this.updateTrackInPlaylist.emit(reload)
-        alert('add track to playlist success')
+        this.toastr.success('', `Add  "${track.title}" to Playlist successfully`)
       }, err => {
         console.log(err)
-        alert('track is exist');
+        this.toastr.error('The song already exists')
       })
     }, err => {
       console.log(err)

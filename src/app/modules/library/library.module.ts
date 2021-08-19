@@ -27,6 +27,7 @@ import { MyPlaylistDetailComponent } from './my-playlist-detail/my-playlist-deta
 import { RecommendSongComponent } from './recommend-song/recommend-song.component';
 import { MyPlaylistEditComponent } from './my-playlist-edit/my-playlist-edit.component';
 import { MyPlaylistPopupComponent } from './my-playlist-popup/my-playlist-popup.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const routes: Routes = [
   {
@@ -93,6 +94,7 @@ const routes: Routes = [
     NgxPaginationModule,
     InfiniteScrollModule,
     OverlayscrollbarsModule,
+    Ng2SearchPipeModule,
   ]
 })
 export class LibraryModule { }

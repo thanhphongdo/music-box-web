@@ -22,7 +22,7 @@ export class PlayerQueuePlaylistComponent implements OnInit {
   constructor(public playerService: PlayerService) { }
 
   ngOnInit(): void {
-    this.playerService.nextTrack$.subscribe(i => {this.next = i})
+    this.playerService.nextTrack$.subscribe(i => { this.next = i })
   }
 
   toggleQueueShow(): void {
@@ -34,7 +34,7 @@ export class PlayerQueuePlaylistComponent implements OnInit {
   }
 
   replaceNameTrack(name: string, length: number) {
-    if (name.length > length) {
+    if (name?.length > length) {
       let nameSlice = name.slice(0, length);
       return `${nameSlice}...`;
     } else return name;

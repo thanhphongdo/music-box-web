@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Playlist } from '@app/models/interfaces/playlist';
 import { SoundCloudService } from '@app/services';
 import { PlaylistService } from '@app/services/playlist.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pop-up-song',
@@ -13,11 +14,11 @@ export class PopUpSongComponent implements OnInit {
   @Input() item: any;
   @Input() idModal: number;
   @ViewChild('closeModal') closeModal!: ElementRef;
-  @ViewChild('closeModal2') closeModal2!: ElementRef;
   myPlaylist: Array<Playlist>;
-  trackId: any;
+  track: any;
+  hidden = true;
 
-  constructor(private route: ActivatedRoute, private soundCloudService: SoundCloudService, private playlistService: PlaylistService) { }
+  constructor(private route: ActivatedRoute, private toastr: ToastrService, private playlistService: PlaylistService) { }
 
   ngOnInit(): void {
     this.getMyPlaylist();
@@ -29,41 +30,33 @@ export class PopUpSongComponent implements OnInit {
     return `${minute}:${second < 10 ? '0' + second : second}`;
   }
 
-  openNewModal(trackId) {
-    this.closeModal.nativeElement.click();
-    this.trackId = trackId
-    console.log(this.trackId)
-  }
-
   getMyPlaylist() {
-    this.playlistService.getMyPlaylist().subscribe(data => {
-      this.myPlaylist = data as any;
+    this.playlistService.getMyPlaylist(1, 30).subscribe(data => {
+      this.myPlaylist = data.data as any;
     }, err => {
       console.log(err)
     })
   }
 
-  ngAfterContentChecked() {
-
+  hide() {
+    this.hidden = false;
   }
 
-  addToPlaylist(playlist, item) {
-    let track = this.item;
+  addToPlaylist(playlist, track) {
+    let item = {
+      playlistId: playlist.objectId,
+      trackId: track.id,
+      duration: track.duration,
+      track: track
+    }
 
-    // let item = {
-    //   playlistId: playlist.objectId,
-    //   trackId: this.trackId,
-    //   duration: track.duration,
-    //   track: track
-    // }
-
-    // this.playlistService.addToPlaylist(item).subscribe(data => {
-    //   this.closeModal2.nativeElement.click();
-    //   this.getMyPlaylist();
-    //   alert('add track to playlist success')
-    // }, err => {
-    //   console.log(err)
-    //   alert('track is exist');
-    // })
+    this.playlistService.addToPlaylist(item).subscribe(data => {
+      this.closeModal.nativeElement.click();
+      this.getMyPlaylist();
+      this.toastr.success('', `Add  "${track.title}" to Playlist successfully`)
+    }, err => {
+      console.log(err)
+      this.toastr.error('The song already exists')
+    })
   }
 }

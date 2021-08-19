@@ -15,7 +15,8 @@
               {{translateHour(myPlaylist?.duration)}}</span>
           </div>
           <div class="playlist-button ml-auto">
-            <button class="btn-main btn-shuffle pb-10 pl-10 pr-10 mr-1 text-uppercase font-14 font-weight-bold">Shuffle
+            <button (click)="playPlaylist(myPlaylist?.objectId)"
+              class="btn-main btn-shuffle pb-10 pl-10 pr-10 mr-1 text-uppercase font-14 font-weight-bold">Shuffle
               Play</button>
             <app-my-playlist-edit (updateCurrentPlaylist)="receiveData($event)"></app-my-playlist-edit>
             <img src="../../../../assets/images/library/playlistdetail/more.svg" class="hidden-mb" alt="">
@@ -35,7 +36,7 @@
               <div class="d-flex form-search">
                 <img src="../../../../assets/images/search.svg" alt="" class="search-icon">
                 <input type="text" class="form-control shadow-none form-search" placeholder="Playlist search"
-                  name="name">
+                  name="name" [(ngModel)]="nameSearch">
               </div>
             </form>
           </div>
@@ -60,7 +61,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of myPlaylist?.tracks ; let i = index">
+            <tr *ngFor="let item of myPlaylist?.tracks | filter:nameSearch; let i = index">
               <td class="color-white-color-200 hidden-mb" style="width: 10px;">{{i+1}}</td>
               <td class="long-text-overflow">
                 <img
