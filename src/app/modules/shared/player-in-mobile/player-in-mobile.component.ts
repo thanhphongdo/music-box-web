@@ -32,6 +32,15 @@ export class PlayerInMobileComponent implements OnInit {
 
   ngOnInit(): void {
     this.rebuildSlider();
+    this.playerService.getCurrentValue().subscribe(v => {
+      this.sliderValue = v;
+    })
+    this.playerService.durationPublic$.subscribe(d => {
+      this.sliderOptions = {
+        ...this.sliderOptions,
+        ceil: d
+      };
+    });
   }
 
   replaceNameTrack() {

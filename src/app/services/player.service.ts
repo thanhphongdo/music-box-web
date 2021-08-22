@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TrackInterface } from '@app/models';
+import { PlayListInterface, TrackInterface } from '@app/models';
 import Hls from 'hls.js';
 import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -65,7 +65,7 @@ export class PlayerService {
       })
   }
 
-  public initMyPlaylist(playlistId: any): void {
+  public initMyPlaylist(playlistId: any, autoPlaying: boolean = true): void {
     this.displayTracks = [];
     this.playlistService.getMyPlaylistById(playlistId)
       .toPromise()
@@ -77,7 +77,7 @@ export class PlayerService {
         this.track = this.tracks[0];
         this.duration.next(this.track.duration);
         this.dataLoaded.next(true);
-        this.initTrack(this.track.id, true);
+        this.initTrack(this.track.id, autoPlaying);
         this.loadInfoTrack();
       })
       .catch(err => {
@@ -146,6 +146,31 @@ export class PlayerService {
     }).catch(err => {
       console.log(err);
     });
+  }
+
+  playSingleTrack(playlist: PlayListInterface, track: TrackInterface) {
+    this.initTrack(track.id, true);
+    if (!this.playlist) {
+      this.playlist = playlist;
+      this.tracks = this.playlist.tracks;
+      this.currentTrack = this.tracks.findIndex(x=> x.id === track.id);
+      this.numberOfloaded = 0;
+      this.track = track;
+      this.duration.next(this.track.duration);
+      this.dataLoaded.next(true);
+      this.loadInfoTrack();
+    } else {
+      if (this.playlist.id !== playlist.id) {   
+        this.playlist = playlist;
+        this.tracks = this.playlist.tracks;
+        this.currentTrack = this.tracks.findIndex(x=> x.id === track.id);
+        this.numberOfloaded = 0;
+        this.track = track;
+        this.duration.next(this.track.duration);
+        this.dataLoaded.next(true);
+        this.loadInfoTrack();
+      }
+    }
   }
 
   public prevTrack(): any {

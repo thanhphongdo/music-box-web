@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TrackInterface } from '@app/models';
 import { SoundCloudService } from '@app/services';
 
@@ -9,6 +9,7 @@ import { SoundCloudService } from '@app/services';
 })
 export class TrackItemComponent implements OnInit {
   @Input() track: any;
+  @Output() trackNeedPlay: EventEmitter<any> = new EventEmitter<any>();
   dataLoaded = false;
   isArtworkHover = false;
   constructor(private soundCloudService: SoundCloudService) { }
@@ -39,6 +40,10 @@ export class TrackItemComponent implements OnInit {
       let resultName = name.slice(0, len);
       return `${resultName}...`;
     } else return name;
+  }
+
+  playThisTrack() {
+    this.trackNeedPlay.emit(this.track);
   }
 
 }

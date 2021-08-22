@@ -30,7 +30,7 @@
     </div>
     <div class="player-other-control d-flex justify-content-end">
         <div class="d-flex align-items-center">
-            <img src="assets/playericons/Queue.png" alt="image" width="18px" height="18px" class="mr-4">
+            <img src="assets/playericons/Queue.png" alt="image" width="18px" height="18px" (click)="showQueue()" class="mr-4" style="cursor: pointer;">
             <img src="assets/playericons/Volume.png" alt="image" width="21px" height="18px" class="mr-2">
             <input type="range" value="99" min="0" max="100" class="volume" #ref (change)="setVolume(ref.value)">
         </div>

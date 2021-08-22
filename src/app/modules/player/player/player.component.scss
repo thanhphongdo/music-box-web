@@ -1,3 +1,4 @@
+$btn-width: 150px;
 .playlist {
   background-color: #161a1a;
   & .playlist-header {
@@ -9,13 +10,13 @@
     }
     & .playlist-header--control {
       & .btn-desktop {
-        width: 171px;
+        width: $btn-width;
         height: 42px;
         border-radius: 21px !important;
         font-weight: bold;
       }
       & .btn-play {
-        width: 171px;
+        width: $btn-width;
         height: 42px;
         font-weight: bold;
       }
@@ -29,7 +30,7 @@
   }
   & .playlist-search-input {
     height: 29.5px;
-    width: 133px;
+    width: 200px;
     padding-left: 30px;
     padding-bottom: 8px;
     border: none;

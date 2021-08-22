@@ -57,4 +57,7 @@ export class PlayerComponent implements OnInit {
     this.location.back();
   }
   
+  playThisTrack(track: any) {
+    this.playerService.playSingleTrack(this.playlist, track);
+  }
 }
