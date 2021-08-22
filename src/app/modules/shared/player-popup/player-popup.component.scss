@@ -48,9 +48,19 @@
   height: auto;
 }
 
+.main-art {
+  width: 250px;
+  height: 250px;
+}
 
 @media (max-width: 320px) {
   .player-control {
     bottom: 5px;
+  }
+}
+@media (min-width: 376px) {
+  .main-art {
+    width: 300px;
+    height: 300px;
   }
 }

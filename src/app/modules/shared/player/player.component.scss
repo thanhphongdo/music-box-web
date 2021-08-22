@@ -13,3 +13,16 @@
   }
   
 }
+.queue-playlist {
+  width: 0;
+  height: 89vh;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: auto;
+  right: 0;
+  transition: 250ms all ease-in-out;
+  &.show {
+    width: 320px;
+  }
+}

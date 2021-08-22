@@ -1,7 +1,7 @@
 <div class="track-items w-100 color-white-color-100 my-2 rounded p-2" *ngIf="dataLoaded">
     <div class="w-100 track-items-web">
 
-        <div class="artwork-group">
+        <div class="artwork-group" (click)="playThisTrack()" style="cursor: pointer;">
             <img [src]="track.artwork_url || 'assets/playericons/music.jpg'" alt="image" class="artwork rounded">
             <div class="play-link d-flex align-items-center justify-content-center">
                 <img src="assets/playericons/Play.png" alt="icon" width="12px" height="14px">
@@ -20,7 +20,7 @@
     </div>
 
     <div class="track-items-mobile">
-        <div class="artwork-group">
+        <div class="artwork-group" (click)="playThisTrack()" style="cursor: pointer;">
             <img [src]="track.artwork_url || 'assets/playericons/music.jpg'" alt="image" class="artwork rounded">
         </div>
         <div>

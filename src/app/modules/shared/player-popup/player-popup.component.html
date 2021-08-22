@@ -10,7 +10,7 @@
             <img src="assets/playericons/Path112.png" alt="icon" width="18px" height="8px" style="visibility: hidden;">
         </div>
         <div class="text-center w-100 mt-4">
-            <img [src]="playerService.track?.artwork_url?.replace('large', 't500x500')" alt="image" class="rounded mb-3" width="300px" height="300px"><br>
+            <img [src]="playerService.track?.artwork_url?.replace('large', 't500x500')" alt="image" class="main-art rounded mb-3" ><br>
             <span class="color-white-color-100 font-16">{{ playerService.track?.title || 'Track name' }}</span><br>
             <span class="color-white-color-200 font-14">{{ playerService.track?.publisher_metadata?.writer_composer || 'Artist' }}</span>
         </div>

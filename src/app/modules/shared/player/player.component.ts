@@ -13,6 +13,8 @@ export class PlayerComponent implements OnInit {
   @Input() showPlayerPopup: boolean;
   @Output() showPlayerPopupClick: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  queueShow: boolean = false;
+
   isMobile: boolean;
   isControlEvent: boolean = false;
   dataLoaded: Observable<boolean> = this.playerService.hadData$;
@@ -53,8 +55,13 @@ export class PlayerComponent implements OnInit {
   checkControlEvent(isControlEvent: boolean) {
     this.isControlEvent = isControlEvent;
   }
-
+  
+  showQueue(isShowing: boolean) {
+    this.queueShow = isShowing;
+  }
+  
   private checkMobile() {
     this.isMobile = window.innerWidth <  769;
   }
+
 }

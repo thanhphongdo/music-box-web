@@ -1,5 +1,5 @@
 import { Options } from '@angular-slider/ngx-slider';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { PlayerService } from '@app/services';
 
 @Component({
@@ -8,7 +8,9 @@ import { PlayerService } from '@app/services';
   styleUrls: ['./player-in-web.component.scss']
 })
 export class PlayerInWebComponent implements OnInit {
-  // volumeValue: number = 99;
+  @Output() showQueuePlaylist: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  queueShow: boolean = false;
 
   sliderValue: number = 3000;
   sliderOptions: Options = {
@@ -68,5 +70,10 @@ export class PlayerInWebComponent implements OnInit {
       let nameSlice = name.slice(0, length);
       return `${nameSlice}...`;
     } else return name;
+  }
+
+  showQueue() {
+    this.queueShow = !this.queueShow;
+    this.showQueuePlaylist.emit(this.queueShow);
   }
 }

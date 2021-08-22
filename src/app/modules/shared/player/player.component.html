@@ -1,10 +1,13 @@
 <div class="player .container-fluid" [ngClass]="{ mobile: isMobile }">
   <div class="col-12 px-0" *ngIf="dataLoaded | async">
-    <app-player-in-web *ngIf="!isMobile"></app-player-in-web>
+    <app-player-in-web *ngIf="!isMobile" (showQueuePlaylist)="showQueue($event)"></app-player-in-web>
     <app-player-in-mobile
       *ngIf="isMobile"
       (click)="showPlayer()"
       (isControlEvent)="checkControlEvent($event)"
     ></app-player-in-mobile>
   </div>
+</div>
+<div class="queue-playlist" *ngIf="dataLoaded | async" [ngClass]="{'show': queueShow}">
+  <app-player-queue-playlist></app-player-queue-playlist>
 </div>

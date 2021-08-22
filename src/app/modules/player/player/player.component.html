@@ -56,10 +56,12 @@
             <div class="col-12 mt-4">
                 <overlay-scrollbars [options]="{ scrollbars: { autoHide: 'hidden' } }">
                     <div class="w-100 scrollbars-items">
-                        <app-track-items *ngFor="let track of playlist.tracks" [track]="track"></app-track-items>
+                        <app-track-items *ngFor="let track of playlist.tracks" [track]="track" (trackNeedPlay)="playThisTrack($event)"></app-track-items>
                     </div>
                 </overlay-scrollbars>
             </div>
         </div>
     </div>
 </div>
+
+<div style="height: 10vh;"></div>
